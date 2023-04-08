@@ -1,0 +1,2950 @@
+{
+    "airfield": [
+        "a large, open area",
+        "aircraft",
+        "hangars and other buildings",
+        "hangars for storing aircraft",
+        "paved or grassy surface"
+    ],
+    "airplane cabin": [
+        "a large, rectangular space",
+        "a long, narrow space",
+        "aisles running down the middle",
+        "rows of seats on either side",
+        "windows along the sides"
+    ],
+    "airport terminal": [
+        "a departure and arrival board",
+        "a high ceiling",
+        "a large, open space",
+        "a security checkpoint",
+        "lots of luggage",
+        "lots of people",
+        "luggage carts",
+        "several rows of gates"
+    ],
+    "alcove": [
+        "a nook",
+        "a nook or recess in a wall",
+        "a protruding ledge or shelf",
+        "a shallow niche",
+        "a sheltered or private space",
+        "a small room or chamber",
+        "a small, recessed area"
+    ],
+    "alley": [
+        "a long, narrow path",
+        "can be dark and dirty",
+        "may be paved or unpaved",
+        "may have graffiti on the walls",
+        "may have walls on either side",
+        "usually between buildings",
+        "usually has concrete flooring"
+    ],
+    "amphitheater": [
+        "a large, open area",
+        "a stage at one end",
+        "a stage or platform at one end",
+        "tiered or sloped seating",
+        "tiered seating",
+        "typically outdoors"
+    ],
+    "amusement arcade": [
+        "a large, open space",
+        "a ticket counter",
+        "a variety of games",
+        "bright lights",
+        "lots of lights and colors",
+        "lots of people",
+        "loud music",
+        "loud music or sound effects",
+        "prizes"
+    ],
+    "amusement park": [
+        "a large, open area",
+        "lots of colors",
+        "lots of lights",
+        "lots of noise",
+        "lots of people",
+        "lots of rides",
+        "various attractions and rides",
+        "vendors selling food and drink"
+    ],
+    "apartment building, outdoor": [
+        "a front door",
+        "a large, multi-story structure",
+        "a large, rectangular structure",
+        "a parking lot",
+        "made of brick or stone",
+        "multiple stories",
+        "windows on all sides"
+    ],
+    "aquarium": [
+        "a large, rectangular tank",
+        "contains water and fish",
+        "filled with water",
+        "made of glass or acrylic",
+        "usually has a lid"
+    ],
+    "aqueduct": [
+        "a series of arches or vaults",
+        "an elevated structure",
+        "can be very long",
+        "often has arches",
+        "used to transport water",
+        "usually made of stone or brick"
+    ],
+    "arcade": [
+        "a large, open space",
+        "bright lights",
+        "colorful machines",
+        "filled with games and machines",
+        "lots of light",
+        "lots of people",
+        "loud music",
+        "loud noises",
+        "people milling around"
+    ],
+    "arch": [
+        "a curved shape",
+        "a pointed top",
+        "a solid structure",
+        "a stone or brick material",
+        "a tall structure",
+        "symmetrical"
+    ],
+    "archaelogical excavation": [
+        "a large, open area"
+    ],
+    "archive": [
+        "a collection of materials",
+        "may be physical or digital",
+        "static and permanent",
+        "stored for future use",
+        "usually organized and labeled"
+    ],
+    "arena, hockey": [
+        "a large, open space",
+        "a puck",
+        "a smooth, hard surface",
+        "a smooth, level surface",
+        "lines marking out boundaries",
+        "nets at either end"
+    ],
+    "arena, performance": [
+        "a large, open space",
+        "a stage",
+        "lighting",
+        "lights",
+        "seating for spectators",
+        "sound equipment"
+    ],
+    "arena, rodeo": [
+        "a dirt or sand floor",
+        "a large, open space",
+        "a raised platform or stage"
+    ],
+    "army base": [
+        "a large, open area",
+        "barriers and gates",
+        "fences and security",
+        "large, sprawling grounds",
+        "security",
+        "vehicles and people in uniform"
+    ],
+    "art gallery": [
+        "a reception area",
+        "artwork on display",
+        "artwork on the walls",
+        "good lighting",
+        "high ceilings",
+        "large, open space",
+        "large, open spaces",
+        "white walls"
+    ],
+    "art school": [
+        "a community of artists"
+    ],
+    "art studio": [
+        "a large, open space",
+        "a lot of natural light",
+        "a wooden floor",
+        "exposed brick or concrete",
+        "lots of natural light",
+        "vinyl floors",
+        "white walls"
+    ],
+    "artists loft": [
+        "a high ceiling",
+        "a large, open space",
+        "a wide open space",
+        "exposed brick or beams",
+        "exposed ductwork or pipes",
+        "high ceilings",
+        "large windows",
+        "lots of natural light"
+    ],
+    "assembly line": [
+        "a finished product at the end",
+        "a high degree of efficiency",
+        "a long, conveyor belt"
+    ],
+    "athletic field, outdoor": [
+        "a large, open area",
+        "a large, open space",
+        "goal posts or other targets",
+        "grassy or dirt surface",
+        "grassy or turf surface",
+        "markings for a playing field",
+        "outdoors",
+        "sidelines or endlines"
+    ],
+    "atrium, public": [
+        "a central focal point",
+        "a central fountain or statue",
+        "a high ceiling",
+        "a large, open space",
+        "a lot of natural light",
+        "marble or tile flooring"
+    ],
+    "attic": [
+        "a ceiling",
+        "a dusty, musty smell",
+        "a large, empty space",
+        "a window",
+        "may be used for storage",
+        "usually has sloped walls"
+    ],
+    "auditorium": [
+        "a high ceiling",
+        "a large, open space",
+        "a stage",
+        "a stage at one end",
+        "good acoustics",
+        "rows of seating",
+        "rows of seats"
+    ],
+    "auto factory": [
+        "a conveyor belt",
+        "a large building",
+        "a large, industrial building",
+        "cars coming out",
+        "machinery inside",
+        "workers in uniforms"
+    ],
+    "auto showroom": [
+        "a high ceiling",
+        "a large, open space",
+        "a polished floor",
+        "a sales counter",
+        "a smooth, hard floor",
+        "a stage or platform",
+        "cars on display",
+        "salespeople in suits"
+    ],
+    "badlands": [
+        "a barren landscape",
+        "a dry, barren landscape",
+        "a hot, arid climate",
+        "harsh conditions",
+        "rocky and dry",
+        "sparse vegetation",
+        "unforgiving terrain"
+    ],
+    "bakery, shop": [
+        "a cash register",
+        "the presence of baked goods",
+        "the smell of baking goods",
+        "the smell of fresh baked goods",
+        "the word \"bakery\" in the name"
+    ],
+    "balcony, exterior": [
+        "a railing",
+        "a raised platform",
+        "a raised, outdoor platform",
+        "a roof or overhead structure",
+        "attached to a building",
+        "enclosed by a railing",
+        "overlooking a scenic view"
+    ],
+    "balcony, interior": [
+        "a ceiling or roof above it",
+        "a floor",
+        "a railing",
+        "a raised platform",
+        "enclosed by a railing",
+        "walls on three sides"
+    ],
+    "ball pit": [
+        "a large, shallow pool"
+    ],
+    "ballroom": [
+        "a ceiling",
+        "a hard floor",
+        "a hardwood or tile floor",
+        "a large, open space",
+        "chandeliers",
+        "walls for support"
+    ],
+    "bamboo forest": [
+        "a dense canopy",
+        "a green or yellow-green color",
+        "a humid environment",
+        "a tropical climate",
+        "green leaves",
+        "tall, slender trees"
+    ],
+    "bank vault": [
+        "a combination lock",
+        "a combination lock or keypad",
+        "a handle or lever",
+        "a heavy, metal frame",
+        "a keypad",
+        "a large, heavy door",
+        "a large, metal door",
+        "a small window",
+        "a steel frame",
+        "a time lock"
+    ],
+    "banquet hall": [
+        "a bar",
+        "a dance floor",
+        "a high ceiling",
+        "a large, open room",
+        "a large, open space",
+        "a stage",
+        "high ceilings",
+        "tables and chairs"
+    ],
+    "bar": [
+        "a bartender",
+        "a glossy finish",
+        "a hard, smooth surface",
+        "a long, narrow countertop",
+        "a long, rectangular shape",
+        "a raised edge",
+        "alcoholic beverages served",
+        "stools or chairs for seating"
+    ],
+    "barn": [
+        "a large, rectangular shape",
+        "a pitched roof",
+        "a red or brown color",
+        "large doors",
+        "windows"
+    ],
+    "barndoor": [
+        "a large, rectangular shape",
+        "a pitched roof",
+        "a red or brown color",
+        "a sliding door in the middle",
+        "often found on barns",
+        "small windows along the top",
+        "usually made of wood"
+    ],
+    "baseball field": [
+        "a diamond-shaped layout",
+        "a grassy surface",
+        "a large, open area",
+        "a large, open space",
+        "white bases at the corners"
+    ],
+    "basement": [],
+    "basketball court, indoor": [
+        "a backboard at each end",
+        "a backboard at each hoop",
+        "a hardwood floor",
+        "a hoop at each end",
+        "a rectangular shape",
+        "lines on the floor",
+        "lines painted on the surface"
+    ],
+    "bathroom": [
+        "a room containing a toilet",
+        "a room designated for bathing"
+    ],
+    "bazaar, indoor": [
+        "a busy, lively atmosphere",
+        "a large, open space",
+        "a lot of people",
+        "a lot of stalls or booths",
+        "filled with stalls or stands",
+        "loud, busy atmosphere",
+        "often crowded with people",
+        "selling a variety of goods",
+        "sounds of people bargaining"
+    ],
+    "bazaar, outdoor": [
+        "a festive or busy atmosphere",
+        "a large, open area",
+        "a large, open space",
+        "a lot of activity",
+        "a lot of noise",
+        "a lot of people",
+        "a lot of stalls or stands",
+        "lots of people",
+        "lots of stalls or stands",
+        "selling a variety of goods"
+    ],
+    "beach": [
+        "a large, open area",
+        "beach umbrellas",
+        "beachgoers in swimsuits",
+        "clear blue waters",
+        "lots of sunshine",
+        "sandy or rocky surface",
+        "sandy shores",
+        "water nearby"
+    ],
+    "beach house": [
+        "a large, rectangular shape",
+        "a light, airy feel",
+        "a location near the water",
+        "a porch or deck",
+        "lots of windows"
+    ],
+    "beauty salon": [
+        "a reception area",
+        "a stylized chair or salon logo",
+        "a waiting area with magazines",
+        "lots of hair products",
+        "the sound of hair dryers"
+    ],
+    "bedchamber": [
+        "a bed for sleeping in",
+        "for sleeping in",
+        "usually with a bed",
+        "windows for natural light"
+    ],
+    "bedroom": [
+        "a bed",
+        "a closet",
+        "a dresser",
+        "a nightstand",
+        "a place for sleeping",
+        "a place to relax",
+        "a place to sleep",
+        "a place to store clothes",
+        "a place to study"
+    ],
+    "beer garden": [
+        "a bar or counter",
+        "a bar or kiosk",
+        "an outdoor area",
+        "beers on tap",
+        "often a food menu",
+        "serves beer",
+        "tables and chairs"
+    ],
+    "beer hall": [
+        "a bar area with taps",
+        "a large, open space",
+        "a lively atmosphere",
+        "a long bar with many taps",
+        "a variety of beer choices",
+        "large windows",
+        "tables and chairs for seating"
+    ],
+    "berth": [
+        "a long, narrow bed or couch",
+        "a raised, flat surface",
+        "can be upper or lower",
+        "may have a privacy curtain",
+        "usually in a ship or train"
+    ],
+    "biology laboratory": [
+        "a large room with many tables",
+        "a whiteboard or chalkboard",
+        "beakers and test tubes",
+        "lots of scientific equipment",
+        "microscopes",
+        "shelves for storing materials"
+    ],
+    "boardwalk": [
+        "a flat, wooden surface",
+        "often found near a beach",
+        "parallel boards or planks",
+        "used for walking or recreation"
+    ],
+    "boat deck": [
+        "a large, flat surface",
+        "attached to the side of a boat",
+        "used for walking or relaxing"
+    ],
+    "boathouse": [
+        "a large, rectangular building",
+        "a large, rectangular structure",
+        "has a door for boats to enter",
+        "located near a body of water",
+        "made of wood or stone",
+        "may have windows"
+    ],
+    "bookstore": [
+        "a checkout counter",
+        "a front door",
+        "a large building",
+        "a sign that says \"bookstore\"",
+        "aisles between the shelves",
+        "aisles of books",
+        "shelves full of books"
+    ],
+    "booth, indoor": [
+        "a counter or table",
+        "a rectangular or square shape",
+        "a roof or ceiling",
+        "a small, enclosed space",
+        "chairs or stools",
+        "enclosed on all sides",
+        "often has a counter or desk",
+        "usually has a door or opening"
+    ],
+    "botanical garden": [
+        "a large, outdoor area",
+        "a large, outdoor space",
+        "a variety of flowers",
+        "a variety of plant life",
+        "benches",
+        "pathways",
+        "trees",
+        "various plants and flowers"
+    ],
+    "bow window, indoor": [
+        "a large, arched window"
+    ],
+    "bowling alley": [
+        "a ball return at the other end",
+        "a bar or snack area",
+        "a bowling ball",
+        "a scoring table at the front",
+        "bowling shoes"
+    ],
+    "boxing ring": [
+        "a large, square area",
+        "a padded floor",
+        "a referee",
+        "a square or rectangular shape",
+        "two fighters in the center"
+    ],
+    "bridge": [
+        "a structure that spans a gap"
+    ],
+    "building facade": [
+        "a door",
+        "a large, flat surface",
+        "attached to a larger structure",
+        "brick or stone material",
+        "often decorated",
+        "rectangular shape",
+        "vertical or nearly vertical",
+        "vertical orientation",
+        "windows"
+    ],
+    "bullring": [
+        "a dirt or sand floor",
+        "a gate for the bulls to enter",
+        "a large, circular arena",
+        "a perimeter of tall fencing",
+        "a sand- or dirt-covered floor",
+        "a stand for spectators"
+    ],
+    "burial chamber": [
+        "a large, subterranean space",
+        "a large, underground space",
+        "a stone or earthen floor",
+        "dark and cool"
+    ],
+    "bus interior": [
+        "a driver's area",
+        "a large space",
+        "a lot of seats",
+        "aisles",
+        "large windows",
+        "overhead compartments",
+        "rows of seats",
+        "windows"
+    ],
+    "bus station, indoor": [
+        "a door leading to the buses",
+        "a high ceiling",
+        "a large, open space",
+        "a sign with the bus schedule",
+        "a ticket booth or kiosk",
+        "a ticket counter",
+        "a waiting area with benches",
+        "benches or seats throughout",
+        "signs with bus schedules"
+    ],
+    "butchers shop": [
+        "a large refrigerator",
+        "a large, open space",
+        "a strong smell of meat",
+        "hooks for hanging meat",
+        "large windows displaying meats",
+        "meat hooks",
+        "shelves full of meat"
+    ],
+    "butte": [
+        "a flat-topped hill or mountain",
+        "formed by erosion",
+        "smaller than a plateau",
+        "steep sides"
+    ],
+    "cabin, outdoor": [
+        "a long, curved shape",
+        "a pitched roof",
+        "a rectangular or square shape",
+        "a small, rectangular structure",
+        "a smooth, bumpy surface",
+        "a sweet taste",
+        "a wooden structure",
+        "a yellow or green color",
+        "one or more doors",
+        "one or two doors",
+        "one or two windows",
+        "wooden walls"
+    ],
+    "cafeteria": [
+        "a cash register",
+        "a food service area",
+        "a large, open space",
+        "a serving counter",
+        "food options available",
+        "large, open space",
+        "tables and chairs for eating"
+    ],
+    "campsite": [
+        "a fire pit",
+        "a flat, cleared area",
+        "a flat, open area",
+        "a picnic table",
+        "a tent",
+        "possibly a picnic table",
+        "some sort of shelter or canopy"
+    ],
+    "campus": [
+        "a central location",
+        "a central quad or lawn",
+        "a large, open area",
+        "greenery",
+        "lots of people",
+        "lots of trees and green space"
+    ],
+    "canal, natural": [
+        "a long, narrow waterway",
+        "may be straight or winding",
+        "may be wide or narrow",
+        "usually man-made"
+    ],
+    "canal, urban": [
+        "a long, manmade waterway",
+        "a man-made waterway",
+        "a tall, vertical cylinder",
+        "high altitude",
+        "often indicates fair weather",
+        "usually found in cities",
+        "usually red or orange",
+        "wispy, feathery appearance"
+    ],
+    "candy store": [
+        "a brightly-colored exterior",
+        "a door leading inside",
+        "a sign advertising \"candy\"",
+        "a sweet smell",
+        "children running around",
+        "lots of noise and activity"
+    ],
+    "canyon": [
+        "a deep, narrow valley",
+        "a large, deep valley",
+        "eroded by water or wind",
+        "formed by erosion",
+        "steep walls"
+    ],
+    "car interior": [
+        "a brake pedal",
+        "a dashboard",
+        "a gas pedal",
+        "a gear shift",
+        "a parking brake",
+        "a steering wheel",
+        "seats"
+    ],
+    "carrousel": [
+        "a roof"
+    ],
+    "castle": [
+        "a large, imposing structure",
+        "made of stone or brick",
+        "may have a drawbridge",
+        "often has towers or turrets",
+        "set on a hill or high ground",
+        "surrounded by a moat",
+        "usually has a moat",
+        "with turrets or towers"
+    ],
+    "catacomb": [
+        "a dark, subterranean space",
+        "dark and mysterious",
+        "full of bones",
+        "often has narrow passageways",
+        "often spooky or haunted",
+        "used for burial"
+    ],
+    "cemetery": [
+        "a large, open space",
+        "a peaceful, somber atmosphere",
+        "a quiet, somber atmosphere",
+        "often located near a church"
+    ],
+    "chalet": [
+        "a large, Alpine-style house",
+        "a large, heavy structure",
+        "a sloped roof",
+        "a sloping roof",
+        "a stone foundation",
+        "a stone or wood exterior",
+        "large windows",
+        "overhanging eaves",
+        "wooden construction"
+    ],
+    "chemistry lab": [
+        "a Bunsen burner",
+        "a lab coat",
+        "a microscope",
+        "beakers and flasks",
+        "beakers and test tubes",
+        "safety goggles",
+        "safety goggles and lab coats",
+        "tables with sinks",
+        "test tubes and Bunsen burners"
+    ],
+    "childs room": [
+        "a bed",
+        "a chair",
+        "a changing table",
+        "a crib",
+        "a desk",
+        "a dresser",
+        "a rug on the floor",
+        "a small bed",
+        "a toy box"
+    ],
+    "church, indoor": [
+        "a large, open space",
+        "a pulpit",
+        "high ceilings",
+        "pews",
+        "rows of pews",
+        "stained glass windows"
+    ],
+    "church, outdoor": [
+        "a cross on the front",
+        "a high, pointed roof",
+        "a large cross on the front",
+        "a large, imposing structure",
+        "a steeple",
+        "large, rectangular shape",
+        "pointed roof",
+        "rows of stained glass windows",
+        "stained glass windows"
+    ],
+    "classroom": [
+        "a large, open space",
+        "a teacher's desk",
+        "bookshelves",
+        "rows of desks",
+        "student desks arranged in rows"
+    ],
+    "clean room": [
+        "a large, empty space",
+        "all surfaces are smooth",
+        "large space with high ceilings",
+        "no clutter or debris",
+        "no dust or dirt visible",
+        "people wear special clothing"
+    ],
+    "cliff": [
+        "a large, sheer rockface",
+        "a large, steep rock face",
+        "often taller than it is wide",
+        "usually tall and sheer"
+    ],
+    "closet": [
+        "a large, rectangular shape",
+        "a large, rectangular structure",
+        "encloses a space",
+        "has a door",
+        "used for storage",
+        "usually has a door"
+    ],
+    "clothing store": [
+        "a cash register",
+        "a door for customers to enter",
+        "a dressing room",
+        "a sign with the store's name",
+        "clothing racks inside",
+        "mannequins in the window",
+        "racks or shelves of clothes",
+        "shelves of shoes"
+    ],
+    "coast": [
+        "a long, narrow strip of land",
+        "bordered by water on one side",
+        "land that meets the water",
+        "may be rocky or forested",
+        "may have a beach",
+        "often has cliffs or hills"
+    ],
+    "cockpit": [
+        "a windshield",
+        "computer screens",
+        "controls for the airplane",
+        "instrument panels",
+        "instruments for navigation",
+        "seatbelts",
+        "the area where the pilot sits"
+    ],
+    "coffee shop": [
+        "a place to buy coffee",
+        "a place to drink coffee",
+        "a place to eat",
+        "a place to meet friends",
+        "a place to sit and relax",
+        "a place to talk",
+        "a place to work"
+    ],
+    "computer room": [
+        "a large, open space",
+        "filled with computer equipment",
+        "large space",
+        "many computers",
+        "printers and other peripherals",
+        "rows of desks or tables",
+        "wires and cables"
+    ],
+    "conference center": [
+        "a large, open space",
+        "a podium",
+        "a podium or stage",
+        "a sound system",
+        "a stage",
+        "lots of chairs and tables",
+        "lots of chairs or seating",
+        "tables",
+        "windows"
+    ],
+    "conference room": [
+        "a large space",
+        "a large table for meetings",
+        "a large, open space",
+        "a projector or whiteboard",
+        "a view of the outside",
+        "good lighting",
+        "tables and chairs"
+    ],
+    "construction site": [
+        "a large open area",
+        "a large, open area",
+        "barriers and caution signs",
+        "dust and debris",
+        "heavy machinery",
+        "lots of construction equipment",
+        "lots of dirt and rubble",
+        "workers in hard hats"
+    ],
+    "corn field": [
+        "a field that is vast and open",
+        "a sweet smell",
+        "rows of tall, green plants",
+        "wide, open spaces between rows"
+    ],
+    "corral": [
+        "a circular or oval shape",
+        "a gate or opening for entrance",
+        "used to contain livestock"
+    ],
+    "corridor": [
+        "a ceiling and floor",
+        "a long, narrow space",
+        "doors along the walls",
+        "doors leading off of it",
+        "walls on either side"
+    ],
+    "cottage": [
+        "a chimney",
+        "a door in the center",
+        "a small, rectangular shape",
+        "a thatched roof",
+        "small windows",
+        "white or light-colored walls"
+    ],
+    "courthouse": [
+        "a central dome or cupola",
+        "a formal appearance",
+        "a large, imposing building",
+        "a large, rectangular building",
+        "a symmetrical design",
+        "usually made of stone or brick"
+    ],
+    "courtyard": [
+        "a large open space",
+        "a large, open space",
+        "may have a paved surface",
+        "often has a garden or fountain"
+    ],
+    "creek": [
+        "a narrow, winding path",
+        "a natural waterway",
+        "made of water",
+        "may be located in a forest",
+        "often winding or meandering",
+        "shallow depth",
+        "usually has rocky sides",
+        "usually narrower than a river"
+    ],
+    "crevasse": [
+        "a deep, narrow opening",
+        "can be very dangerous",
+        "sharp edges"
+    ],
+    "crosswalk": [
+        "usually white or yellow"
+    ],
+    "dam": [
+        "a large structure",
+        "a large, man-made structure",
+        "found in rivers or canals",
+        "made of concrete or earth",
+        "used to hold back water"
+    ],
+    "delicatessen": [
+        "a convenient location",
+        "a deli case",
+        "a deli counter",
+        "a variety of meats and cheeses"
+    ],
+    "department store": [
+        "a central atrium or lobby area",
+        "a central location",
+        "a large, multi-story building",
+        "a wide range of merchandise",
+        "long hours",
+        "lots of customers"
+    ],
+    "desert, sand": [
+        "a dry, hot climate",
+        "cacti and other desert plants",
+        "sandy or dusty terrain",
+        "sandy or rocky terrain",
+        "sparse vegetation"
+    ],
+    "desert, vegetation": [
+        "a hot, sunny climate",
+        "arid climate",
+        "cacti",
+        "dry, sandy soil",
+        "little to no vegetation",
+        "rocky terrain",
+        "sandy soil",
+        "spiky, green leaves"
+    ],
+    "desert road": [
+        "a dry, sandy surface",
+        "a long, straight path",
+        "a sandy or dusty surface",
+        "barren surroundings",
+        "heat waves"
+    ],
+    "diner, outdoor": [
+        "a \"Diner\" sign",
+        "a long, rectangular shape",
+        "a metal roof",
+        "a parking lot",
+        "a rectangular shape",
+        "a red and white color scheme",
+        "outdoor seating"
+    ],
+    "dining hall": [
+        "a buffet or line of food",
+        "a dining area",
+        "a kitchen",
+        "a large, open space",
+        "a serving area",
+        "large space",
+        "tables and chairs",
+        "tables and chairs for dining",
+        "trays for carrying food"
+    ],
+    "dining room": [
+        "a large space",
+        "a large, empty space",
+        "a place to eat",
+        "a place to entertain guests",
+        "a sideboard or buffet",
+        "a table and chairs",
+        "a table in the center",
+        "chairs around the table",
+        "decorations"
+    ],
+    "discotheque": [
+        "a DJ booth",
+        "a dance floor",
+        "a large, open space",
+        "a stage for live music or DJs",
+        "brightly colored lights",
+        "flashing lights",
+        "loud music"
+    ],
+    "doorway, outdoor": [
+        "a door handle",
+        "a frame around the opening",
+        "a large, rectangular opening",
+        "a large, rectangular shape",
+        "hinges on one side"
+    ],
+    "dorm room": [
+        "a bed",
+        "a chair",
+        "a closet",
+        "a desk",
+        "a door",
+        "a dresser",
+        "a small, cramped space",
+        "a twin-sized bed",
+        "a window"
+    ],
+    "downtown": [
+        "a bustling, lively atmosphere",
+        "a city center",
+        "a lot of people",
+        "a lot of traffic",
+        "bright lights",
+        "lights",
+        "many people walking around",
+        "tall buildings",
+        "traffic"
+    ],
+    "dressing room": [
+        "a mirror",
+        "a place to change clothes",
+        "a place to hang clothes",
+        "a place to sit",
+        "a place to store clothes",
+        "a small, enclosed space"
+    ],
+    "driveway": [
+        "a flat, paved surface",
+        "a large, flat surface",
+        "can fit multiple cars",
+        "leads to a garage or home",
+        "leads to a garage or house",
+        "long and narrow",
+        "made of concrete or asphalt",
+        "may have lines painted on it"
+    ],
+    "drugstore": [
+        "a checkout counter",
+        "a door for entering the store",
+        "a large building",
+        "a large, rectangular building",
+        "a pharmacy",
+        "aisles of shelves",
+        "shelves of merchandise inside"
+    ],
+    "elevator, door": [
+        "a door knob",
+        "a flat surface",
+        "a handle",
+        "a large, rectangular shape",
+        "a rectangular shape",
+        "a set of doors in the middle",
+        "a smooth, metallic surface",
+        "hinges on one side",
+        "numbers or buttons on the side"
+    ],
+    "elevator lobby": [
+        "a bank of elevators",
+        "a large, open space",
+        "a set of stairs"
+    ],
+    "elevator shaft": [
+        "a door at the top and bottom",
+        "a long, vertical space",
+        "a long, vertical structure",
+        "a metal frame",
+        "a platform or car inside",
+        "enclosed on all sides",
+        "walls on all sides"
+    ],
+    "embassy": [
+        "a large, imposing building",
+        "guarded by security",
+        "located in a capital city",
+        "surrounded by security"
+    ],
+    "engine room": [
+        "a control room",
+        "a high ceiling",
+        "a large space",
+        "filled with machinery",
+        "lots of activity",
+        "lots of machines and equipment",
+        "loud noise"
+    ],
+    "entrance hall": [
+        "a chandelier",
+        "a front door",
+        "a grand staircase",
+        "a high ceiling",
+        "a large space",
+        "a large, open space",
+        "a mirror",
+        "high ceilings"
+    ],
+    "escalator, indoor": [
+        "a handrail on each side",
+        "a long, moving staircase",
+        "a metal frame",
+        "a moving staircase",
+        "two parallel rows of steps"
+    ],
+    "excavation": [
+        "a large hole in the ground",
+        "dirt and rocks around the hole",
+        "machinery and workers present"
+    ],
+    "fabric store": [
+        "a cash register",
+        "a cutting counter",
+        "a large building",
+        "aisles of fabric",
+        "employees",
+        "fabric samples",
+        "shelves of sewing supplies"
+    ],
+    "farm": [
+        "a fence",
+        "a house or barn",
+        "a large piece of land",
+        "crops or animals",
+        "fenced in"
+    ],
+    "fastfood restaurant": [
+        "a bright, colorful sign",
+        "a bright, neon sign",
+        "a drive-thru",
+        "a menu with inexpensive items",
+        "a parking lot",
+        "a play area for children",
+        "plastic tables and chairs"
+    ],
+    "field, cultivated": [
+        "a farmhouse in the distance",
+        "a large, open area",
+        "fenced in or bordered by trees",
+        "flat land",
+        "green grass",
+        "planted with crops",
+        "rows of plants",
+        "tilled soil"
+    ],
+    "field, wild": [
+        "a large, open area",
+        "an expanse of open land",
+        "animals present",
+        "few trees",
+        "grassy or dirt ground",
+        "grassy or green vegetation"
+    ],
+    "field road": [
+        "a long, straight path",
+        "a wide, open space",
+        "grassy or dirt surface",
+        "often unpaved",
+        "surrounded by fields or woods",
+        "used for travel or recreation"
+    ],
+    "fire escape": [
+        "a metal structure",
+        "used as an emergency exit",
+        "used for emergency exits",
+        "usually red or orange"
+    ],
+    "fire station": [
+        "a garage for fire trucks",
+        "a large building",
+        "a large, red building",
+        "a sign with a fire truck on it",
+        "a siren",
+        "firefighters in uniform",
+        "red or orange color",
+        "sirens and lights"
+    ],
+    "fishpond": [
+        "a large, shallow body of water"
+    ],
+    "flea market, indoor": [
+        "a busy, bustling atmosphere",
+        "a festive atmosphere",
+        "a large, indoor space",
+        "a large, open space",
+        "a wide variety of merchandise",
+        "bargain prices",
+        "loud, bargaining voices",
+        "selling a variety of goods",
+        "tables or booths for vendors"
+    ],
+    "florist shop, indoor": [
+        "a cool, humid environment",
+        "a cooler for storing flowers",
+        "a large number of flowers",
+        "a sink for watering flowers",
+        "a strong floral smell",
+        "a variety of flower types",
+        "flower arrangements",
+        "vases of flowers on display"
+    ],
+    "food court": [
+        "a common seating area",
+        "a large, open space",
+        "a variety of food options",
+        "several different food options",
+        "tables and chairs for seating"
+    ],
+    "football field": [
+        "a large, open space",
+        "a rectangle or oval shape",
+        "lines painted on the surface",
+        "lots of green grass"
+    ],
+    "forest, broadleaf": [
+        "a dense canopy of leaves",
+        "a variety of wildlife",
+        "dense vegetation",
+        "shade beneath the trees",
+        "shade from the trees",
+        "trees with broad, flat leaves"
+    ],
+    "forest path": [
+        "a clear path between the trees",
+        "a path through a dense forest",
+        "a path through a forest",
+        "clearly defined edges",
+        "dirt or gravel surface"
+    ],
+    "forest road": [
+        "a winding path through trees",
+        "dirt or gravel surface",
+        "may be muddy",
+        "may have potholes",
+        "may have tire tracks",
+        "trees on either side"
+    ],
+    "formal garden": [
+        "a central focal point",
+        "colorful flowers",
+        "manicured lawns",
+        "pristine flower beds",
+        "straight paths or walkways",
+        "trimmed hedges",
+        "well-trimmed hedges"
+    ],
+    "fountain": [
+        "a pool of water at the bottom",
+        "a tall, central structure",
+        "water flowing from the top"
+    ],
+    "galley": [
+        "a bathroom",
+        "a dining area",
+        "a kitchen area",
+        "a living area",
+        "a long, narrow room",
+        "a long, narrow ship"
+    ],
+    "garage, indoor": [
+        "a door leading in and out",
+        "a large, empty space",
+        "a large, open space",
+        "four walls and a roof",
+        "room for one or more vehicles",
+        "sometimes has windows"
+    ],
+    "garage, outdoor": [
+        "a flat roof",
+        "a large, open structure",
+        "a large, rectangular structure",
+        "made of brick, metal, or wood",
+        "one or more doors",
+        "used to store vehicles",
+        "windows"
+    ],
+    "gas station": [
+        "a cashier's booth or window",
+        "a parking lot",
+        "cars parked in the lot",
+        "often brightly lit"
+    ],
+    "gazebo, exterior": [
+        "a central column or pillar",
+        "a dome or pyramid-shaped roof",
+        "a octagonal or circular shape",
+        "a platform or deck",
+        "columns supporting the roof",
+        "open sides"
+    ],
+    "general store, indoor": [
+        "a counter at the front",
+        "a counter for transactions",
+        "a door leading to the outside",
+        "a large, open space",
+        "shelves lining the walls"
+    ],
+    "general store, outdoor": [
+        "a cash register",
+        "a large, rectangular building",
+        "a variety of merchandise",
+        "a wide, open doorway",
+        "a wide, open entrance",
+        "one or two stories tall",
+        "shelves or racks inside"
+    ],
+    "gift shop": [
+        "a retail store",
+        "a wide variety of merchandise",
+        "often located in tourist areas"
+    ],
+    "glacier": [
+        "a blue or white color",
+        "a bluish or white color",
+        "a jagged surface",
+        "a large mass of ice",
+        "a melting edge",
+        "a rugged surface",
+        "a slowly moving body",
+        "a slowly moving body of ice"
+    ],
+    "golf course": [
+        "a large, open area of land",
+        "designated fairways and greens",
+        "lush green grass",
+        "sand traps",
+        "water features",
+        "well-manicured landscaping"
+    ],
+    "greenhouse, indoor": [
+        "a large, rectangular shape",
+        "a large, rectangular structure",
+        "a roof",
+        "clear or translucent walls",
+        "may have a heating system",
+        "may have a ventilation system",
+        "plants inside",
+        "shelves or tables inside",
+        "used for growing plants"
+    ],
+    "greenhouse, outdoor": [
+        "a door or opening for entry",
+        "a green or plant-covered roof",
+        "a large, rectangular shape",
+        "a large, rectangular structure",
+        "a sturdy frame",
+        "clear or translucent walls",
+        "may be heated",
+        "may have a ventilating system",
+        "used for growing plants"
+    ],
+    "grotto": [
+        "a cool, damp atmosphere",
+        "a dark, hidden cave or recess",
+        "a dark, secluded space",
+        "a rocky or uneven surface",
+        "a secluded location",
+        "a small opening or entrance"
+    ],
+    "gymnasium, indoor": [
+        "a hard, flat floor",
+        "a hard, smooth floor",
+        "a high ceiling",
+        "a large, open space",
+        "a locker room",
+        "high ceilings"
+    ],
+    "hangar, indoor": [
+        "a high ceiling",
+        "a large, open space",
+        "columns or support beams",
+        "concrete floor",
+        "large doors for aircraft",
+        "large doors or hangar doors"
+    ],
+    "hangar, outdoor": [
+        "a large, open space",
+        "used to store aircraft"
+    ],
+    "harbor": [
+        "a large body of water",
+        "may have a lighthouse",
+        "often has rocky shores",
+        "protected from bad weather",
+        "protected from the open sea",
+        "usually has a busy port"
+    ],
+    "hardware store": [
+        "a large building",
+        "a large, open space",
+        "aisles of shelves",
+        "checkout counter",
+        "employees in orange aprons",
+        "ladders",
+        "lots of tools and supplies",
+        "nails and screws",
+        "paint"
+    ],
+    "hayfield": [
+        "a farmer",
+        "a flat, open area",
+        "a large, open area",
+        "dried grass",
+        "golden straw",
+        "grassy vegetation",
+        "green grass",
+        "may have a fence around it",
+        "often in a rural setting"
+    ],
+    "heliport": [
+        "a control tower",
+        "a large open area",
+        "a large, open area",
+        "lights for nighttime landings",
+        "paved or concrete surface"
+    ],
+    "highway": [
+        "a long, straight road",
+        "a smooth surface",
+        "signs for guidance",
+        "surrounded by open space"
+    ],
+    "home office": [
+        "a chair",
+        "a computer",
+        "a desk",
+        "a phone",
+        "a printer",
+        "a telephone",
+        "bookshelves or cabinets"
+    ],
+    "home theater": [
+        "a comfortable seating area",
+        "a dark room",
+        "a surround sound system"
+    ],
+    "hospital": [
+        "a large building",
+        "a reception area",
+        "doctors and nurses",
+        "elevators",
+        "large size",
+        "lots of people",
+        "many rooms and floors",
+        "sick people"
+    ],
+    "hospital room": [
+        "a bed with rails",
+        "a call button",
+        "a chair",
+        "a nurse's station",
+        "a small table",
+        "a television",
+        "a window"
+    ],
+    "hot spring": [
+        "a pool of water",
+        "a rocky or sandy bottom",
+        "a warm or hot temperature",
+        "a water source",
+        "steam or bubbling water",
+        "the water is hot to the touch"
+    ],
+    "hotel, outdoor": [
+        "a front entrance with a lobby",
+        "a large, rectangular building",
+        "a sign with the hotel's name",
+        "multiple stories",
+        "usually has many floors",
+        "windows on all sides",
+        "windows on the exterior"
+    ],
+    "hotel room": [
+        "a TV",
+        "a bathroom",
+        "a bed",
+        "a chair",
+        "a desk",
+        "a dresser",
+        "a lamp"
+    ],
+    "house": [
+        "a chimney",
+        "a door",
+        "a foundation",
+        "a pitched roof",
+        "a rectangular or square shape",
+        "a roof",
+        "walls",
+        "windows",
+        "windows and doors"
+    ],
+    "hunting lodge, outdoor": [
+        "a chimney",
+        "a large, cabin-like structure",
+        "a large, rustic cabin",
+        "a log or stone exterior",
+        "a porch or deck",
+        "a steeply pitched roof",
+        "made of logs or stone",
+        "surrounded by woods"
+    ],
+    "ice cream parlor": [
+        "a brightly lit interior",
+        "a cash register",
+        "a counter with stools",
+        "a variety of ice cream flavors",
+        "toppings and syrups"
+    ],
+    "ice floe": [
+        "a large, flat piece of ice",
+        "found floating in the ocean",
+        "may have snow or ice on top",
+        "rough, broken surface",
+        "usually found in water",
+        "white or blue color"
+    ],
+    "ice shelf": [
+        "a large, flat expanse of ice",
+        "attached to a landmass",
+        "extends into the water",
+        "may have cracks or fissures",
+        "sea water underneath",
+        "white or blue color",
+        "white or blue in color"
+    ],
+    "ice skating rink, indoor": [
+        "a cooling system",
+        "a large, flat, level surface",
+        "a large, open space",
+        "a smooth, hard surface",
+        "lighting",
+        "smooth, hard surface"
+    ],
+    "ice skating rink, outdoor": [
+        "a large, open area",
+        "a smooth, hard surface",
+        "fenced in on all sides",
+        "markings for a rink",
+        "often located in a park",
+        "smooth, level surface",
+        "white or pale color"
+    ],
+    "iceberg": [
+        "a blue-green color",
+        "a floating in water",
+        "a jagged, irregular shape",
+        "a large, block-like shape",
+        "a large, white mass",
+        "a rough, textured surface",
+        "floating in water"
+    ],
+    "igloo": [
+        "a dome-shaped structure",
+        "a small entrance",
+        "made of blocks of ice",
+        "white color"
+    ],
+    "industrial area": [
+        "fences or gates",
+        "heavy machinery",
+        "large buildings",
+        "lots of concrete",
+        "lots of smokestacks",
+        "loud noises",
+        "vehicles moving around"
+    ],
+    "inn, outdoor": [
+        "a building with guest rooms",
+        "a grassy or dirt surface",
+        "a large, open space",
+        "may have a swimming pool"
+    ],
+    "islet": [
+        "a small landmass",
+        "a small, isolated landmass",
+        "surrounded by water",
+        "usually has vegetation",
+        "usually uninhabited"
+    ],
+    "jacuzzi, indoor": [
+        "a large, deep tub",
+        "a large, round tub",
+        "filled with water",
+        "jetted or bubbling water",
+        "made of smooth, shiny material",
+        "often has a built-in heater"
+    ],
+    "jail cell": [
+        "a bed",
+        "a metal or concrete bed",
+        "a metal or concrete sink",
+        "a metal or concrete toilet",
+        "a sink",
+        "a small window with bars",
+        "a small, enclosed space",
+        "a toilet",
+        "bars on the windows and door"
+    ],
+    "japanese garden": [
+        "a Japanese maple tree",
+        "a bridge",
+        "a bridge over the pond",
+        "a carefully manicured lawn",
+        "a koi pond",
+        "a small pond with koi fish",
+        "a stone lantern",
+        "a stone water basin",
+        "a well-manicured lawn",
+        "bamboo",
+        "pruned trees and bushes"
+    ],
+    "jewelry shop": [
+        "a counter for transactions",
+        "a door for customers to enter"
+    ],
+    "junkyard": [
+        "a large, open area"
+    ],
+    "kasbah": [
+        "a flat roof",
+        "a small door",
+        "a square or rectangular shape",
+        "a tower",
+        "found in North Africa",
+        "made of stone or adobe",
+        "surrounded by a wall",
+        "thick walls",
+        "with turrets or towers"
+    ],
+    "kennel, outdoor": [
+        "a rectangular or square shape",
+        "a solid roof",
+        "a square or rectangular shape",
+        "has a door",
+        "made of weatherproof material",
+        "may have a roof",
+        "may have a window"
+    ],
+    "kindergarden classroom": [
+        "a blackboard or whiteboard",
+        "a child-sized table and chairs",
+        "a room with young children",
+        "colorful decorations"
+    ],
+    "kitchen": [
+        "a countertop",
+        "a place to eat",
+        "a room in a house or apartment",
+        "a sink",
+        "a stove",
+        "cabinets",
+        "cabinets and countertops"
+    ],
+    "lagoon": [
+        "a large, shallow body of water",
+        "calm water",
+        "often has a sandy bottom",
+        "plenty of vegetation",
+        "usually surrounded by land"
+    ],
+    "lake, natural": [
+        "a large body of water",
+        "a large, open area of water",
+        "a shoreline of land around it",
+        "surrounded by land",
+        "usually has freshwater"
+    ],
+    "landfill": [
+        "a large, open area",
+        "filled with trash and debris",
+        "filled with trash or debris",
+        "may attract vermin",
+        "often surrounded by a fence",
+        "unattractive and often smelly"
+    ],
+    "landing deck": [
+        "a large, flat surface",
+        "large, flat surface",
+        "outdoors",
+        "stairs leading up to it",
+        "surrounded by railing or fence"
+    ],
+    "laundromat": [
+        "a TV",
+        "a coin-operated machine",
+        "a folding table",
+        "a large, open space",
+        "a place to fold clothes",
+        "a place to hang clothes",
+        "dryers"
+    ],
+    "lawn": [
+        "a flat, green surface",
+        "covering a large area",
+        "made up of grass",
+        "may have a fence around it",
+        "may have trees or other plants"
+    ],
+    "lecture room": [
+        "a bowl",
+        "a flush lever",
+        "a large space",
+        "a podium or stage",
+        "a projector screen",
+        "a seat",
+        "a supply of water",
+        "a tank",
+        "good acoustics",
+        "rows of chairs",
+        "rows of chairs or desks"
+    ],
+    "legislative chamber": [
+        "a large room",
+        "a large, open room",
+        "a microphone",
+        "a raised platform",
+        "a speaker's podium",
+        "a voting system",
+        "rows of seats for legislators",
+        "seats for legislators"
+    ],
+    "library, indoor": [
+        "a desk at the front",
+        "a large, rectangular building",
+        "a reference desk",
+        "aisles between the shelves",
+        "large, rectangular building",
+        "lots of shelves holding books",
+        "made of brick or stone",
+        "quiet atmosphere",
+        "rows of shelves inside"
+    ],
+    "library, outdoor": [
+        "a front entrance with steps",
+        "a large, rectangular building",
+        "a large, rectangular structure",
+        "a pitched roof",
+        "columns or pillars in front",
+        "large windows",
+        "large, arched windows",
+        "made of stone or brick",
+        "stone or brick walls"
+    ],
+    "lighthouse": [
+        "a bright light at the top",
+        "a dark color",
+        "a light at the top",
+        "a location near water",
+        "a sturdy base",
+        "a tall, cylindrical shape"
+    ],
+    "living room": [
+        "a TV or other entertainment",
+        "a ceiling",
+        "a comfortable place to sit",
+        "a floor",
+        "a large space",
+        "a place to relax",
+        "furniture",
+        "walls",
+        "windows"
+    ],
+    "loading dock": [
+        "a door or set of doors",
+        "a large, flat surface",
+        "a loading ramp",
+        "a raised edge or lip",
+        "a ramp or set of stairs",
+        "dock levelers",
+        "dock seals or bumpers",
+        "large, industrial doors",
+        "warehouse doors"
+    ],
+    "lobby": [
+        "a central location",
+        "a desk or information area",
+        "a high ceiling",
+        "a large, open space",
+        "a lot of natural light"
+    ],
+    "lock chamber": [
+        "a bright brass color",
+        "a keyhole in the center",
+        "a keyhole or combination dial",
+        "a small, cylindrical shape"
+    ],
+    "locker room": [
+        "a changing area",
+        "a large, empty room",
+        "a large, open space",
+        "a shower area",
+        "benches",
+        "lockers lining the walls",
+        "rows of lockers"
+    ],
+    "mansion": [
+        "a central location",
+        "a complex layout",
+        "a garage",
+        "a grand appearance",
+        "a large size",
+        "a large, imposing size",
+        "a luxurious appearance",
+        "a variety of rooms",
+        "multiple floors",
+        "multiple stories"
+    ],
+    "manufactured home": [
+        "a pitched roof",
+        "a rectangular or boxy shape",
+        "a rectangular shape",
+        "a single-story design",
+        "one or more doors",
+        "one or more windows",
+        "usually has a pitched roof"
+    ],
+    "market, indoor": [
+        "a large, open space",
+        "aisles between the rows",
+        "merchandise for sale",
+        "people walking around",
+        "rows of shelves or stalls"
+    ],
+    "market, outdoor": [
+        "a diverse crowd of people",
+        "a festive atmosphere",
+        "a large, open space",
+        "a lot of people",
+        "no roof or walls",
+        "rows of stalls or booths",
+        "vendors selling goods"
+    ],
+    "marsh": [
+        "a wetland area",
+        "grassy or reedy vegetation",
+        "often murky or stagnant water"
+    ],
+    "martial arts gym": [
+        "a large open space",
+        "a large, open space",
+        "a padded floor",
+        "a padded or mat floor",
+        "a teacher or instructor",
+        "other students",
+        "people practicing martial arts"
+    ],
+    "mausoleum": [
+        "a large, imposing structure",
+        "made of stone or marble",
+        "often contains tombs or crypts",
+        "usually found in cemeteries"
+    ],
+    "medina": [
+        "a center of Islamic learning",
+        "a city in Saudi Arabia",
+        "a city located in Saudi Arabia",
+        "a holy city for Muslims",
+        "a major pilgrimage site"
+    ],
+    "mezzanine": [
+        "a raised platform or floor",
+        "usually found in a building"
+    ],
+    "moat, water": [
+        "a large, deep trench",
+        "filled with water"
+    ],
+    "mosque, outdoor": [
+        "a Qur'an",
+        "a central dome",
+        "a dome or minaret",
+        "a large, open space",
+        "a place to wash before prayer",
+        "a prayer carpet",
+        "a prayer mat",
+        "arched windows",
+        "minarets"
+    ],
+    "motel": [
+        "a large, rectangular building",
+        "a parking lot",
+        "a rectangular or square shape",
+        "one or two stories tall",
+        "windows along the front"
+    ],
+    "mountain": [
+        "a high elevation",
+        "a large, outdoor landform",
+        "a large, rocky mass",
+        "a rugged appearance",
+        "may be part of a range",
+        "often has a pointed top"
+    ],
+    "mountain path": [
+        "a winding, dirt path",
+        "a winding, narrow path",
+        "may be treacherous in places",
+        "may be uphill or downhill"
+    ],
+    "mountain snowy": [
+        "a large, pointy shape",
+        "a large, rocky peak",
+        "a steep slope",
+        "a textured surface",
+        "a white or pale color",
+        "covered in snow",
+        "sits on a large base",
+        "surrounded by trees"
+    ],
+    "movie theater, indoor": [
+        "a concessions stand",
+        "a large, dark room",
+        "a screen at the front",
+        "a ticket booth",
+        "rows of seats facing a screen"
+    ],
+    "museum, indoor": [
+        "a grand entrance",
+        "a large, rectangular building",
+        "columns or statues out front",
+        "large windows",
+        "large, heavy doors",
+        "large, rectangular building",
+        "made of stone or brick",
+        "windows high up on the walls"
+    ],
+    "museum, outdoor": [
+        "a parking lot",
+        "a sign or placard out front",
+        "large, imposing building",
+        "large, rectangular building",
+        "often made of stone or brick",
+        "outdoor sculptures or artwork",
+        "stone or brick exterior"
+    ],
+    "music studio": [
+        "a mixing console",
+        "echoes minimization",
+        "good acoustics",
+        "instrument amplifiers",
+        "large, open space",
+        "microphones",
+        "proper lighting",
+        "soundproof walls",
+        "speakers"
+    ],
+    "natural history museum": [
+        "a gift shop",
+        "a grand entrance",
+        "a museum sign or logo",
+        "a wide variety of exhibits",
+        "large windows",
+        "large, imposing building",
+        "large, imposing buildings",
+        "lots of people visiting",
+        "often made of stone or brick",
+        "usually located in a city"
+    ],
+    "nursery": [
+        "a school for young children"
+    ],
+    "nursing home": [
+        "a dining hall",
+        "a front desk or security gate",
+        "a large building",
+        "a large, multi-story building",
+        "a lot of elderly people",
+        "a lot of people milling about",
+        "a lot of staff",
+        "a nursing station",
+        "wheelchairs and walkers"
+    ],
+    "oast house": [
+        "a chimney",
+        "a door",
+        "a large, rectangular building",
+        "a large, rectangular structure",
+        "a thatched roof",
+        "made of wood",
+        "made of wood or stone",
+        "small windows",
+        "windows"
+    ],
+    "ocean": [
+        "a horizon",
+        "a large body of water",
+        "beaches",
+        "salt water",
+        "seagulls",
+        "waves"
+    ],
+    "office": [
+        "a door to the outside",
+        "a large, open space",
+        "a large, rectangular room",
+        "a printer in the room",
+        "chairs",
+        "computers",
+        "computers on desks",
+        "desks or tables",
+        "phones",
+        "several chairs",
+        "several rows of desks"
+    ],
+    "office building": [
+        "a front door",
+        "a front entrance",
+        "a large, rectangular structure",
+        "made of brick, stone, or glass",
+        "multiple stories tall",
+        "several stories tall",
+        "windows on all sides"
+    ],
+    "office cubicles": [
+        "a chair",
+        "a desk or work surface",
+        "a desk or workstation",
+        "a door or opening on one side",
+        "a rectangular shape",
+        "rectangular shape",
+        "walls that reach to ceiling"
+    ],
+    "oilrig": [
+        "a large structure",
+        "a large, metal structure",
+        "a network of pipes",
+        "a platform for drilling",
+        "a storage tank",
+        "a tower with a derrick",
+        "has a platform on top",
+        "made of metal",
+        "standing in water",
+        "used for drilling oil"
+    ],
+    "operating room": [
+        "a large, open space",
+        "a large, sterile space",
+        "a surgical table",
+        "bright lights",
+        "medical equipment",
+        "medical equipment and supplies",
+        "patients in hospital beds",
+        "sterile surfaces"
+    ],
+    "orchard": [
+        "a large area of land",
+        "a peaceful atmosphere",
+        "a pleasant smell",
+        "fruit trees",
+        "trees spaced out evenly",
+        "trees with fruits or nuts",
+        "vegetables",
+        "well-maintained paths or roads"
+    ],
+    "orchestra pit": [
+        "a large, open area",
+        "located in front of a stage",
+        "may be raised or lowered",
+        "usually surrounded by seating"
+    ],
+    "pagoda": [
+        "a pointy roof",
+        "a square or rectangular base",
+        "a tall, slender structure",
+        "a tiered structure",
+        "multiple tiers",
+        "ornate details",
+        "roofs on each tier",
+        "usually made of wood or stone"
+    ],
+    "palace": [
+        "a central dome or towers",
+        "a large, imposing structure",
+        "a royal residence",
+        "extensive grounds and gardens",
+        "grand, ornate architecture",
+        "large, open courtyards"
+    ],
+    "pantry": [
+        "a door for access",
+        "a door to keep food fresh",
+        "a place to store food",
+        "a room in a house or apartment"
+    ],
+    "park": [
+        "a large, green space",
+        "a large, open area",
+        "a picnic area",
+        "a playground",
+        "a pond or lake",
+        "benches or other seating",
+        "lots of trees and green space",
+        "paths or walkways"
+    ],
+    "parking garage, indoor": [
+        "a large, multi-level structure",
+        "a parking space on each level",
+        "a pay station or attendant"
+    ],
+    "parking garage, outdoor": [
+        "a large, open structure",
+        "a parking space on each level",
+        "a roof or top level",
+        "columns supporting a roof",
+        "lots of parking spaces",
+        "multiple levels",
+        "rows of parking spaces"
+    ],
+    "parking lot": [
+        "a large, open area",
+        "lines painted on the ground",
+        "paved with asphalt or concrete",
+        "signs and markings for parking"
+    ],
+    "pasture": [
+        "a flat, open area of land",
+        "a large, open area of land",
+        "animals grazing",
+        "fences or other boundaries",
+        "grassy vegetation",
+        "green grass",
+        "used for grazing animals"
+    ],
+    "patio": [
+        "a paved or concrete surface",
+        "an outdoor area",
+        "outdoor",
+        "usually has furniture"
+    ],
+    "pavilion": [
+        "a large, open structure",
+        "a roof",
+        "columns or pillars"
+    ],
+    "pet shop": [
+        "a brick-and-mortar store",
+        "a register"
+    ],
+    "pharmacy": [
+        "a counter with a register",
+        "a door with a bell",
+        "a sign with a green cross",
+        "a waiting area with chairs",
+        "often has a drive-thru"
+    ],
+    "phone booth": [
+        "a light inside",
+        "a phone inside",
+        "a sign on the outside",
+        "a small, enclosed space",
+        "possibly a light",
+        "possibly a seat or bench"
+    ],
+    "physics laboratory": [
+        "a blackboard or whiteboard",
+        "a chair",
+        "a chalkboard or whiteboard",
+        "a desk or table",
+        "a large, open room",
+        "chalkboards or whiteboards",
+        "computer equipment",
+        "safety gear",
+        "tables with lab equipment"
+    ],
+    "picnic area": [
+        "a BBQ or grill",
+        "a flat, open area",
+        "a large, open space",
+        "a trash can",
+        "may be near a body of water",
+        "may have a grill or fire pit",
+        "may have picnic tables",
+        "tables and benches",
+        "usually grassy"
+    ],
+    "pier": [
+        "a long, narrow structure",
+        "made of wood or concrete",
+        "used for fishing or walking"
+    ],
+    "pizzeria": [
+        "a counter for ordering",
+        "a large, open space",
+        "a pizza oven",
+        "a sign with the word \"pizza\""
+    ],
+    "playground": [
+        "a large, open area",
+        "a safe place to play",
+        "lots of room to run and play"
+    ],
+    "playroom": [
+        "a room in a house or building",
+        "a soft floor (e.g. carpet)",
+        "may be brightly colored",
+        "may have child-sized furniture",
+        "usually for children"
+    ],
+    "plaza": [
+        "a large, open area",
+        "a large, open space",
+        "a place where people gather",
+        "often surrounded by buildings"
+    ],
+    "pond": [
+        "a large, bodies of water",
+        "a large, open area of water",
+        "a place for recreation"
+    ],
+    "porch": [
+        "a place to sit or stand",
+        "a railing around the perimeter",
+        "a raised platform",
+        "a roof",
+        "a roof or cover over it",
+        "steps leading up to the porch"
+    ],
+    "promenade": [
+        "a long, flat surface",
+        "a paved or concrete surface"
+    ],
+    "pub, indoor": [
+        "a bar area",
+        "a dart board",
+        "a jukebox",
+        "a large, open space",
+        "a pool table",
+        "a relaxed atmosphere",
+        "tables and chairs"
+    ],
+    "racecourse": [
+        "a dirt or grass surface",
+        "a finish line",
+        "a large, open area",
+        "a long, open area",
+        "a track or series of tracks",
+        "clearly marked boundaries",
+        "spectators' areas"
+    ],
+    "raceway": [
+        "a finish line",
+        "a long, straight track",
+        "a long, thin shape",
+        "a smooth surface",
+        "markings for lanes",
+        "room for multiple cars",
+        "room for multiple lanes",
+        "used for racing",
+        "usually outdoors"
+    ],
+    "raft": [
+        "a large, flat surface",
+        "used for floating on water"
+    ],
+    "railroad track": [
+        "may have a gravel bed",
+        "may have cross ties",
+        "spans a long distance",
+        "two parallel metal rails"
+    ],
+    "rainforest": [
+        "a dense canopy of trees",
+        "a thick canopy of trees",
+        "a tropical climate",
+        "dense vegetation",
+        "high humidity",
+        "high rainfall",
+        "lots of rain",
+        "warm temperatures"
+    ],
+    "reception": [
+        "a bride and groom",
+        "a cake",
+        "a ceremony",
+        "a desk or counter at the front",
+        "a large gathering of people",
+        "a large room",
+        "a place to hang coats",
+        "a place to put bags or luggage",
+        "a reception",
+        "chairs or couches for seating",
+        "food and drink served",
+        "formal or semi-formal attire",
+        "guests"
+    ],
+    "recreation room": [
+        "a large, open space",
+        "a place to exercise",
+        "a place to play games"
+    ],
+    "repair shop": [
+        "a sign with the shop's name",
+        "a work area for fixing things",
+        "cars being worked on",
+        "employees in uniform",
+        "parts for fixing things",
+        "tools and equipment inside"
+    ],
+    "residential neighborhood": [
+        "a quiet atmosphere",
+        "a sense of community",
+        "lawns and trees",
+        "lots of green space",
+        "streets and sidewalks"
+    ],
+    "restaurant": [
+        "a counter or bar area",
+        "a dining area",
+        "a kitchen",
+        "a menu",
+        "staff members"
+    ],
+    "restaurant kitchen": [
+        "a dishwashing area",
+        "a large, open space",
+        "a prep area",
+        "a storage area",
+        "a walk-in cooler",
+        "a walk-in freezer",
+        "commercial-grade appliances"
+    ],
+    "restaurant patio": [
+        "a paved surface",
+        "a view of the outdoors",
+        "outdoor seating",
+        "potted plants",
+        "string lights",
+        "tables and chairs",
+        "umbrellas or awnings"
+    ],
+    "rice paddy": [
+        "a large, flat field",
+        "a large, open field",
+        "a thatched hut in the field",
+        "flooded with water",
+        "greenish color",
+        "growing rice",
+        "narrow water channels",
+        "plants growing in the water",
+        "terraced sides",
+        "terraced structure"
+    ],
+    "river": [
+        "a flow of water",
+        "a long, winding path",
+        "a long, winding shape",
+        "banks on either side",
+        "flowing water"
+    ],
+    "rock arch": [
+        "a large, arched rock formation",
+        "a natural opening or doorway",
+        "found in nature",
+        "made of stone or rock"
+    ],
+    "roof garden": [
+        "a deck or patio area",
+        "a garden on top of a building",
+        "a view of the cityscape"
+    ],
+    "rope bridge": [
+        "a gap or chasm below",
+        "a handrail or other support"
+    ],
+    "ruin": [
+        "a feeling of age or history",
+        "a weathered look",
+        "ancient architecture",
+        "overgrown with plants",
+        "overgrown with vegetation"
+    ],
+    "runway": [
+        "large, flat area around it",
+        "lights along the sides",
+        "markings on the pavement",
+        "usually found near an airport"
+    ],
+    "sandbox": [
+        "a large, open box",
+        "a large, rectangular box",
+        "a lid to keep the sand clean",
+        "filled with sand",
+        "made of wood or plastic",
+        "often has a cover"
+    ],
+    "sauna": [
+        "a heater",
+        "a sauna stove",
+        "a small, enclosed space",
+        "heated by a stove or heater",
+        "made of wood",
+        "often has a window",
+        "people sit on benches inside",
+        "rocks or stones inside",
+        "wooden walls and floors"
+    ],
+    "schoolhouse": [
+        "a bell tower",
+        "a large door at the front",
+        "a large, rectangular shape",
+        "a tall steeple on top",
+        "made of brick or stone",
+        "made of bricks or stone",
+        "windows along the top",
+        "windows on all sides"
+    ],
+    "science museum": [
+        "a large, rectangular building",
+        "a parking lot",
+        "a sign with the museum's name",
+        "a sign with the word \"museum\"",
+        "large windows",
+        "large, rectangular building",
+        "lots of windows",
+        "made of stone or brick"
+    ],
+    "server room": [
+        "a control panel",
+        "a large room",
+        "a raised floor",
+        "climate control",
+        "large room with high ceilings",
+        "network equipment",
+        "rows of computer servers",
+        "walls lined with servers"
+    ],
+    "shed": [
+        "a door",
+        "a door for entering",
+        "a large, rectangular shape",
+        "a roof",
+        "a wooden or metal frame",
+        "four walls",
+        "windows"
+    ],
+    "shoe shop": [
+        "a cash register",
+        "a door leading into the shop",
+        "a door to enter the shop",
+        "a sign with a shoe on it",
+        "shoes for sale inside the shop"
+    ],
+    "shopfront": [
+        "a door for entering the shop",
+        "a large, open space",
+        "a sign with the shop's name",
+        "display items in the windows",
+        "large, plate glass windows"
+    ],
+    "shopping mall, indoor": [
+        "a central area with seating",
+        "a food court",
+        "a large, indoor space",
+        "a large, open space",
+        "a play area for children",
+        "a variety of stores",
+        "lots of stores",
+        "restrooms"
+    ],
+    "shower": [
+        "a door or curtain",
+        "a drain",
+        "a drain in the floor",
+        "a large, enclosed space",
+        "a large, rectangular shape",
+        "a showerhead",
+        "a tiled or porcelain surface",
+        "curtain or door",
+        "tile or plastic walls"
+    ],
+    "ski resort": [
+        "a chairlift or gondola",
+        "a large lodge or hotel",
+        "a large, open area of land",
+        "a ski rental shop",
+        "a ski school",
+        "snow-covered slopes",
+        "snowy mountain peaks"
+    ],
+    "ski slope": [
+        "a long, inclined surface",
+        "a long, sloping surface",
+        "snowy or icy",
+        "used for skiing",
+        "usually covered in snow"
+    ],
+    "sky": [
+        "a bright blue color",
+        "a large expanse",
+        "puffy white clouds",
+        "sunny weather",
+        "the presence of clouds",
+        "the sun or moon"
+    ],
+    "skyscraper": [
+        "a tall, vertical structure",
+        "a very tall, slender structure",
+        "elevators",
+        "located in a city",
+        "lots of windows",
+        "made of steel and glass",
+        "many floors"
+    ],
+    "slum": [
+        "a high crime rate",
+        "a high poverty rate",
+        "high crime rate",
+        "lack of basic services",
+        "poor living conditions"
+    ],
+    "snowfield": [
+        "a bright white color",
+        "a large, flat expanse of snow",
+        "a large, open area",
+        "a smooth surface",
+        "cold temperature",
+        "uneven surface",
+        "white color"
+    ],
+    "soccer field": [
+        "a large, open area",
+        "grassy surface",
+        "lush green grass",
+        "two goals at either end"
+    ],
+    "stable": [
+        "a feed room",
+        "a hayloft",
+        "a large, open space",
+        "a roof",
+        "a tack room",
+        "a water trough",
+        "stalls or pens for animals"
+    ],
+    "stadium, baseball": [
+        "a field in the center",
+        "a home plate",
+        "a large, open area",
+        "a large, open structure",
+        "a pitcher's mound",
+        "a rectangular or oval shape",
+        "a scoreboards",
+        "rows of seats",
+        "seats around the perimeter"
+    ],
+    "stadium, football": [
+        "a grassy field in the middle",
+        "a large score board",
+        "a large, open area",
+        "large size",
+        "lights around the edge",
+        "often located near a city",
+        "oval shape",
+        "seats around the perimeter"
+    ],
+    "stadium, soccer": [
+        "a grassy field",
+        "a large, open area",
+        "a large, open space",
+        "a rectangular shape",
+        "lines marking a playing field"
+    ],
+    "stage, indoor": [
+        "a curtain or backdrop",
+        "a flat floor",
+        "a large, open space",
+        "a raised platform",
+        "curtain or backdrop",
+        "lighting fixtures",
+        "lights"
+    ],
+    "stage, outdoor": [
+        "a backstage area",
+        "a flat surface",
+        "a large, open area",
+        "a level surface",
+        "a raised platform",
+        "an audience area",
+        "lighting and sound equipment",
+        "may have a curtain or screen",
+        "no roof or walls"
+    ],
+    "staircase": [
+        "a handrail on one side",
+        "a landing at the top or bottom",
+        "a solid structure",
+        "a vertical structure"
+    ],
+    "storage room": [
+        "a door for entry and exit",
+        "a large, empty space",
+        "a light source",
+        "walls and a ceiling"
+    ],
+    "street": [
+        "a flat, paved surface",
+        "a long, flat surface",
+        "divided by lines or curbs",
+        "made of asphalt or concrete",
+        "markings for lanes",
+        "markings for lanes or parking",
+        "streetlights or other lighting",
+        "surrounded by buildings"
+    ],
+    "subway station, platform": [
+        "a concrete floor",
+        "a large, open space",
+        "tiled or concrete floor"
+    ],
+    "supermarket": [
+        "a food court or cafe",
+        "a large building",
+        "a parking lot",
+        "a wide variety of merchandise",
+        "aisles of shelves",
+        "checkout counters",
+        "checkout lanes",
+        "large size",
+        "many shelves and aisles"
+    ],
+    "sushi bar": [
+        "a Japanese restaurant",
+        "a counter where sushi is made",
+        "a menu with sushi options",
+        "a restaurant that serves sushi",
+        "a sushi chef or cooks",
+        "a sushi conveyor belt",
+        "chopsticks",
+        "seats facing the counter",
+        "sushi chefs making sushi",
+        "sushi plates"
+    ],
+    "swamp": [
+        "a foul smell",
+        "a humid climate",
+        "a murky, dark environment",
+        "a wetland area",
+        "dense vegetation",
+        "muddy ground",
+        "slow-moving water"
+    ],
+    "swimming hole": [
+        "a body of water",
+        "a natural or man-made pool",
+        "a place to swim or cool off",
+        "a secluded location"
+    ],
+    "swimming pool, indoor": [
+        "a diving board",
+        "a filtration system",
+        "a ladder",
+        "chlorinated water",
+        "flotation devices",
+        "tile or concrete walls"
+    ],
+    "swimming pool, outdoor": [
+        "a deep blue or green color",
+        "a diving board",
+        "a diving board or slide",
+        "a large, rectangular shape",
+        "a smooth, glossy surface",
+        "tiles around the edge"
+    ],
+    "synagogue, outdoor": [
+        "Hebrew writing on the front",
+        "a Star of David on the front",
+        "a balcony on the second story",
+        "a central dome",
+        "a domed roof",
+        "a large, rectangular building",
+        "arched windows"
+    ],
+    "television room": [
+        "a coffee table",
+        "a large room",
+        "a room with a television in it",
+        "a television in the center",
+        "comfortable seating",
+        "end tables"
+    ],
+    "television studio": [
+        "a control room",
+        "a stage with bright lights",
+        "a studio audience",
+        "cameras and other equipment",
+        "large room with high ceilings"
+    ],
+    "temple, asia": [
+        "a central dome",
+        "a large central courtyard",
+        "a large, central building",
+        "ornate carvings",
+        "pointed roofs"
+    ],
+    "throne room": [
+        "a large door or entrance",
+        "a large, open space",
+        "a raised platform or dais",
+        "large, open space"
+    ],
+    "ticket booth": [
+        "a counter or ledge",
+        "a counter or ledge inside",
+        "a small, box-like structure",
+        "a small, enclosed space"
+    ],
+    "topiary garden": [
+        "a gravel or stone path",
+        "a statue or other decoration",
+        "a variety of green plants",
+        "a well-manicured lawn"
+    ],
+    "tower": [
+        "a tall, slender structure",
+        "made of stone, brick, or metal",
+        "often has a pointed top",
+        "usually made of stone or brick"
+    ],
+    "toyshop": [
+        "a building with large windows",
+        "a door with a handle",
+        "a large selection of toys",
+        "a sign with a picture of a toy",
+        "a wide variety of colors",
+        "bright lights",
+        "happy children",
+        "loud, cheerful music",
+        "toys in the windows"
+    ],
+    "train interior": [
+        "a conductors area",
+        "a long, narrow space",
+        "aisles",
+        "aisles running down the middle",
+        "large windows",
+        "overhead luggage racks",
+        "rows of seats",
+        "rows of seats on either side"
+    ],
+    "train station, platform": [
+        "a large, open space",
+        "a raised platform",
+        "a roof overhead",
+        "a shelter or canopy",
+        "a ticket booth"
+    ],
+    "tree farm": [
+        "a lack of undergrowth",
+        "trees of the same species",
+        "trees that are the same age",
+        "trees that are the same type"
+    ],
+    "tree house": [
+        "a large, wooden structure",
+        "a roof",
+        "built in or around a tree",
+        "one or more levels",
+        "windows and/or doors"
+    ],
+    "trench": [
+        "a deep depth",
+        "a long, narrow shape",
+        "a steep sides",
+        "dug into the ground",
+        "may be filled with water"
+    ],
+    "tundra": [
+        "a large, flat area",
+        "a vast, flat landscape",
+        "barren, with little vegetation",
+        "covered in snow and ice",
+        "icy cold temperatures",
+        "long, cold winters",
+        "long, harsh winters",
+        "short, cool summers",
+        "sparse vegetation"
+    ],
+    "underwater, ocean deep": [
+        "a large body of water",
+        "coral reefs",
+        "lots of fish",
+        "salt water",
+        "the presence of coral",
+        "the presence of marine life",
+        "the presence of rocks and sand",
+        "the presence of sunlight",
+        "the presence of water",
+        "various shades of blue"
+    ],
+    "utility room": [
+        "a door to the outside",
+        "a room with a sink",
+        "a space for washer and dryer",
+        "counter space",
+        "sink",
+        "storage shelves or cabinets"
+    ],
+    "valley": [
+        "may have cliffs or steep sides"
+    ],
+    "vegetable garden": [
+        "a fence or other boundary",
+        "a large, open area",
+        "a plot of land with soil",
+        "a variety of colors",
+        "a water source",
+        "plants growing in the soil",
+        "rows of plants",
+        "tended soil"
+    ],
+    "veterinarians office": [
+        "a kennel area",
+        "a lab",
+        "a pharmacy",
+        "a receptionist desk",
+        "offices for the vets and staff"
+    ],
+    "viaduct": [
+        "a large, arched structure",
+        "a large, elevated structure",
+        "has multiple arches or spans",
+        "made of stone or concrete"
+    ],
+    "village": [
+        "a central area",
+        "a group of buildings",
+        "a population of people",
+        "a sense of community",
+        "a small population",
+        "roads leading in and out"
+    ],
+    "vineyard": [
+        "a beautiful view",
+        "a large, open space",
+        "a scenic location",
+        "rows of grapevines",
+        "well-tended grapevines"
+    ],
+    "volcano": [
+        "a cone-shaped mountain",
+        "has a crater at the top",
+        "made of lava and ash"
+    ],
+    "volleyball court, outdoor": [
+        "a backboard at each end",
+        "a large, open area",
+        "a large, rectangular area",
+        "a rectanglular or square shape"
+    ],
+    "waiting room": [
+        "a TV or reading material",
+        "a front desk or check-in area",
+        "a large space",
+        "a lot of chairs",
+        "a room with a receptionist",
+        "a room with a television",
+        "a room with chairs",
+        "a room with magazines",
+        "a waiting area"
+    ],
+    "water park": [
+        "a large, outdoor area",
+        "a large, outdoor space",
+        "a pool or pools of water",
+        "lounge chairs or other seating",
+        "slides or other water features",
+        "sunshine!"
+    ],
+    "water tower": [
+        "a large tank at the top",
+        "a large, round body",
+        "a small opening at the top",
+        "a small platform at the top",
+        "a sturdy base",
+        "a tall, cylindrical shape",
+        "a water tank at the top",
+        "ladder leading up the side"
+    ],
+    "waterfall": [
+        "a large volume of water",
+        "a misty or rainy environment",
+        "a rushing sound",
+        "a spray of water droplets"
+    ],
+    "watering hole": [
+        "a large, open area",
+        "a source of water"
+    ],
+    "wave": [
+        "a crest",
+        "a trough",
+        "wavelike motion"
+    ],
+    "wet bar": [
+        "a countertop",
+        "a fridge",
+        "a long, flat surface",
+        "a sink",
+        "a sink for washing glasses",
+        "a small refrigerator",
+        "bar stools",
+        "bar tools and supplies",
+        "cabinets or shelves"
+    ],
+    "wheat field": [
+        "a horizon line",
+        "a large, open area",
+        "a vast expanse of land",
+        "golden color",
+        "greenish-yellow color",
+        "rippling in the wind",
+        "tall stalks of wheat"
+    ],
+    "wind farm": [
+        "a group of wind turbines",
+        "set up in a large open area"
+    ],
+    "windmill": [
+        "a large, horizontal wheel",
+        "a large, tall structure",
+        "situated atop a tall tower"
+    ],
+    "yard": [
+        "a large, open area",
+        "grassy or dirt ground",
+        "grassy or dirt surface",
+        "located outside",
+        "plants or trees",
+        "surrounded by a fence"
+    ],
+    "youth hostel": [
+        "a backpacker vibe",
+        "a common room with a TV"
+    ],
+    "zen garden": [
+        "a calm, serene atmosphere",
+        "a gravel or sand surface",
+        "a rake",
+        "a rake for creating patterns",
+        "a rectangular or square shape",
+        "a small, rectangular space",
+        "pruned trees or bushes"
+    ]
+}

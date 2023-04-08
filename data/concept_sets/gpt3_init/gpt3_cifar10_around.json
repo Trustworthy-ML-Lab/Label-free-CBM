@@ -1,0 +1,118 @@
+{
+    "airplane": [
+        "a copilot",
+        "a flight attendant",
+        "a passenger",
+        "a pilot",
+        "a plane",
+        "a runway",
+        "a suitcase"
+    ],
+    "automobile": [
+        "a car",
+        "a dashboard",
+        "a driver",
+        "a passenger",
+        "a pedal",
+        "a road",
+        "a seat",
+        "a seatbelt",
+        "a steering wheel",
+        "a tire",
+        "a wheel",
+        "an engine"
+    ],
+    "bird": [
+        "a bird feeder",
+        "a bird house",
+        "a birdfeeder",
+        "a birdhouse",
+        "a branch",
+        "a cage",
+        "a leaf",
+        "a nest",
+        "a tree",
+        "a worm"
+    ],
+    "cat": [
+        "a bowl of food",
+        "a bowl of water",
+        "a cat",
+        "a cat bed",
+        "a cat food dish",
+        "a cat toy",
+        "a litter box",
+        "a scratching post",
+        "a water bowl"
+    ],
+    "deer": [
+        "a Hunter",
+        "a deer",
+        "a deer stand",
+        "a field",
+        "a forest",
+        "a rifle",
+        "grass",
+        "nature",
+        "trees",
+        "woods"
+    ],
+    "dog": [
+        "a bed",
+        "a collar",
+        "a dog bowl",
+        "a food bowl",
+        "a leash",
+        "a person",
+        "a toy",
+        "a water bowl",
+        "food"
+    ],
+    "frog": [
+        "a beetle",
+        "a fly",
+        "a lily pad",
+        "a mosquito",
+        "a net",
+        "a person",
+        "a pond",
+        "a spider",
+        "insects",
+        "lily pads"
+    ],
+    "horse": [
+        "a barn",
+        "a bit",
+        "a bridle",
+        "a halter",
+        "a lead rope",
+        "a pasture",
+        "a reins",
+        "a rider",
+        "a saddle"
+    ],
+    "ship": [
+        "a boat",
+        "a captain",
+        "a crew",
+        "a dock",
+        "a port",
+        "cargo",
+        "passengers",
+        "the ocean"
+    ],
+    "truck": [
+        "a dashboard",
+        "a driver",
+        "a engine",
+        "a gear shift",
+        "a hitch",
+        "a road",
+        "a seatbelt",
+        "a steering wheel",
+        "a tire",
+        "a trailer",
+        "a truck driver",
+        "a wheel"
+    ]
+}

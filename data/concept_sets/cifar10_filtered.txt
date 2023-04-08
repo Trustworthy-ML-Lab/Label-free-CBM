@@ -1,0 +1,143 @@
+a Hunter
+a barn
+a beak
+a bed
+a bed for carrying cargo
+a beetle
+a bird feeder
+a birdfeeder
+a birdhouse
+a bit
+a boat
+a branch
+a bridle
+a cab for the driver
+a cage
+a captain
+a cat bed
+a cat food dish
+a cat toy
+a collar
+a copilot
+a crew
+a dashboard
+a deck
+a deer stand
+a dock
+a dog bowl
+a driver
+a field
+a flat back end
+a flat front and back
+a flight attendant
+a fly
+a food bowl
+a forest
+a four-legged mammal
+a gear shift
+a green or brown body
+a grille
+a halter
+a hitch
+a large body
+a large size
+a large, metal body
+a large, rectangular body
+a lead rope
+a leaf
+a leash
+a lily pad
+a litter box
+a long neck
+a mane and tail
+a mast
+a mosquito
+a nest
+a net
+a nose
+a passenger
+a pasture
+a pedal
+a person
+a pilot
+a pointed front end
+a pond
+a port
+a reddish-brown coat
+a reins
+a rider
+a rifle
+a road
+a rudder
+a runway
+a saddle
+a scratching post
+a seat
+a seatbelt
+a short, stocky build
+a slender body
+a small, lithe body
+a spider
+a steering wheel
+a suitcase
+a tail
+a tire
+a tough, durable frame
+a toy
+a trailer
+a tree
+a wet nose
+a wheel
+a wide mouth
+a windshield
+a worm
+amphibian
+an engine
+animal
+antlers
+cargo
+engines
+engines on the wings
+feathers
+food
+four legs
+four round, black tires
+four wheels
+fur
+grass
+hooves
+insects
+landing gear
+large sails or engines
+large, brown eyes
+large, bulging eyes
+lily pads
+living thing
+long ears
+long hind legs for jumping
+long, thin legs
+machine
+mammal
+multiple decks
+multiple sails
+nature
+object
+organism
+passengers
+pointed ears
+quadruped
+side windows
+taillights
+the ability to fly
+the ocean
+transportation
+trees
+two headlights
+vertebrate
+vessel
+watercraft
+webbed feet
+whiskers
+white spots on the coat
+wings
+woods

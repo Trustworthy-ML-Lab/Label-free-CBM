@@ -1,0 +1,12 @@
+torch
+matplotlib >= 3.5.1
+torchvision >= 0.13
+gdown >= 4.7.1
+ftfy >= 6.1.1
+regex >= 2022.10.31
+tqdm >= 4.64.1
+pandas >= 1.5.3
+pytorchcv >= 0.0.67
+sentence_transformers >= 2.2.2
+jupyter
+notebook

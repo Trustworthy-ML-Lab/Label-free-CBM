@@ -1,0 +1,913 @@
+{
+    "apple": [
+        "a red, green, or yellow color",
+        "a round shape",
+        "a small leaf at the top",
+        "a smooth surface",
+        "a stem",
+        "red, green, or yellow color",
+        "round shape",
+        "smooth skin"
+    ],
+    "aquarium fish": [
+        "a long, flowing tail",
+        "a small mouth",
+        "a small, round body",
+        "can live in a confined space",
+        "orange fins"
+    ],
+    "baby": [
+        "a small body",
+        "a small mouth",
+        "a soft, round head",
+        "large eyes",
+        "small nose",
+        "tiny hands and feet",
+        "tiny mouth"
+    ],
+    "bear": [
+        "a big head",
+        "a furry coat",
+        "a large body",
+        "a snout",
+        "claws",
+        "four legs",
+        "large size"
+    ],
+    "beaver": [
+        "a large, rodent-like body",
+        "a large, stocky body",
+        "a wide, flat tail",
+        "brown fur",
+        "large, flat tail",
+        "large, sharp teeth",
+        "long, brown fur",
+        "sharp front teeth",
+        "webbed hind feet"
+    ],
+    "bed": [
+        "a comforter or blanket",
+        "a headboard",
+        "a large, flat surface",
+        "a mattress",
+        "intended for sleeping on",
+        "pillows"
+    ],
+    "bee": [
+        "a small, round body",
+        "black and yellow stripes",
+        "six legs",
+        "two antennae",
+        "two pairs of wings",
+        "two wings",
+        "yellow and black stripes"
+    ],
+    "beetle": [
+        "a hard exoskeleton",
+        "a hard, outer shell",
+        "a pair of antennae",
+        "a segmented body",
+        "often brightly colored",
+        "six legs",
+        "two feelers",
+        "various sizes and shapes",
+        "wing covers"
+    ],
+    "bicycle": [
+        "a frame",
+        "a frame connecting the wheels",
+        "a seat",
+        "a seat affixed to the frame",
+        "handlebars",
+        "pedals",
+        "pedals attached to the frame",
+        "two wheels of equal size"
+    ],
+    "bottle": [
+        "a label",
+        "a long, narrow shape",
+        "a long, thin neck",
+        "a round or oval body",
+        "a screw-top or corked top",
+        "a small opening at the top",
+        "a sturdy base",
+        "a sturdy build"
+    ],
+    "bowl": [
+        "a deep body",
+        "a rim around the top",
+        "a round or oval shape",
+        "a smooth surface",
+        "a wide opening"
+    ],
+    "boy": [
+        "a male human child",
+        "between the ages of 0 and 12",
+        "has a boyish face",
+        "has a boyish haircut",
+        "has a gender",
+        "has a short haircut",
+        "wears clothes"
+    ],
+    "bridge": [
+        "a structure that spans a gap"
+    ],
+    "bus": [
+        "a large, boxy shape",
+        "a long length",
+        "a long, rectangular body",
+        "large size",
+        "large windows",
+        "multiple doors",
+        "multiple rows of windows"
+    ],
+    "butterfly": [
+        "a pair of wings",
+        "a small body",
+        "brightly colored wings",
+        "long antennae",
+        "two large, wings"
+    ],
+    "camel": [
+        "a desert animal",
+        "a desert environment",
+        "a humped back",
+        "a large, humped body",
+        "a long neck",
+        "a long, curved neck",
+        "a mammal",
+        "a short tail",
+        "long legs"
+    ],
+    "can": [
+        "a cylindrical shape",
+        "a label or design",
+        "a lid or opening at the top",
+        "a metal or plastic body",
+        "a metal or plastic exterior",
+        "a pop-top or screw-top lid",
+        "a small opening at the top"
+    ],
+    "castle": [
+        "a drawbridge",
+        "a large, imposing structure",
+        "a moat",
+        "made of stone or brick",
+        "often has towers and turrets",
+        "several towers or turrets",
+        "surrounded by a moat"
+    ],
+    "caterpillar": [
+        "a long, slender body",
+        "a long, thin body",
+        "a segmented body",
+        "a small head",
+        "can be a variety of colors",
+        "many legs",
+        "often brightly colored",
+        "often has stripes or spots"
+    ],
+    "cattle": [
+        "a large head",
+        "a long tail",
+        "a mottled brown or black coat",
+        "four legs",
+        "hooves",
+        "horns",
+        "large size",
+        "large, four-legged mammal",
+        "long tail",
+        "muzzle"
+    ],
+    "chair": [
+        "a backrest",
+        "a seat for a person",
+        "armrests (optional)",
+        "four legs for support",
+        "legs to support the seat"
+    ],
+    "chimpanzee": [
+        "a large body",
+        "a long tail",
+        "a protruding muzzle",
+        "a small head",
+        "fur covering the body",
+        "furry body",
+        "large eyes",
+        "long arms",
+        "short legs"
+    ],
+    "clock": [
+        "a round or oval shape",
+        "a round or rectangular shape",
+        "two or more hands"
+    ],
+    "cloud": [
+        "a fluffy, white appearance",
+        "floating in the sky"
+    ],
+    "cockroach": [
+        "2 small wings",
+        "6 legs",
+        "a dark brown or black color",
+        "a long, thin antennae",
+        "a segmented body",
+        "a small head",
+        "a small, dark body",
+        "a small, flat body",
+        "long, antennae-like feelers",
+        "long, spiny legs"
+    ],
+    "couch": [
+        "a backrest",
+        "a comfortable design",
+        "a large, rectangular shape",
+        "a soft surface",
+        "a soft, upholstered surface",
+        "armrests on either side",
+        "plenty of space for seating"
+    ],
+    "crab": [
+        "a hard, exoskeleton shell",
+        "a small, hard shell",
+        "eight legs",
+        "red or brown color",
+        "two eyes on stalks",
+        "two large claws",
+        "two large, pincer-like claws",
+        "two small eyes on stalks"
+    ],
+    "crocodile": [
+        "a large mouth with sharp teeth",
+        "a large, elongated body",
+        "a large, green body",
+        "a long snout",
+        "a long, thick tail",
+        "greenish-brown color",
+        "sharp teeth",
+        "short legs"
+    ],
+    "cup": [
+        "a handle",
+        "a lid",
+        "a rim",
+        "a small, round shape",
+        "a sturdy base"
+    ],
+    "dinosaur": [
+        "a large size",
+        "a long neck",
+        "a long tail",
+        "a reptilian appearance",
+        "a small head",
+        "four legs",
+        "scales or plates on the skin",
+        "short, stubby legs"
+    ],
+    "dolphin": [
+        "a fin on the back",
+        "a long, beak-like nose",
+        "a long, curved nose",
+        "a long, skinny tail",
+        "a sleek, gray body",
+        "a tail in the back",
+        "flippers on the sides",
+        "large fins",
+        "smooth, shiny skin"
+    ],
+    "elephant": [
+        "a gray or light brown color",
+        "a large size",
+        "a large, gray body",
+        "a long tail",
+        "a long trunk",
+        "four legs",
+        "four short legs",
+        "large ears"
+    ],
+    "flatfish": [
+        "a bottom-dwelling lifestyle",
+        "a flattened body",
+        "a sandy or brown coloration",
+        "a triangular shape",
+        "lateral symmetry",
+        "usually bottom-dwelling",
+        "usually cryptic coloration"
+    ],
+    "forest": [
+        "a fresh, earthy smell",
+        "a large number of trees",
+        "a leafy floor",
+        "dense vegetation",
+        "shade from the trees"
+    ],
+    "fox": [
+        "a bushy tail",
+        "a long, bushy tail",
+        "a small, pointed face",
+        "a small, pointed nose",
+        "black markings around the eyes",
+        "large, pointy ears",
+        "orange or red fur",
+        "reddish brown fur"
+    ],
+    "girl": [
+        "a feminine face",
+        "a slender body",
+        "a soft voice",
+        "long hair",
+        "wears makeup",
+        "wears revealing clothes"
+    ],
+    "hamster": [
+        "a furry coat",
+        "a short tail",
+        "a small, plump body",
+        "a small, round body",
+        "furry coat",
+        "large ears",
+        "large, round ears",
+        "short legs",
+        "tiny feet"
+    ],
+    "house": [
+        "a chimney",
+        "a large, rectangular shape",
+        "a pitched roof",
+        "a roof",
+        "doors",
+        "siding or brick exterior",
+        "walls",
+        "windows",
+        "windows and doors"
+    ],
+    "kangaroo": [
+        "a big, powerful jaw",
+        "a large body",
+        "a large, muscular body",
+        "a long tail",
+        "a long, powerful tail",
+        "a pouch on the female's belly",
+        "brown or gray fur",
+        "large, muscular hind legs",
+        "long, powerful hind legs",
+        "short front legs",
+        "short, furry legs"
+    ],
+    "keyboard": [
+        "a QWERTY layout",
+        "a cord or wireless connection",
+        "a flat, rectangular shape",
+        "a rectangular shape",
+        "a set of function keys",
+        "a smooth surface",
+        "labels on the keys",
+        "lots of small keys"
+    ],
+    "lamp": [
+        "a base",
+        "a lightbulb",
+        "a power cord",
+        "a shade",
+        "a switch"
+    ],
+    "lawn mower": [
+        "a blade or blades",
+        "a handle",
+        "a handle for steering",
+        "a large, rectangular body",
+        "a motor",
+        "blades for cutting grass",
+        "wheels",
+        "wheels for mobility"
+    ],
+    "leopard": [
+        "a big head",
+        "a large, spotted body",
+        "a lithe, muscular body",
+        "a long tail",
+        "a short muzzle",
+        "good night vision",
+        "sharp claws"
+    ],
+    "lion": [
+        "a big head with a wide mouth",
+        "a large body",
+        "a large, muscular body",
+        "a long mane around the head",
+        "a mane of thick, long hair",
+        "a tawny or yellowish color",
+        "black spots on the coat",
+        "powerful hind legs",
+        "sharp teeth and claws"
+    ],
+    "lizard": [
+        "a long tail",
+        "a long, slender body",
+        "a long, thin body",
+        "can change color",
+        "four legs",
+        "reptilian skin",
+        "scales on the skin"
+    ],
+    "lobster": [
+        "a hard exoskeleton",
+        "a hard, crustacean body",
+        "a large, lobster-like creature",
+        "a long, segmented tail",
+        "a red or dark brown color",
+        "antennae",
+        "eight legs",
+        "six legs",
+        "two large claws"
+    ],
+    "man": [
+        "a beard (in some cases)",
+        "a deep voice",
+        "a muscular body",
+        "a tall stature",
+        "a tall, upright posture",
+        "a torso",
+        "broad shoulders",
+        "two arms and two legs",
+        "visibly male genitalia"
+    ],
+    "maple tree": [
+        "a rounded crown of leaves",
+        "a tall, slender trunk",
+        "smooth, gray bark",
+        "three-lobed leaves",
+        "winged seeds"
+    ],
+    "motorcycle": [
+        "a gas tank",
+        "a large, powerful engine",
+        "a motor",
+        "a seat for the rider",
+        "exhaust pipes",
+        "handlebars",
+        "two wheels"
+    ],
+    "mountain": [
+        "a large base",
+        "a large, rocky mass",
+        "a pointed or jagged peak",
+        "a rough, craggy surface",
+        "a steep slope",
+        "a towering height",
+        "snow-capped peaks"
+    ],
+    "mouse": [
+        "a long, naked tail",
+        "a small, furry body",
+        "a small, rodent-like body",
+        "large ears",
+        "long tail",
+        "pointed nose",
+        "pointed snout",
+        "small eyes"
+    ],
+    "mushroom": [
+        "a light or dark color",
+        "a short, stubby stem",
+        "a small, round body",
+        "a small, round or oval shape",
+        "a smooth or bumpy surface",
+        "a stem",
+        "a white or brown color",
+        "gills on the underside"
+    ],
+    "oak tree": [
+        "a large, tall tree",
+        "a tall, sturdy trunk",
+        "a trunk with thick, rough bark",
+        "acorns",
+        "acorns on the ground beneath",
+        "dark green leaves",
+        "green leaves"
+    ],
+    "orange": [
+        "a bitter taste",
+        "a bright orange color",
+        "a juicy interior",
+        "a round shape",
+        "a smooth surface"
+    ],
+    "orchid": [
+        "a delicate, colorful flower",
+        "a light purple or white color",
+        "a long stem",
+        "a slender stem",
+        "a small, delicate flower",
+        "a sweet fragrance",
+        "long, thin leaves"
+    ],
+    "otter": [
+        "a long tail",
+        "a long, slim body",
+        "a long, tapered tail",
+        "dark brown fur",
+        "short legs",
+        "small, round ears",
+        "webbed feet"
+    ],
+    "palm tree": [
+        "a crown of leaves",
+        "a crown of leaves at the top",
+        "a tall, slender trunk",
+        "a tropical appearance",
+        "green leaves",
+        "leaves at the top of the tree",
+        "no branches",
+        "smooth, green bark",
+        "tall with a slender trunk"
+    ],
+    "pear": [
+        "a bulbous shape",
+        "a large, rounded bottom",
+        "a small, narrow neck",
+        "a small, pointed top",
+        "a stem protruding from the top",
+        "a sweet, juicy flesh",
+        "a teardrop-shaped body",
+        "seeds in the center",
+        "smooth, green skin"
+    ],
+    "pickup truck": [
+        "a cab for passengers",
+        "a large, boxy body",
+        "a large, rectangular body",
+        "a long hood",
+        "an open bed in the back",
+        "four wheels",
+        "two doors"
+    ],
+    "pine tree": [
+        "a slender, tapered shape",
+        "a small, agile body",
+        "a tall, slender shape",
+        "brown or reddish-brown bark",
+        "claws",
+        "cone-shaped fruit",
+        "evergreen needles",
+        "furry coat",
+        "pointed ears",
+        "whiskers",
+        "wooden bark"
+    ],
+    "plain": [
+        "a deep, dark color",
+        "a large, flat surface",
+        "a large, rocky mass",
+        "a pointed or peaked top",
+        "a rugged, uneven surface",
+        "a uniform color",
+        "no pattern or design",
+        "simple, unadorned design"
+    ],
+    "plate": [
+        "a flat, circular shape",
+        "a raised edge",
+        "a rim around the edge",
+        "a smooth surface",
+        "a sturdy material"
+    ],
+    "poppy": [
+        "a black center",
+        "a black or dark center",
+        "a bright red or orange color",
+        "a red or orange color",
+        "a small, round shape",
+        "a stem with green leaves",
+        "a thin, papery texture"
+    ],
+    "porcupine": [
+        "a coat of sharp quills",
+        "a round body",
+        "a rounded body",
+        "a short tail",
+        "a short, stubby tail",
+        "a small head",
+        "a spiky coat",
+        "black and white coloring",
+        "short legs",
+        "small eyes"
+    ],
+    "possum": [
+        "a long, bushy tail",
+        "a long, prehensile tail",
+        "a pointed snout",
+        "a small, furry body",
+        "beady eyes",
+        "black eyes",
+        "gray or brown fur",
+        "pointed snout",
+        "sharply claws"
+    ],
+    "rabbit": [
+        "a fluffy tail",
+        "a small, furry body",
+        "a twitchy nose",
+        "long ears",
+        "short legs"
+    ],
+    "raccoon": [
+        "5-7 black rings on the tail",
+        "a black mask around the eyes",
+        "a small, pointed muzzle",
+        "a stocky body"
+    ],
+    "ray": [
+        "a flattened body",
+        "a large, flat body",
+        "a long, whip-like tail",
+        "large, wing-like fins",
+        "two small, beady eyes",
+        "various color patterns"
+    ],
+    "road": [
+        "a long, flat surface",
+        "a long, straight path",
+        "made of asphalt or concrete",
+        "markings for lanes"
+    ],
+    "rocket": [
+        "a bright color",
+        "a bright, red color",
+        "a long, cylindrical shape",
+        "a pointed nose",
+        "fins at the base",
+        "fins at the other end",
+        "pointed at one end",
+        "propulsion at the back"
+    ],
+    "rose": [
+        "a large, colorful bloom",
+        "a large, colorful flower",
+        "a long stem",
+        "a long stem with thorns",
+        "a strong scent",
+        "a sweet fragrance",
+        "thorny branches"
+    ],
+    "sea": [
+        "a deep blue or green color",
+        "a horizon",
+        "a large body of water",
+        "saltwater",
+        "waves"
+    ],
+    "seal": [
+        "a black, fur-covered nose",
+        "a long, sinuous tail",
+        "a short, stubby tail",
+        "a sleek, streamlined body",
+        "a small, pointed head",
+        "flippers",
+        "large, black eyes",
+        "webbed feet"
+    ],
+    "shark": [
+        "a dorsal fin",
+        "a large mouth with sharp teeth",
+        "a large, predatory fish",
+        "a large, triangular fin",
+        "a long tail",
+        "a sleek, gray body",
+        "a streamlined body",
+        "gray or blue color",
+        "sharp teeth",
+        "small eyes"
+    ],
+    "shrew": [
+        "a long, naked tail",
+        "a long, pointed snout",
+        "a small, mouse-like body",
+        "short, coarse fur",
+        "short, velvety fur",
+        "small eyes and ears"
+    ],
+    "skunk": [
+        "a black and white color scheme",
+        "a long, bushy tail",
+        "a small head",
+        "a small, round head",
+        "a striped pattern on the back",
+        "a strong smell",
+        "black and white coloration",
+        "small black eyes"
+    ],
+    "skyscraper": [
+        "a pointed top",
+        "a tall, rectangular shape",
+        "a uniform color",
+        "large windows",
+        "lots of windows",
+        "made of steel and glass",
+        "often has a point at the top",
+        "smooth, straight lines"
+    ],
+    "snail": [
+        "a hard shell",
+        "a large, spiral shell",
+        "a long, coiled tail",
+        "a small, round body",
+        "a small, slimy body",
+        "a soft, slimy body",
+        "slow movement",
+        "two feelers"
+    ],
+    "snake": [
+        "a forked tongue",
+        "a long, thin body",
+        "a pointed head",
+        "no legs",
+        "scales"
+    ],
+    "spider": [
+        "a long, thin abdomen",
+        "a small body",
+        "a small, round body",
+        "eight eyes",
+        "eight legs",
+        "eight long legs",
+        "fang-like mouthparts",
+        "hairy or spiny legs",
+        "two feelers",
+        "two large, compound eyes"
+    ],
+    "squirrel": [
+        "a long, bushy tail",
+        "a small, furry body",
+        "able to climb trees",
+        "brown, gray, or red fur",
+        "front paws that resemble hands",
+        "pointed ears",
+        "sharp claws"
+    ],
+    "streetcar": [
+        "a long, narrow body",
+        "a long, rectangular body",
+        "a platform at one end",
+        "tracks for wheels",
+        "usually electric power"
+    ],
+    "sunflower": [
+        "a brown or black center",
+        "a green stem",
+        "a green, leafy base",
+        "a large yellow center",
+        "a large, round head",
+        "a large, yellow flower",
+        "a long, thick stem",
+        "a yellow or gold color",
+        "large, green leaves"
+    ],
+    "sweet pepper": [
+        "a bright, red color",
+        "a crisp texture",
+        "a long, thin shape",
+        "a mild flavor",
+        "a pointed end",
+        "smooth skin",
+        "smooth, glossy skin"
+    ],
+    "table": [
+        "a flat surface",
+        "a large, flat surface",
+        "a sturdy construction",
+        "legs or support underneath"
+    ],
+    "tank": [
+        "a large, rectangular shape",
+        "made of metal or glass",
+        "may have an air pump or filter",
+        "used to hold liquids or gas",
+        "used to hold liquids or gases",
+        "usually has a lid",
+        "usually has a lid or cover"
+    ],
+    "telephone": [
+        "a base unit with a speaker",
+        "a keypad on one side",
+        "a small, rectangular shape"
+    ],
+    "television": [
+        "a large, rectangular screen",
+        "a stand or mount",
+        "controls for power and volume",
+        "speakers"
+    ],
+    "tiger": [
+        "a big head with a wide mouth",
+        "a large body",
+        "a large, muscular body",
+        "a long tail",
+        "a striped coat",
+        "pointed ears",
+        "sharp claws",
+        "striped fur"
+    ],
+    "tractor": [
+        "a cab for the driver",
+        "a heavy, metal body",
+        "a hitch for pulling trailers",
+        "a large, bulky body",
+        "a steering wheel",
+        "a wide, flat front",
+        "exhaust pipes",
+        "large size",
+        "large wheels",
+        "large, powerful wheels"
+    ],
+    "train": [
+        "a large, metal engine",
+        "a large, metal vehicle",
+        "a locomotive at the front",
+        "a loud horn",
+        "large wheels",
+        "long and slender",
+        "lots of smoke"
+    ],
+    "trout": [
+        "a forked tail",
+        "a long, slender body",
+        "a long, thin body",
+        "large eyes",
+        "large fins",
+        "large scales"
+    ],
+    "tulip": [
+        "a bulb at the base",
+        "a generally tulip-shaped form",
+        "a green, leafy base",
+        "a large, colorful bloom",
+        "a large, showy flower",
+        "a long, thin stem",
+        "pointed leaves"
+    ],
+    "turtle": [
+        "a green or brown shell",
+        "a hard shell",
+        "a long tail",
+        "a small head",
+        "four legs",
+        "short legs",
+        "slow movement"
+    ],
+    "wardrobe": [
+        "a door or doors on the front",
+        "a light color",
+        "a sturdy frame",
+        "a tall, rectangular shape"
+    ],
+    "whale": [
+        "a blowhole",
+        "a large body",
+        "a large, ocean-dwelling mammal",
+        "a long body",
+        "a long snout",
+        "a tail",
+        "flippers",
+        "gray or blue color"
+    ],
+    "willow tree": [
+        "a long, slender trunk",
+        "a silvery-green color",
+        "a slender trunk",
+        "a weeping or cascading form",
+        "drooping branches",
+        "long, drooping branches",
+        "long, thin leaves",
+        "lush, green leaves"
+    ],
+    "wolf": [
+        "a bushy tail",
+        "a large body",
+        "a long snout",
+        "facial hair",
+        "grey or black fur",
+        "pointed ears"
+    ],
+    "woman": [
+        "a feminine face",
+        "a generally curvy body shape",
+        "a masculine face",
+        "a muscular or stocky build",
+        "a slender or curvaceous figure",
+        "a smaller stature than a man",
+        "a softer voice than a man",
+        "breasts",
+        "long hair",
+        "longer hair than a man",
+        "narrow hips",
+        "no breasts",
+        "short hair"
+    ],
+    "worm": [
+        "a long, thin body",
+        "moves by wriggling",
+        "no legs",
+        "often found in the dirt"
+    ]
+}

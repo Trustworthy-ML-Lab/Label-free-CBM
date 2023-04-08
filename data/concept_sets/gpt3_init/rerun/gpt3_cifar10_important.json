@@ -1,0 +1,96 @@
+{
+    "airplane": [
+        "a large, metal body",
+        "a tail",
+        "engines",
+        "landing gear",
+        "wings"
+    ],
+    "automobile": [
+        "4 wheels",
+        "a large, metal body",
+        "a steering wheel",
+        "an engine",
+        "four round, rubber tires",
+        "headlights",
+        "several seats inside",
+        "taillights",
+        "windows all around"
+    ],
+    "bird": [
+        "a beak",
+        "ability to fly",
+        "beak or bill",
+        "feathers",
+        "legs",
+        "legs with two toes pointing forward and two toes pointing backward",
+        "wings"
+    ],
+    "cat": [
+        "a long, lithe body",
+        "a small to medium-sized body",
+        "a tail",
+        "feline features (e.g., whiskers, ears)",
+        "four legs",
+        "fur",
+        "furry coat",
+        "pointed ears",
+        "whiskers"
+    ],
+    "deer": [
+        "a large, four-legged mammal",
+        "a long neck",
+        "antlers",
+        "brown fur",
+        "four legs",
+        "hooves",
+        "large antlers (on males)",
+        "long legs",
+        "white spots on the fur (in some cases)"
+    ],
+    "dog": [
+        "a barking sound",
+        "a furry body",
+        "a furry, four-legged animal",
+        "a tail",
+        "a wet nose",
+        "four legs",
+        "pointed ears"
+    ],
+    "frog": [
+        "a green or brown body",
+        "a long, sticky tongue",
+        "a wide mouth",
+        "large eyes",
+        "large, bulging eyes",
+        "long legs for jumping",
+        "webbed feet"
+    ],
+    "horse": [
+        "a large body",
+        "a large, muscular body",
+        "a long neck",
+        "a mane",
+        "a tail",
+        "four legs"
+    ],
+    "ship": [
+        "a bow and stern",
+        "a hull",
+        "a large size",
+        "a large, ocean-going vessel",
+        "a mast",
+        "a mast with sails",
+        "anchors",
+        "portholes",
+        "sails"
+    ],
+    "truck": [
+        "a bed for carrying cargo",
+        "a cab for the driver",
+        "a large, boxy body",
+        "a strong engine",
+        "a trailer hitch",
+        "four wheels"
+    ]
+}

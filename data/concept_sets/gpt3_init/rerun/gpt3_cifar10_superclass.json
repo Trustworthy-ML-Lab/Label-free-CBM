@@ -1,0 +1,55 @@
+{
+    "airplane": [
+        "object",
+        "vehicle"
+    ],
+    "automobile": [
+        "car",
+        "object",
+        "transportation",
+        "vehicle"
+    ],
+    "bird": [
+        "animal",
+        "invertebrate",
+        "living thing",
+        "vertebrate"
+    ],
+    "cat": [
+        "animal",
+        "mammal",
+        "vertebrate"
+    ],
+    "deer": [
+        "animal",
+        "mammal",
+        "vertebrate"
+    ],
+    "dog": [
+        "animal",
+        "living thing",
+        "mammal",
+        "organism",
+        "vertebrate"
+    ],
+    "frog": [
+        "amphibian",
+        "animal",
+        "vertebrate"
+    ],
+    "horse": [
+        "animal",
+        "mammal",
+        "vertebrate"
+    ],
+    "ship": [
+        "vehicle",
+        "vessel",
+        "watercraft"
+    ],
+    "truck": [
+        "object",
+        "transportation",
+        "vehicle"
+    ]
+}

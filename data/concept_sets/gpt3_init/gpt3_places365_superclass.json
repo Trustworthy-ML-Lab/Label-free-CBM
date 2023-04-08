@@ -1,0 +1,2112 @@
+{
+    "airfield": [
+        "airport",
+        "area",
+        "field",
+        "land",
+        "location"
+    ],
+    "airplane cabin": [
+        "cabin",
+        "enclosure",
+        "object",
+        "room",
+        "space"
+    ],
+    "airport terminal": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "alcove": [
+        "room",
+        "space",
+        "structure"
+    ],
+    "alley": [
+        "location",
+        "outdoor space",
+        "path",
+        "place",
+        "road",
+        "street"
+    ],
+    "amphitheater": [
+        "building",
+        "structure",
+        "theater"
+    ],
+    "amusement arcade": [
+        "arcade",
+        "building",
+        "entertainment venue",
+        "game center",
+        "structure"
+    ],
+    "amusement park": [
+        "park",
+        "recreation",
+        "recreational area",
+        "tourist destination"
+    ],
+    "apartment building, outdoor": [
+        "apartment",
+        "building",
+        "outdoor",
+        "outdoor structure",
+        "structure"
+    ],
+    "aquarium": [
+        "container",
+        "object",
+        "structure",
+        "tank"
+    ],
+    "aqueduct": [
+        "artificial",
+        "construction",
+        "engineering",
+        "structure"
+    ],
+    "arcade": [
+        "Entertainment",
+        "building",
+        "entertainment",
+        "fun",
+        "game"
+    ],
+    "arch": [
+        "object",
+        "shape",
+        "structure"
+    ],
+    "archaelogical excavation": [
+        "archaeology",
+        "dig",
+        "excavation"
+    ],
+    "archive": [
+        "collection",
+        "data",
+        "information",
+        "storage"
+    ],
+    "arena, hockey": [
+        "arena",
+        "building",
+        "sports facility",
+        "stadium"
+    ],
+    "arena, performance": [
+        "building",
+        "location",
+        "structure",
+        "venue"
+    ],
+    "arena, rodeo": [
+        "building",
+        "man-made object",
+        "object",
+        "structure"
+    ],
+    "army base": [
+        "base",
+        "location",
+        "military",
+        "structure"
+    ],
+    "art gallery": [
+        "building",
+        "gallery",
+        "museum"
+    ],
+    "art school": [
+        "education",
+        "institution",
+        "school"
+    ],
+    "art studio": [
+        "building",
+        "room",
+        "structure",
+        "studio"
+    ],
+    "artists loft": [
+        "building",
+        "location",
+        "loft",
+        "space",
+        "structure"
+    ],
+    "assembly line": [
+        "line",
+        "manufacturing",
+        "process",
+        "production"
+    ],
+    "athletic field, outdoor": [
+        "field",
+        "location",
+        "outdoor"
+    ],
+    "atrium, public": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "attic": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "auditorium": [
+        "building",
+        "place",
+        "structure"
+    ],
+    "auto factory": [
+        "building",
+        "factory",
+        "structure"
+    ],
+    "auto showroom": [
+        "building",
+        "showroom",
+        "structure"
+    ],
+    "badlands": [
+        "geography",
+        "land formation",
+        "landscape",
+        "location"
+    ],
+    "bakery, shop": [
+        "building",
+        "business",
+        "food",
+        "shop",
+        "store",
+        "structure"
+    ],
+    "balcony, exterior": [
+        "exterior",
+        "location",
+        "outdoors",
+        "structure"
+    ],
+    "balcony, interior": [
+        "balcony",
+        "building",
+        "indoor",
+        "outdoor",
+        "room",
+        "structure"
+    ],
+    "ball pit": [
+        "object",
+        "pit",
+        "play area",
+        "recreational area",
+        "toy"
+    ],
+    "ballroom": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "bamboo forest": [
+        "biome",
+        "ecosystem",
+        "forest",
+        "vegetation"
+    ],
+    "bank vault": [
+        "container",
+        "object",
+        "safe",
+        "vault"
+    ],
+    "banquet hall": [
+        "building",
+        "hall",
+        "structure"
+    ],
+    "bar": [
+        "building",
+        "drinking establishment",
+        "object",
+        "structure"
+    ],
+    "barn": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "barndoor": [
+        "door",
+        "object",
+        "structure"
+    ],
+    "baseball field": [
+        "field",
+        "location",
+        "outdoor",
+        "outdoor space"
+    ],
+    "basement": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "basketball court, indoor": [
+        "area",
+        "building",
+        "court",
+        "location",
+        "structure"
+    ],
+    "bathroom": [
+        "building",
+        "household space",
+        "room",
+        "structure"
+    ],
+    "bazaar, indoor": [
+        "building",
+        "market",
+        "structure"
+    ],
+    "bazaar, outdoor": [
+        "location",
+        "market",
+        "outdoor"
+    ],
+    "beach": [
+        "coast",
+        "landscape",
+        "location",
+        "place"
+    ],
+    "beach house": [
+        "building",
+        "house",
+        "structure"
+    ],
+    "beauty salon": [
+        "building",
+        "business",
+        "salon",
+        "service"
+    ],
+    "bedchamber": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "bedroom": [
+        "building",
+        "housing",
+        "room",
+        "structure"
+    ],
+    "beer garden": [
+        "garden",
+        "location",
+        "outdoor space",
+        "venue"
+    ],
+    "beer hall": [
+        "building",
+        "hall",
+        "place",
+        "structure"
+    ],
+    "berth": [
+        "bed",
+        "furniture",
+        "object",
+        "sleeping area"
+    ],
+    "biology laboratory": [
+        "building",
+        "laboratory",
+        "room",
+        "structure"
+    ],
+    "boardwalk": [
+        "outdoor",
+        "structure",
+        "walkway"
+    ],
+    "boat deck": [
+        "area",
+        "boat",
+        "deck",
+        "outdoor",
+        "part"
+    ],
+    "boathouse": [
+        "building",
+        "house",
+        "object",
+        "structure"
+    ],
+    "bookstore": [
+        "building",
+        "location",
+        "store"
+    ],
+    "booth, indoor": [
+        "booth",
+        "building",
+        "enclosure",
+        "structure"
+    ],
+    "botanical garden": [
+        "garden",
+        "landscape",
+        "outdoor space",
+        "park"
+    ],
+    "bow window, indoor": [
+        "structure",
+        "window"
+    ],
+    "bowling alley": [
+        "building",
+        "game",
+        "location"
+    ],
+    "boxing ring": [
+        "object",
+        "ring",
+        "structure"
+    ],
+    "bridge": [
+        "object",
+        "structure"
+    ],
+    "building facade": [
+        "building",
+        "object",
+        "structure",
+        "wall"
+    ],
+    "bullring": [
+        "arena",
+        "building",
+        "structure"
+    ],
+    "burial chamber": [
+        "building",
+        "chamber",
+        "room",
+        "structure"
+    ],
+    "bus interior": [
+        "bus",
+        "interior",
+        "object",
+        "vehicle"
+    ],
+    "bus station, indoor": [
+        "building",
+        "location",
+        "station",
+        "structure"
+    ],
+    "butchers shop": [
+        "building",
+        "shop",
+        "structure"
+    ],
+    "butte": [
+        "geographic feature",
+        "landform"
+    ],
+    "cabin, outdoor": [
+        "building",
+        "cabin",
+        "object",
+        "outdoor",
+        "structure"
+    ],
+    "cafeteria": [
+        "building",
+        "place",
+        "restaurant",
+        "structure"
+    ],
+    "campsite": [
+        "location",
+        "outdoor location",
+        "outdoors",
+        "place"
+    ],
+    "campus": [
+        "building",
+        "location",
+        "school",
+        "university"
+    ],
+    "canal, natural": [
+        "body of water",
+        "natural",
+        "structure",
+        "waterway"
+    ],
+    "canal, urban": [
+        "body of water",
+        "canal",
+        "location",
+        "structure",
+        "urban area"
+    ],
+    "candy store": [
+        "building",
+        "business",
+        "store"
+    ],
+    "canyon": [
+        "geographic feature",
+        "landform",
+        "valley"
+    ],
+    "car interior": [
+        "car",
+        "interior",
+        "object",
+        "space",
+        "vehicle"
+    ],
+    "carrousel": [
+        "amusement park attraction",
+        "amusement park ride",
+        "attraction",
+        "object",
+        "ride"
+    ],
+    "castle": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "catacomb": [
+        "burial place",
+        "burial site",
+        "location",
+        "structure",
+        "tomb"
+    ],
+    "cemetery": [
+        "land",
+        "landscape",
+        "location",
+        "place"
+    ],
+    "chalet": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "chemistry lab": [
+        "building",
+        "lab",
+        "room"
+    ],
+    "childs room": [
+        "room",
+        "space"
+    ],
+    "church, indoor": [
+        "building",
+        "object",
+        "place",
+        "structure"
+    ],
+    "church, outdoor": [
+        "building",
+        "church",
+        "outdoor",
+        "religious"
+    ],
+    "classroom": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "clean room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "cliff": [
+        "geological feature",
+        "landform"
+    ],
+    "closet": [
+        "cabinet",
+        "furniture",
+        "object",
+        "room",
+        "structure"
+    ],
+    "clothing store": [
+        "building",
+        "business",
+        "retailer",
+        "store"
+    ],
+    "coast": [
+        "geography",
+        "land",
+        "landform",
+        "location"
+    ],
+    "cockpit": [
+        "aircraft",
+        "area",
+        "room",
+        "space",
+        "structure",
+        "vehicle"
+    ],
+    "coffee shop": [
+        "building",
+        "business",
+        "restaurant",
+        "shop",
+        "structure"
+    ],
+    "computer room": [
+        "area",
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "conference center": [
+        "building",
+        "center",
+        "structure"
+    ],
+    "conference room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "construction site": [
+        "area",
+        "building site",
+        "land",
+        "location",
+        "place",
+        "site"
+    ],
+    "corn field": [
+        "agricultural land",
+        "agriculture",
+        "field",
+        "land",
+        "outdoor"
+    ],
+    "corral": [
+        "enclosure",
+        "object",
+        "structure"
+    ],
+    "corridor": [
+        "building",
+        "passageway",
+        "room",
+        "structure"
+    ],
+    "cottage": [
+        "building",
+        "house",
+        "residence",
+        "structure"
+    ],
+    "courthouse": [
+        "building",
+        "structure"
+    ],
+    "courtyard": [
+        "outdoor space",
+        "space"
+    ],
+    "creek": [
+        "body of water",
+        "geographic feature",
+        "landform",
+        "natural feature",
+        "waterway"
+    ],
+    "crevasse": [
+        "crack",
+        "gap",
+        "opening",
+        "void"
+    ],
+    "crosswalk": [
+        "path",
+        "structure",
+        "surface",
+        "walkway",
+        "way"
+    ],
+    "dam": [
+        "barrier",
+        "object",
+        "structure"
+    ],
+    "delicatessen": [
+        "building",
+        "business",
+        "food",
+        "store"
+    ],
+    "department store": [
+        "building",
+        "location",
+        "store",
+        "structure"
+    ],
+    "desert, sand": [
+        "desert",
+        "environment",
+        "geography",
+        "land",
+        "landscape"
+    ],
+    "desert, vegetation": [
+        "living thing",
+        "organism",
+        "plant",
+        "vegetation"
+    ],
+    "desert road": [
+        "outdoor",
+        "path",
+        "road"
+    ],
+    "diner, outdoor": [
+        "building",
+        "business",
+        "food service",
+        "location",
+        "restaurant"
+    ],
+    "dining hall": [
+        "building",
+        "object",
+        "place",
+        "structure"
+    ],
+    "dining room": [
+        "location",
+        "room",
+        "space"
+    ],
+    "discotheque": [
+        "building",
+        "club",
+        "structure"
+    ],
+    "doorway, outdoor": [
+        "door",
+        "doorway",
+        "entrance",
+        "exit",
+        "outdoor",
+        "structure"
+    ],
+    "dorm room": [
+        "building",
+        "housing",
+        "room",
+        "structure"
+    ],
+    "downtown": [
+        "city",
+        "location",
+        "place"
+    ],
+    "dressing room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "driveway": [
+        "outdoor",
+        "path",
+        "road",
+        "structure"
+    ],
+    "drugstore": [
+        "building",
+        "business",
+        "location",
+        "store"
+    ],
+    "elevator, door": [
+        "door",
+        "elevator",
+        "object"
+    ],
+    "elevator lobby": [
+        "building",
+        "lobby",
+        "room",
+        "space",
+        "structure"
+    ],
+    "elevator shaft": [
+        "enclosed space",
+        "shaft",
+        "structure",
+        "vertical passage",
+        "vertical shaft"
+    ],
+    "embassy": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "engine room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "entrance hall": [
+        "building",
+        "hall",
+        "room",
+        "structure"
+    ],
+    "escalator, indoor": [
+        "conveyor",
+        "escalator",
+        "moving staircase",
+        "structure",
+        "transportation",
+        "transportation device"
+    ],
+    "excavation": [
+        "action",
+        "dig",
+        "process"
+    ],
+    "fabric store": [
+        "building",
+        "business",
+        "location",
+        "store"
+    ],
+    "farm": [
+        "agricultural",
+        "agriculture",
+        "land",
+        "property",
+        "rural"
+    ],
+    "fastfood restaurant": [
+        "business",
+        "food service",
+        "restaurant"
+    ],
+    "field, cultivated": [
+        "agricultural",
+        "agricultural land",
+        "field",
+        "land"
+    ],
+    "field, wild": [
+        "land",
+        "landscape",
+        "nature",
+        "outdoors"
+    ],
+    "field road": [
+        "outdoor",
+        "path",
+        "road"
+    ],
+    "fire escape": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "fire station": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "fishpond": [
+        "body of water",
+        "landscape feature",
+        "pond"
+    ],
+    "flea market, indoor": [
+        "flea market",
+        "indoor",
+        "market",
+        "outdoor market",
+        "retail",
+        "shopping"
+    ],
+    "florist shop, indoor": [
+        "building",
+        "indoor",
+        "shop",
+        "store",
+        "structure"
+    ],
+    "food court": [
+        "area",
+        "building",
+        "court",
+        "location",
+        "restaurant"
+    ],
+    "football field": [
+        "field",
+        "outdoor",
+        "sport"
+    ],
+    "forest, broadleaf": [
+        "biome",
+        "ecosystem",
+        "forest"
+    ],
+    "forest path": [
+        "location",
+        "outdoor",
+        "path"
+    ],
+    "forest road": [
+        "location",
+        "outdoor",
+        "path",
+        "road"
+    ],
+    "formal garden": [
+        "garden",
+        "landscape",
+        "outdoor space"
+    ],
+    "fountain": [
+        "landscape feature",
+        "object",
+        "structure",
+        "water source"
+    ],
+    "galley": [
+        "building",
+        "kitchen",
+        "room"
+    ],
+    "garage, indoor": [
+        "building",
+        "garage",
+        "object",
+        "structure"
+    ],
+    "garage, outdoor": [
+        "building",
+        "garage",
+        "object",
+        "outdoor",
+        "structure"
+    ],
+    "gas station": [
+        "building",
+        "location",
+        "structure"
+    ],
+    "gazebo, exterior": [
+        "building",
+        "gazebo",
+        "outdoor",
+        "outdoors",
+        "structure"
+    ],
+    "general store, indoor": [
+        "building",
+        "indoor",
+        "store"
+    ],
+    "general store, outdoor": [
+        "building",
+        "object",
+        "outdoor",
+        "store"
+    ],
+    "gift shop": [
+        "business",
+        "location",
+        "shop",
+        "store"
+    ],
+    "glacier": [
+        "ice",
+        "landform",
+        "natural feature"
+    ],
+    "golf course": [
+        "course",
+        "location",
+        "outdoor",
+        "outdoor activity",
+        "sport"
+    ],
+    "greenhouse, indoor": [
+        "building",
+        "greenhouse",
+        "house",
+        "structure"
+    ],
+    "greenhouse, outdoor": [
+        "building",
+        "greenhouse",
+        "outdoor",
+        "structure"
+    ],
+    "grotto": [
+        "cave",
+        "enclosure",
+        "geological formation",
+        "location"
+    ],
+    "gymnasium, indoor": [
+        "building",
+        "gymnasium",
+        "structure"
+    ],
+    "hangar, indoor": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "hangar, outdoor": [
+        "building",
+        "outdoor",
+        "structure"
+    ],
+    "harbor": [
+        "body of water",
+        "location",
+        "place",
+        "shelter"
+    ],
+    "hardware store": [
+        "building",
+        "location",
+        "retailer",
+        "store"
+    ],
+    "hayfield": [
+        "agricultural land",
+        "field",
+        "grass",
+        "land",
+        "plant"
+    ],
+    "heliport": [
+        "airport",
+        "building",
+        "structure"
+    ],
+    "highway": [
+        "man-made",
+        "path",
+        "road",
+        "transportation"
+    ],
+    "home office": [
+        "building",
+        "office",
+        "room"
+    ],
+    "home theater": [
+        "audio",
+        "building",
+        "entertainment",
+        "home",
+        "theater"
+    ],
+    "hospital": [
+        "building",
+        "structure"
+    ],
+    "hospital room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "hot spring": [
+        "geological feature",
+        "geothermal feature",
+        "landform",
+        "spring",
+        "water"
+    ],
+    "hotel, outdoor": [
+        "building",
+        "hotel",
+        "location",
+        "outdoor",
+        "structure"
+    ],
+    "hotel room": [
+        "building",
+        "lodging",
+        "room",
+        "structure"
+    ],
+    "house": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "hunting lodge, outdoor": [
+        "building",
+        "lodge",
+        "structure"
+    ],
+    "ice cream parlor": [
+        "building",
+        "business",
+        "restaurant"
+    ],
+    "ice floe": [
+        "floe",
+        "geological feature",
+        "ice",
+        "natural feature",
+        "object"
+    ],
+    "ice shelf": [
+        "ice",
+        "shelf",
+        "solid",
+        "surface"
+    ],
+    "ice skating rink, indoor": [
+        "building",
+        "rink",
+        "skating rink",
+        "structure"
+    ],
+    "ice skating rink, outdoor": [
+        "outdoor",
+        "rink",
+        "sport"
+    ],
+    "iceberg": [
+        "ice",
+        "land mass",
+        "object",
+        "solid"
+    ],
+    "igloo": [
+        "building",
+        "shelter",
+        "structure"
+    ],
+    "industrial area": [
+        "area",
+        "location",
+        "place"
+    ],
+    "inn, outdoor": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "islet": [
+        "geographic feature",
+        "island",
+        "landform",
+        "landmass"
+    ],
+    "jacuzzi, indoor": [
+        "bathtub",
+        "building",
+        "furniture",
+        "indoor",
+        "jacuzzi",
+        "pool",
+        "structure"
+    ],
+    "jail cell": [
+        "cell",
+        "room",
+        "structure"
+    ],
+    "japanese garden": [
+        "garden",
+        "landscape",
+        "outdoor space"
+    ],
+    "jewelry shop": [
+        "Jewelry",
+        "building",
+        "business",
+        "shop"
+    ],
+    "junkyard": [
+        "area",
+        "location",
+        "place",
+        "yard"
+    ],
+    "kasbah": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "kennel, outdoor": [
+        "kennel",
+        "object",
+        "outdoor",
+        "shelter",
+        "structure"
+    ],
+    "kindergarden classroom": [
+        "building",
+        "classroom",
+        "structure"
+    ],
+    "kitchen": [
+        "building",
+        "dwelling",
+        "room",
+        "structure"
+    ],
+    "lagoon": [
+        "body of water",
+        "landform",
+        "landscape feature",
+        "natural feature",
+        "water"
+    ],
+    "lake, natural": [
+        "body of water",
+        "landform"
+    ],
+    "landfill": [
+        "garbage",
+        "location",
+        "trash",
+        "waste",
+        "waste disposal site"
+    ],
+    "landing deck": [
+        "deck",
+        "object",
+        "platform",
+        "structure"
+    ],
+    "laundromat": [
+        "building",
+        "location",
+        "place",
+        "structure"
+    ],
+    "lawn": [
+        "grass",
+        "plant",
+        "vegetation"
+    ],
+    "lecture room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "legislative chamber": [
+        "building",
+        "chamber",
+        "room",
+        "structure"
+    ],
+    "library, indoor": [
+        "building",
+        "indoor",
+        "library",
+        "structure"
+    ],
+    "library, outdoor": [
+        "building",
+        "library",
+        "outdoor",
+        "structure"
+    ],
+    "lighthouse": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "living room": [
+        "building",
+        "house",
+        "room",
+        "structure"
+    ],
+    "loading dock": [
+        "dock",
+        "platform",
+        "structure"
+    ],
+    "lobby": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "lock chamber": [
+        "chamber",
+        "lock",
+        "object"
+    ],
+    "locker room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "mansion": [
+        "building",
+        "house",
+        "object",
+        "structure"
+    ],
+    "manufactured home": [
+        "building",
+        "home",
+        "structure"
+    ],
+    "market, indoor": [
+        "building",
+        "market",
+        "structure"
+    ],
+    "market, outdoor": [
+        "location",
+        "market",
+        "outdoor",
+        "place"
+    ],
+    "marsh": [
+        "habitat",
+        "land",
+        "wetland"
+    ],
+    "martial arts gym": [
+        "building",
+        "gym",
+        "structure"
+    ],
+    "mausoleum": [
+        "building",
+        "object",
+        "structure",
+        "tomb"
+    ],
+    "medina": [
+        "city",
+        "location",
+        "place"
+    ],
+    "mezzanine": [
+        "level",
+        "object",
+        "platform",
+        "structure"
+    ],
+    "moat, water": [
+        "body of water",
+        "moat",
+        "natural feature"
+    ],
+    "mosque, outdoor": [
+        "building",
+        "outdoor",
+        "religious structure",
+        "structure"
+    ],
+    "motel": [
+        "building",
+        "hotel",
+        "lodging"
+    ],
+    "mountain": [
+        "geographic feature",
+        "geography",
+        "landform",
+        "landmass"
+    ],
+    "mountain path": [
+        "location",
+        "outdoor",
+        "path"
+    ],
+    "mountain snowy": [
+        "landscape",
+        "mountain",
+        "natural object",
+        "snowy"
+    ],
+    "movie theater, indoor": [
+        "building",
+        "structure",
+        "theater"
+    ],
+    "museum, indoor": [
+        "building",
+        "structure",
+        "type of building"
+    ],
+    "museum, outdoor": [
+        "building",
+        "outdoor",
+        "structure"
+    ],
+    "music studio": [
+        "building",
+        "room",
+        "structure",
+        "studio"
+    ],
+    "natural history museum": [
+        "building",
+        "location",
+        "museum",
+        "structure"
+    ],
+    "nursery": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "nursing home": [
+        "building",
+        "home",
+        "residence",
+        "structure"
+    ],
+    "oast house": [
+        "building",
+        "house",
+        "structure"
+    ],
+    "ocean": [
+        "body of water",
+        "natural feature"
+    ],
+    "office": [
+        "building",
+        "location",
+        "place",
+        "structure"
+    ],
+    "office building": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "office cubicles": [
+        "cubicles",
+        "furniture",
+        "object",
+        "structure"
+    ],
+    "oilrig": [
+        "machine",
+        "man-made structure",
+        "oil production facility",
+        "rig",
+        "structure"
+    ],
+    "operating room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "orchard": [
+        "garden",
+        "landscape",
+        "plantation",
+        "plants",
+        "trees"
+    ],
+    "orchestra pit": [
+        "depression",
+        "hole",
+        "pit"
+    ],
+    "pagoda": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "palace": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "pantry": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "park": [
+        "land area",
+        "landscape",
+        "location",
+        "outdoor space"
+    ],
+    "parking garage, indoor": [
+        "building",
+        "garage",
+        "object",
+        "structure"
+    ],
+    "parking garage, outdoor": [
+        "building",
+        "garage",
+        "outdoor",
+        "structure"
+    ],
+    "parking lot": [
+        "area",
+        "land",
+        "location",
+        "lot",
+        "outdoor space"
+    ],
+    "pasture": [
+        "area",
+        "land",
+        "location"
+    ],
+    "patio": [
+        "outdoor space",
+        "room",
+        "space",
+        "structure"
+    ],
+    "pavilion": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "pet shop": [
+        "building",
+        "business",
+        "shop"
+    ],
+    "pharmacy": [
+        "building",
+        "business",
+        "location",
+        "store"
+    ],
+    "phone booth": [
+        "booth",
+        "object",
+        "structure"
+    ],
+    "physics laboratory": [
+        "animal",
+        "building",
+        "cat",
+        "laboratory",
+        "mammal",
+        "room"
+    ],
+    "picnic area": [
+        "area",
+        "location",
+        "outdoor space",
+        "outdoors"
+    ],
+    "pier": [
+        "object",
+        "structure"
+    ],
+    "pizzeria": [
+        "building",
+        "business",
+        "establishment",
+        "food service",
+        "location",
+        "restaurant"
+    ],
+    "playground": [
+        "area",
+        "location",
+        "outdoor",
+        "outdoor space",
+        "park",
+        "recreational area"
+    ],
+    "playroom": [
+        "area",
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "plaza": [
+        "area",
+        "location",
+        "open space",
+        "outdoor space",
+        "place"
+    ],
+    "pond": [
+        "body of water",
+        "landscape",
+        "landscape feature",
+        "object",
+        "water"
+    ],
+    "porch": [
+        "building",
+        "object",
+        "outdoor",
+        "structure"
+    ],
+    "promenade": [
+        "exercise",
+        "outdoor activity",
+        "outdoors",
+        "walk"
+    ],
+    "pub, indoor": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "racecourse": [
+        "course",
+        "location",
+        "outdoor space",
+        "track"
+    ],
+    "raceway": [
+        "path",
+        "road",
+        "track",
+        "way"
+    ],
+    "raft": [
+        "boat",
+        "object",
+        "vehicle"
+    ],
+    "railroad track": [
+        "object",
+        "path",
+        "roadway",
+        "structure",
+        "track"
+    ],
+    "rainforest": [
+        "biome",
+        "ecosystem",
+        "forest"
+    ],
+    "reception": [
+        "event",
+        "gathering",
+        "meeting",
+        "social gathering",
+        "social occasion"
+    ],
+    "recreation room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "repair shop": [
+        "building",
+        "business",
+        "shop",
+        "store"
+    ],
+    "residential neighborhood": [
+        "geographic area",
+        "location",
+        "neighborhood",
+        "place"
+    ],
+    "restaurant": [
+        "building",
+        "business",
+        "location"
+    ],
+    "restaurant kitchen": [
+        "building",
+        "kitchen",
+        "room"
+    ],
+    "restaurant patio": [
+        "outdoor space",
+        "patio",
+        "restaurant feature",
+        "space"
+    ],
+    "rice paddy": [
+        "farm",
+        "field",
+        "land"
+    ],
+    "river": [
+        "body of water",
+        "natural feature"
+    ],
+    "rock arch": [
+        "arch",
+        "geological formation",
+        "landform",
+        "object",
+        "rock",
+        "structure"
+    ],
+    "roof garden": [
+        "building feature",
+        "garden",
+        "outdoor space"
+    ],
+    "rope bridge": [
+        "bridge",
+        "object",
+        "structure"
+    ],
+    "ruin": [
+        "destruction",
+        "end",
+        "object",
+        "state",
+        "structure"
+    ],
+    "runway": [
+        "path",
+        "road",
+        "surface"
+    ],
+    "sandbox": [
+        "box",
+        "container",
+        "object",
+        "playground equipment",
+        "structure"
+    ],
+    "sauna": [
+        "building",
+        "object",
+        "room",
+        "structure"
+    ],
+    "schoolhouse": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "science museum": [
+        "building",
+        "museum",
+        "structure"
+    ],
+    "server room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "shed": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "shoe shop": [
+        "business",
+        "shop",
+        "store"
+    ],
+    "shopfront": [
+        "building",
+        "store",
+        "structure"
+    ],
+    "shopping mall, indoor": [
+        "building",
+        "location",
+        "mall",
+        "structure"
+    ],
+    "shower": [
+        "appliance",
+        "bath",
+        "bathroom fixture",
+        "cleaning",
+        "plumbing fixture",
+        "routine"
+    ],
+    "ski resort": [
+        "resort",
+        "skiing",
+        "vacation"
+    ],
+    "ski slope": [
+        "landscape",
+        "outdoor activity",
+        "slope",
+        "sport",
+        "terrain"
+    ],
+    "sky": [
+        "atmosphere",
+        "phenomenon",
+        "weather"
+    ],
+    "skyscraper": [
+        "building",
+        "structure"
+    ],
+    "slum": [
+        "area",
+        "location",
+        "neighborhood",
+        "place"
+    ],
+    "snowfield": [
+        "area",
+        "field",
+        "landscape",
+        "place"
+    ],
+    "soccer field": [
+        "field",
+        "outdoor",
+        "outdoor space",
+        "sport",
+        "sport area"
+    ],
+    "stable": [
+        "building",
+        "structure"
+    ],
+    "stadium, baseball": [
+        "building",
+        "object",
+        "sports facility",
+        "structure"
+    ],
+    "stadium, football": [
+        "building",
+        "sporting venue",
+        "stadium",
+        "structure"
+    ],
+    "stadium, soccer": [
+        "building",
+        "stadium",
+        "structure"
+    ],
+    "stage, indoor": [
+        "building",
+        "stage",
+        "structure"
+    ],
+    "stage, outdoor": [
+        "outdoor",
+        "platform",
+        "stage",
+        "structure"
+    ],
+    "staircase": [
+        "object",
+        "structure"
+    ],
+    "storage room": [
+        "location",
+        "room",
+        "space",
+        "structure"
+    ],
+    "street": [
+        "location",
+        "outdoor",
+        "road"
+    ],
+    "subway station, platform": [
+        "location",
+        "object",
+        "station",
+        "structure"
+    ],
+    "supermarket": [
+        "building",
+        "business",
+        "market",
+        "store",
+        "structure"
+    ],
+    "sushi bar": [
+        "building",
+        "business",
+        "food service",
+        "restaurant"
+    ],
+    "swamp": [
+        "area",
+        "habitat",
+        "land",
+        "landscape",
+        "wetland"
+    ],
+    "swimming hole": [
+        "body of water",
+        "location",
+        "object",
+        "water"
+    ],
+    "swimming pool, indoor": [
+        "building",
+        "object",
+        "pool",
+        "structure"
+    ],
+    "swimming pool, outdoor": [
+        "outdoor",
+        "pool",
+        "recreational",
+        "recreational facility",
+        "structure",
+        "swimming pool"
+    ],
+    "synagogue, outdoor": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "television room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "television studio": [
+        "building",
+        "location",
+        "structure",
+        "studio"
+    ],
+    "temple, asia": [
+        "building",
+        "object",
+        "place",
+        "structure"
+    ],
+    "throne room": [
+        "building",
+        "room",
+        "structure"
+    ],
+    "ticket booth": [
+        "booth",
+        "building",
+        "object",
+        "structure"
+    ],
+    "topiary garden": [
+        "garden",
+        "landscape",
+        "outdoor space"
+    ],
+    "tower": [
+        "building",
+        "object",
+        "structure"
+    ],
+    "toyshop": [
+        "building",
+        "shop",
+        "structure"
+    ],
+    "train interior": [
+        "interior",
+        "object",
+        "space",
+        "train",
+        "vehicle"
+    ],
+    "train station, platform": [
+        "building",
+        "object",
+        "platform",
+        "station",
+        "structure"
+    ],
+    "tree farm": [
+        "business",
+        "farm",
+        "land",
+        "plant",
+        "trees"
+    ],
+    "tree house": [
+        "house",
+        "object",
+        "structure"
+    ],
+    "trench": [
+        "ditch",
+        "excavation",
+        "furrow",
+        "hole"
+    ],
+    "tundra": [
+        "biome",
+        "ecosystem",
+        "environment"
+    ],
+    "underwater, ocean deep": [
+        "deep",
+        "liquid",
+        "ocean",
+        "underwater",
+        "water"
+    ],
+    "utility room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "valley": [
+        "geographic feature",
+        "geography",
+        "landform"
+    ],
+    "vegetable garden": [
+        "garden",
+        "landscape",
+        "plant"
+    ],
+    "veterinarians office": [
+        "building",
+        "office",
+        "structure"
+    ],
+    "viaduct": [
+        "bridge",
+        "object",
+        "structure"
+    ],
+    "village": [
+        "community",
+        "location",
+        "place",
+        "settlement"
+    ],
+    "vineyard": [
+        "farm",
+        "land",
+        "location",
+        "plantation"
+    ],
+    "volcano": [
+        "geological feature",
+        "landform"
+    ],
+    "volleyball court, outdoor": [
+        "area",
+        "court",
+        "object",
+        "outdoor",
+        "structure"
+    ],
+    "waiting room": [
+        "building",
+        "room",
+        "space",
+        "structure"
+    ],
+    "water park": [
+        "location",
+        "outdoor space",
+        "park",
+        "recreation area",
+        "recreational area"
+    ],
+    "water tower": [
+        "object",
+        "structure",
+        "tower"
+    ],
+    "waterfall": [
+        "body of water",
+        "geological feature",
+        "landform",
+        "landscape feature",
+        "natural feature"
+    ],
+    "watering hole": [
+        "location",
+        "place"
+    ],
+    "wave": [
+        "event",
+        "motion",
+        "phenomenon",
+        "physical phenomenon"
+    ],
+    "wet bar": [
+        "bar",
+        "furniture",
+        "house",
+        "object",
+        "room"
+    ],
+    "wheat field": [
+        "agricultural land",
+        "field",
+        "land",
+        "landscape",
+        "plant"
+    ],
+    "wind farm": [
+        "energy source",
+        "facility",
+        "farm",
+        "renewable energy",
+        "windmill"
+    ],
+    "windmill": [
+        "building",
+        "mill",
+        "structure"
+    ],
+    "yard": [
+        "area",
+        "location",
+        "space"
+    ],
+    "youth hostel": [
+        "building",
+        "hostel",
+        "lodging",
+        "structure"
+    ],
+    "zen garden": [
+        "art",
+        "garden",
+        "landscape",
+        "outdoor space"
+    ]
+}

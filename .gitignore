@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints
+saved_activations/
+data/places365
+data/resnet18_places365.pth.tar
+data/CUB
+data/imagenet_val
+data/ImageNet_val
+data/places365.zip
+saved_models/

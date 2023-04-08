@@ -1,0 +1,101 @@
+{
+    "airplane": [
+        "a large, metal body",
+        "a tail",
+        "engines",
+        "engines on the wings",
+        "landing gear",
+        "two wings",
+        "wings"
+    ],
+    "automobile": [
+        "a grille mouth",
+        "a large, boxy body",
+        "a large, metal body",
+        "a windshield",
+        "four round, black tires",
+        "headlights",
+        "side windows",
+        "taillights",
+        "two headlight eyes"
+    ],
+    "bird": [
+        "a beak",
+        "ability to fly",
+        "feathers",
+        "the ability to fly",
+        "two legs",
+        "wings"
+    ],
+    "cat": [
+        "a long tail",
+        "a small, lithe body",
+        "a tail",
+        "four legs",
+        "fur",
+        "pointed ears",
+        "whiskers"
+    ],
+    "deer": [
+        "a long neck",
+        "a reddish-brown coat",
+        "a short tail",
+        "a slender body",
+        "antlers",
+        "hooves",
+        "large, brown eyes",
+        "long ears",
+        "long, thin legs",
+        "white spots on the coat"
+    ],
+    "dog": [
+        "a four-legged mammal",
+        "a nose",
+        "a tail",
+        "a wet nose",
+        "four legs",
+        "fur",
+        "pointed ears"
+    ],
+    "frog": [
+        "a green or brown body",
+        "a short, stocky build",
+        "a wide mouth",
+        "bulging eyes",
+        "large, bulging eyes",
+        "long hind legs for jumping",
+        "long legs",
+        "webbed feet"
+    ],
+    "horse": [
+        "a large body",
+        "a large, muscular body",
+        "a long neck",
+        "a mane and tail",
+        "four legs",
+        "hooves"
+    ],
+    "ship": [
+        "a deck",
+        "a flat back end",
+        "a large size",
+        "a mast",
+        "a pointed front end",
+        "a rudder",
+        "large sails or engines",
+        "multiple decks",
+        "multiple sails"
+    ],
+    "truck": [
+        "a bed for carrying cargo",
+        "a cab for the driver",
+        "a flat front and back",
+        "a grille",
+        "a large, boxy body",
+        "a large, rectangular body",
+        "a tough, durable frame",
+        "four large wheels",
+        "four wheels",
+        "two headlights"
+    ]
+}
