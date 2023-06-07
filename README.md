@@ -2,6 +2,8 @@
 
 This is the official repository for our paper [Label-Free Concept Bottleneck Models](https://openreview.net/forum?id=FlCg47MNvBA) published at ICLR 2023. LF-CBM is a new framework to transform any neural networks into an interpretable Concept Bottleneck Model (CBM) without the need for labeled concept data.
 
+**Update 6/5/2023**: We have conducted a crowdsourced user study to measure the interpretability of our method, results are available in Appendix B of [our arxiv paper](https://arxiv.org/abs/2304.06129).
+
 <img src=data/LF-CBM_overview.jpg alt="Overview" width=655 height=400>
 
 ## Setup
