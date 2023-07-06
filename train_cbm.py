@@ -41,7 +41,7 @@ def train_cbm_and_save(args):
     if not os.path.exists(args.save_dir):
         os.mkdir(args.save_dir)
     if args.concept_set==None:
-        args.concept_set = "data/concept_sets/{}_gpt3_ensemble2.txt".format(args.dataset)
+        args.concept_set = "data/concept_sets/{}_filtered.txt".format(args.dataset)
         
     similarity_fn = similarity.cos_similarity_cubed_single
     

@@ -195,10 +195,11 @@ def _make_save_dir(save_name):
         os.makedirs(save_dir)
     return
 
-def get_accuracy_cbm(model, dataset, device):
+def get_accuracy_cbm(model, dataset, device, batch_size=250, num_workers=2):
     correct = 0
     total = 0
-    for images, labels in tqdm(DataLoader(dataset, 500, num_workers=8, pin_memory=True)):
+    for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers,
+                                           pin_memory=True)):
         with torch.no_grad():
             #outs = target_model(images.to(device))
             outs, _ = model(images.to(device))
@@ -207,9 +208,10 @@ def get_accuracy_cbm(model, dataset, device):
             total += len(labels)
     return correct/total
 
-def get_preds_cbm(model, dataset, device):
+def get_preds_cbm(model, dataset, device, batch_size=250, num_workers=2):
     preds = []
-    for images, labels in tqdm(DataLoader(dataset, 500, num_workers=8, pin_memory=True)):
+    for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers,
+                                           pin_memory=True)):
         with torch.no_grad():
             outs, _ = model(images.to(device))
             pred = torch.argmax(outs, dim=1)
