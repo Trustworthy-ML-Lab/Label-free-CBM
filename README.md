@@ -12,6 +12,7 @@ This is the official repository for our paper [Label-Free Concept Bottleneck Mod
 2. Install dependencies by running `pip install -r requirements.txt`
 3. Download pretrained models by running  `bash download_models.sh` (they will be unpacked to `saved_models`)
 4. Download and process CUB dataset by running `bash download_cub.sh` 
+5. Download ResNet18(Places365) backbone by running `bash download_rn18_places.sh`
 
 We do not provide download instructions for ImageNet data, to evaluate using your own copy of ImageNet you must set the correct path in `DATASET_ROOTS["imagenet_train"]` and `DATASET_ROOTS["imagenet_val"]` variables in `data_utils.py`.
 
