@@ -10,3 +10,4 @@ pytorchcv >= 0.0.67
 sentence_transformers >= 2.2.2
 jupyter
 notebook
+torchxrayvision >= 1.4.0

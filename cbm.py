@@ -7,13 +7,7 @@ class CBM_model(torch.nn.Module):
     def __init__(self, backbone_name, W_c, W_g, b_g, proj_mean, proj_std, device="cuda"):
         super().__init__()
         model, _ = data_utils.get_target_model(backbone_name, device)
-        #remove final fully connected layer
-        if "clip" in backbone_name:
-            self.backbone = model
-        elif "cub" in backbone_name:
-            self.backbone = lambda x: model.features(x)
-        else:
-            self.backbone = torch.nn.Sequential(*list(model.children())[:-1])
+        self.backbone = model
             
         self.proj_layer = torch.nn.Linear(in_features=W_c.shape[1], out_features=W_c.shape[0], bias=False).to(device)
         self.proj_layer.load_state_dict({"weight":W_c})
@@ -27,7 +21,6 @@ class CBM_model(torch.nn.Module):
         
     def forward(self, x):
         x = self.backbone(x)
-        x = torch.flatten(x, 1)
         x = self.proj_layer(x)
         proj_c = (x-self.proj_mean)/self.proj_std
         x = self.final(proj_c)
@@ -37,13 +30,7 @@ class standard_model(torch.nn.Module):
     def __init__(self, backbone_name, W_g, b_g, proj_mean, proj_std, device="cuda"):
         super().__init__()
         model, _ = data_utils.get_target_model(backbone_name, device)
-        #remove final fully connected layer
-        if "clip" in backbone_name:
-            self.backbone = model
-        elif "cub" in backbone_name:
-            self.backbone = lambda x: model.features(x)
-        else:
-            self.backbone = torch.nn.Sequential(*list(model.children())[:-1])
+        self.backbone = model
             
         self.proj_mean = proj_mean
         self.proj_std = proj_std
@@ -54,7 +41,6 @@ class standard_model(torch.nn.Module):
         
     def forward(self, x):
         x = self.backbone(x)
-        x = torch.flatten(x, 1)
         proj_c = (x-self.proj_mean)/self.proj_std
         x = self.final(proj_c)
         return x, proj_c

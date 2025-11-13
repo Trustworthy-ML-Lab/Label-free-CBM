@@ -7,37 +7,19 @@ import data_utils
 from tqdm import tqdm
 from torch.utils.data import DataLoader
 
-PM_SUFFIX = {"max":"_max", "avg":""}
 
-def save_target_activations(target_model, dataset, save_name, target_layers = ["layer4"], batch_size = 1000,
-                            device = "cuda", pool_mode='avg'):
-    """
-    save_name: save_file path, should include {} which will be formatted by layer names
-    """
+def save_target_features(target_model, dataset, save_name, batch_size=512, device="cuda"):
     _make_save_dir(save_name)
-    save_names = {}    
-    for target_layer in target_layers:
-        save_names[target_layer] = save_name.format(target_layer)
-        
-    if _all_saved(save_names):
+    if os.path.exists(save_name):
         return
-    
-    all_features = {target_layer:[] for target_layer in target_layers}
-    
-    hooks = {}
-    for target_layer in target_layers:
-        command = "target_model.{}.register_forward_hook(get_activation(all_features[target_layer], pool_mode))".format(target_layer)
-        hooks[target_layer] = eval(command)
-    
+    feats = []
+    target_model.eval()
     with torch.no_grad():
-        for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=8, pin_memory=True)):
+        for images, _ in tqdm(DataLoader(dataset, batch_size, num_workers=8, pin_memory=True)):
             features = target_model(images.to(device))
-    
-    for target_layer in target_layers:
-        torch.save(torch.cat(all_features[target_layer]), save_names[target_layer])
-        hooks[target_layer].remove()
-    #free memory
-    del all_features
+            feats.append(features.cpu())
+    torch.save(torch.cat(feats), save_name)
+    del feats
     torch.cuda.empty_cache()
     return
 
@@ -76,26 +58,16 @@ def save_clip_text_features(model, text, save_name, batch_size=1000):
     torch.cuda.empty_cache()
     return
 
-def save_activations(clip_name, target_name, target_layers, d_probe, 
-                     concept_set, batch_size, device, pool_mode, save_dir):
-    
-    
-    target_save_name, clip_save_name, text_save_name = get_save_names(clip_name, target_name, 
-                                                                    "{}", d_probe, concept_set, 
-                                                                      pool_mode, save_dir)
-    save_names = {"clip": clip_save_name, "text": text_save_name}
-    for target_layer in target_layers:
-        save_names[target_layer] = target_save_name.format(target_layer)
-        
+def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, device, save_dir):
+    target_save_name, clip_save_name, text_save_name = get_save_names(clip_name, target_name,
+                                                                     d_probe, concept_set, save_dir)
+    save_names = {"clip": clip_save_name, "text": text_save_name, "target": target_save_name}
     if _all_saved(save_names):
         return
     
     clip_model, clip_preprocess = clip.load(clip_name, device=device)
     
-    if target_name.startswith("clip_"):
-        target_model, target_preprocess = clip.load(target_name[5:], device=device)
-    else:
-        target_model, target_preprocess = data_utils.get_target_model(target_name, device)
+    target_model, target_preprocess = data_utils.get_target_model(target_name, device)
     #setup data
     data_c = data_utils.get_data(d_probe, clip_preprocess)
     data_t = data_utils.get_data(d_probe, target_preprocess)
@@ -107,11 +79,7 @@ def save_activations(clip_name, target_name, target_layers, d_probe,
     save_clip_text_features(clip_model, text, text_save_name, batch_size)
     
     save_clip_image_features(clip_model, data_c, clip_save_name, batch_size, device)
-    if target_name.startswith("clip_"):
-        save_clip_image_features(target_model, data_t, target_save_name, batch_size, device)
-    else:
-        save_target_activations(target_model, data_t, target_save_name, target_layers,
-                                batch_size, device, pool_mode)
+    save_target_features(target_model, data_t, target_save_name, batch_size, device)
     
     return
     
@@ -140,37 +108,11 @@ def get_similarity_from_activations(target_save_name, clip_save_name, text_save_
         torch.cuda.empty_cache()
         return similarity
     
-def get_activation(outputs, mode):
-    '''
-    mode: how to pool activations: one of avg, max
-    for fc neurons does no pooling
-    '''
-    if mode=='avg':
-        def hook(model, input, output):
-            if len(output.shape)==4:
-                outputs.append(output.mean(dim=[2,3]).detach().cpu())
-            elif len(output.shape)==2:
-                outputs.append(output.detach().cpu())
-    elif mode=='max':
-        def hook(model, input, output):
-            if len(output.shape)==4:
-                outputs.append(output.amax(dim=[2,3]).detach().cpu())
-            elif len(output.shape)==2:
-                outputs.append(output.detach().cpu())
-    return hook
-
-    
-def get_save_names(clip_name, target_name, target_layer, d_probe, concept_set, pool_mode, save_dir):
-    
-    if target_name.startswith("clip_"):
-        target_save_name = "{}/{}_{}.pt".format(save_dir, d_probe, target_name.replace('/', ''))
-    else:
-        target_save_name = "{}/{}_{}_{}{}.pt".format(save_dir, d_probe, target_name, target_layer,
-                                                 PM_SUFFIX[pool_mode])
+def get_save_names(clip_name, target_name, d_probe, concept_set, save_dir):
+    target_save_name = "{}/{}_{}.pt".format(save_dir, d_probe, target_name.replace('/', ''))
     clip_save_name = "{}/{}_clip_{}.pt".format(save_dir, d_probe, clip_name.replace('/', ''))
-    concept_set_name = (concept_set.split("/")[-1]).split(".")[0]
+    concept_set_name = (concept_set.split('/')[-1]).split('.')[0]
     text_save_name = "{}/{}_{}.pt".format(save_dir, concept_set_name, clip_name.replace('/', ''))
-    
     return target_save_name, clip_save_name, text_save_name
 
     
@@ -195,7 +137,7 @@ def _make_save_dir(save_name):
         os.makedirs(save_dir)
     return
 
-def get_accuracy_cbm(model, dataset, device, batch_size=250, num_workers=2):
+def get_accuracy_cbm(model, dataset, device, batch_size=250, num_workers=2, multilabel=False, threshold=0.5):
     correct = 0
     total = 0
     for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers,
@@ -203,18 +145,28 @@ def get_accuracy_cbm(model, dataset, device, batch_size=250, num_workers=2):
         with torch.no_grad():
             #outs = target_model(images.to(device))
             outs, _ = model(images.to(device))
-            pred = torch.argmax(outs, dim=1)
-            correct += torch.sum(pred.cpu()==labels)
-            total += len(labels)
+            if multilabel:
+                probs = torch.sigmoid(outs)
+                pred = (probs > threshold).float().cpu()
+                labels = labels.float()
+                correct += torch.sum((pred == labels).float())
+                total += labels.numel()
+            else:
+                pred = torch.argmax(outs, dim=1)
+                correct += torch.sum(pred.cpu()==labels)
+                total += len(labels)
     return correct/total
 
-def get_preds_cbm(model, dataset, device, batch_size=250, num_workers=2):
+def get_preds_cbm(model, dataset, device, batch_size=250, num_workers=2, multilabel=False, threshold=0.5):
     preds = []
     for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers,
                                            pin_memory=True)):
         with torch.no_grad():
             outs, _ = model(images.to(device))
-            pred = torch.argmax(outs, dim=1)
+            if multilabel:
+                pred = (torch.sigmoid(outs) > threshold).float()
+            else:
+                pred = torch.argmax(outs, dim=1)
             preds.append(pred.cpu())
     preds = torch.cat(preds, dim=0)
     return preds

@@ -116,6 +116,12 @@ def elastic_loss(linear, X, y, lam, alpha, family='multinomial', sample_weight=N
         else: 
             l = 0.5*F.mse_loss(linear(X),y,reduction='none')
             l = (l*(sample_weight.unsqueeze(1))).mean()
+    elif family == 'multilabel':
+        if sample_weight is None:
+            l = F.binary_cross_entropy_with_logits(linear(X), y, reduction='mean')
+        else:
+            l = F.binary_cross_entropy_with_logits(linear(X), y, reduction='none')
+            l = (l*(sample_weight.unsqueeze(1))).mean()
     else: 
         raise ValueError(f"Unknown family: {family}")
     return l + l1 + l2
@@ -148,6 +154,10 @@ def elastic_loss_and_acc(linear, X, y, lam, alpha, family='multinomial'):
     elif family == 'gaussian':
         l = 0.5*F.mse_loss(outputs, y, reduction='mean')
         acc = (outputs == y).float().mean()
+    elif family == 'multilabel':
+        l = F.binary_cross_entropy_with_logits(outputs, y, reduction='mean')
+        preds = (outputs.sigmoid() > 0.5).float()
+        acc = (preds == y).float().mean()
     else: 
         raise ValueError(f"Unknown family {family}")
 
@@ -272,7 +282,7 @@ def train_saga(linear, loader, lr, nepochs, lam, alpha, group=True, verbose=None
         if n_classes is None: 
             if family == 'multinomial': 
                 n_classes = max(tensors[1].max().item() for tensors in loader) + 1
-            elif family == 'gaussian': 
+            elif family in ('gaussian', 'multilabel'):
                 for batch in loader: 
                     y = batch[1]
                     break
@@ -332,6 +342,15 @@ def train_saga(linear, loader, lr, nepochs, lam, alpha, group=True, verbose=None
 
                     # Calculate new scalar gradient 
                     logits = linear(X)
+                elif family == 'multilabel':
+                    y_batch = y.to(weight.device)
+                    if w is None:
+                        loss = F.binary_cross_entropy_with_logits(out, y_batch, reduction='mean')
+                    else:
+                        loss = F.binary_cross_entropy_with_logits(out, y_batch, reduction='none')
+                        loss = (loss*(w.unsqueeze(1))).mean()
+                    target = y_batch
+                    logits = ch.sigmoid(out)
                 else: 
                     raise ValueError(f"Unknown family: {family}")
                 total_loss += loss.item()*X.size(0)
@@ -433,6 +452,8 @@ def maximum_reg(X,y, group=True, family='multinomial'):
         target = ch.eye(y.max()+1)[y].to(y.device)
     elif family == 'gaussian': 
         target = y
+    elif family == 'multilabel':
+        target = y
     else: 
         raise ValueError(f"Unknown family {family}")
 
@@ -473,6 +494,8 @@ def maximum_reg_loader(loader, group=True, preprocess=None, metadata=None, famil
             target = eye[y]
         elif family == 'gaussian': 
             target = y
+        elif family == 'multilabel':
+            target = y
         else: 
             raise ValueError(f"Unknown family {family}")
 
@@ -488,6 +511,8 @@ def maximum_reg_loader(loader, group=True, preprocess=None, metadata=None, famil
         if family == 'multinomial': 
             target = eye[y]
         elif family == 'gaussian': 
+            target = y
+        elif family == 'multilabel':
             target = y
         else: 
             raise ValueError(f"Unknown family {family}")
@@ -629,6 +654,8 @@ def glm_saga(linear, loader, max_lr, nepochs, alpha,
                 logger(f"({i}) lambda {lam:.4f}, loss {loss:.4f}, acc {acc:.4f} [val acc {acc_val:.4f}] [test acc {acc_test:.4f}], sparsity {nnz/total} [{nnz}/{total}], time {time.time()-start_time}, lr {lr:.4f}")
             elif family == 'gaussian': 
                 logger(f"({i}) lambda {lam:.4f}, loss {loss:.4f} [val loss {loss_val:.4f}] [test loss {loss_test:.4f}], sparsity {nnz/total} [{nnz}/{total}], time {time.time()-start_time}, lr {lr:.4f}")
+            elif family == 'multilabel':
+                logger(f"({i}) lambda {lam:.4f}, loss {loss:.4f}, label-acc {acc:.4f} [val acc {acc_val:.4f}] [test acc {acc_test:.4f}], sparsity {nnz/total} [{nnz}/{total}], time {time.time()-start_time}, lr {lr:.4f}")
 
             if checkpoint is not None: 
                 ch.save(params, os.path.join(checkpoint,f"params{i}.pth"))
