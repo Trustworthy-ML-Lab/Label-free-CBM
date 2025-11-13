@@ -38,7 +38,10 @@ def prepare_loader(args):
                                      split_seed=args.nih_split_seed,
                                      views=views)
     preprocess = get_xrv_preprocess()
-    dataset = NIHChestXrayDataset(split=args.split, preprocess=preprocess)
+    split_name = args.split
+    if split_name.startswith("nih14_"):
+        split_name = split_name.split("_", 1)[1]
+    dataset = NIHChestXrayDataset(split=split_name, preprocess=preprocess)
     loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False,
                         num_workers=args.num_workers, pin_memory=True)
     return loader, dataset
