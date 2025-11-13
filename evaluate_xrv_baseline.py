@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from sklearn.metrics import roc_auc_score, average_precision_score, f1_score
+from sklearn.metrics import roc_auc_score, average_precision_score, precision_recall_curve
 
 import torchxrayvision as xrv
 
@@ -28,6 +28,8 @@ def parse_args():
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA")
     parser.add_argument("--num_workers", type=int, default=4)
+    parser.add_argument("--pr_output", type=str, default=None,
+                        help="Optional JSON path to dump per-class PR curves")
     return parser.parse_args()
 
 
@@ -40,7 +42,7 @@ def prepare_loader(args):
     preprocess = get_xrv_preprocess()
     split_name = args.split
     if split_name.startswith("nih14_"):
-        split_name = split_name.split("_", 1)[1]
+        split_name = split_name.split('_', 1)[1]
     dataset = NIHChestXrayDataset(split=split_name, preprocess=preprocess)
     loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False,
                         num_workers=args.num_workers, pin_memory=True)
@@ -50,7 +52,8 @@ def prepare_loader(args):
 def compute_metrics(probs, targets, threshold):
     preds = (probs > threshold).astype(np.float32)
     exact_match = (preds == targets).mean()
-    micro_f1 = f1_score(targets.reshape(-1), preds.reshape(-1))
+    micro_precision = ((preds * targets).sum()) / preds.sum() if preds.sum() > 0 else 0.0
+    micro_recall = ((preds * targets).sum()) / targets.sum()
 
     classes_path = data_utils.LABEL_FILES["nih14"]
     with open(classes_path) as f:
@@ -58,25 +61,40 @@ def compute_metrics(probs, targets, threshold):
 
     aurocs = []
     aps = []
+    pr_curves = []
     for idx in range(len(classes)):
         y_true = targets[:, idx]
         y_score = probs[:, idx]
         if len(np.unique(y_true)) < 2:
             aurocs.append(float("nan"))
             aps.append(float("nan"))
+            pr_curves.append(None)
             continue
         aurocs.append(roc_auc_score(y_true, y_score))
         aps.append(average_precision_score(y_true, y_score))
+        precision, recall, _ = precision_recall_curve(y_true, y_score)
+        pr_curves.append({"precision": precision.tolist(), "recall": recall.tolist()})
 
     return {
         "exact_match": exact_match,
-        "micro_f1": micro_f1,
+        "micro_precision": micro_precision,
+        "micro_recall": micro_recall,
         "mean_auroc": np.nanmean(aurocs),
         "mean_ap": np.nanmean(aps),
         "aurocs": aurocs,
         "aps": aps,
+        "pr_curves": pr_curves,
         "classes": classes,
     }
+
+
+def save_pr_curves(path, metrics):
+    payload = {
+        "classes": metrics["classes"],
+        "curves": metrics["pr_curves"],
+    }
+    with open(path, "w") as f:
+        json.dump(payload, f, indent=2)
 
 
 def main():
@@ -87,7 +105,6 @@ def main():
     model = model.to(args.device)
     model.eval()
 
-    # Map torchxrayvision pathologies to NIH class order
     with open(data_utils.LABEL_FILES["nih14"]) as f:
         nih_classes = [c for c in f.read().splitlines() if c]
     idx_map = []
@@ -117,12 +134,19 @@ def main():
     metrics = compute_metrics(probs, targets, args.threshold)
 
     print("Evaluation summary:")
-    for k in ("exact_match", "micro_f1", "mean_auroc", "mean_ap"):
-        print(f"  {k}: {metrics[k]:.4f}")
+    print(f"  exact_match: {metrics['exact_match']:.4f}")
+    print(f"  micro_precision@{args.threshold}: {metrics['micro_precision']:.4f}")
+    print(f"  micro_recall@{args.threshold}: {metrics['micro_recall']:.4f}")
+    print(f"  mean_auroc: {metrics['mean_auroc']:.4f}")
+    print(f"  mean_ap: {metrics['mean_ap']:.4f}")
 
     print("\nPer-class AUROC / AP:")
     for cls, auc, ap in zip(metrics["classes"], metrics["aurocs"], metrics["aps"]):
         print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f}")
+
+    if args.pr_output:
+        save_pr_curves(args.pr_output, metrics)
+        print(f"\nSaved precision-recall curves to {args.pr_output}")
 
 
 if __name__ == "__main__":
