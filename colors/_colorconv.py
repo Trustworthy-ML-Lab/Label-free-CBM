@@ -122,6 +122,10 @@
 
 
 import numpy as np
+
+# NumPy 2.0 removed the bool8 alias; add it back for compatibility.
+if not hasattr(np, "bool8"):
+    np.bool8 = np.bool_
 from scipy import linalg
 from warnings import warn
 
