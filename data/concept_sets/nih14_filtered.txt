@@ -1,70 +1,48 @@
-collapsed lung segment
-volume loss with mediastinal shift
-crowded bronchovascular markings
-elevated hemidiaphragm contour
-plate-like discoid opacity
-enlarged cardiac silhouette
-rounded heart borders
-increased cardiothoracic ratio
-globular pericardial effusion look
-prominent cardiac apex touching chest wall
-dense lobar opacity
-air bronchograms within opacity
-silhouetting of diaphragm
-homogeneous lung whitening
-lobar pneumonia pattern
-bat wing perihilar opacities
-cephalization of pulmonary vessels
-interstitial kerley b lines
-diffuse fluffy airspace opacity
-perihilar haze with cardiomegaly
-blunted costophrenic angle
-meniscus sign fluid level
-layering pleural opacity
-complete hemithorax whiteout with shift
-subpulmonic effusion dome
-hyperlucent lungs with low diaphragm
-flattened hemidiaphragms
-saber sheath trachea
-bullous lucencies
-narrow cardiac silhouette from hyperinflation
-coarse reticular opacities
-volume loss with traction bronchiectasis
-honeycomb pattern at bases
-pleuroparenchymal scarring bands
-architectural distortion
-bowel gas above diaphragm
-stomach bubble in thorax
-air-fluid level within mediastinum
-congenital diaphragmatic hernia appearance
-loops of bowel in hemithorax
-patchy ill-defined opacity
-peribronchial hazy markings
-diffuse interstitial haze
-smudged bronchovascular bundles
-ground-glass like infiltration
-well-defined pulmonary nodule over 3 cm
-spiculated lung mass
-cavitating lesion with thick wall
-hilar mass enlarging mediastinum
-coin lesion with calcification
-solitary pulmonary nodule
-spiculated small nodule
-calcified granuloma dot
-pleural-based subcentimeter opacity
-clustered micronodules
-apical pleural cap
-localized pleural plaque
-diffuse pleural rind
-pleural peel with calcifications
-thickened pleural stripe
-airspace opacity with air bronchograms
-segmental infiltrate with fever pattern
-multilobar patchy consolidation
-round pneumonia lesion
-peribronchial cuffing with secretions
-visible visceral pleural line
-absence of lung markings periphery
-deep sulcus sign supine
-collapsed lung apex with lucency
-mediastinal shift tension pneumothorax
+crowded bronchovascular bundles abruptly tapering toward the right middle lobe fissure
+triangular juxtaphrenic peak with ipsilateral tracheal deviation
+bandlike subsegmental collapse hugging the left heart border
+luftblasen sign with collapsed upper lobe silhouetting the aortic knob
+water-bottle cardiac silhouette with smooth contour and hidden waist
+double density sign suggesting enlarged left atrium
+globular heart with pericardial fat stripe separation
+massive cardiomegaly occupying more than two thirds of thoracic width
+bat wing perihilar opacities with kerley b lines at lung bases
+cephalized pulmonary veins and indistinct hilar margins
+peribronchial cuffing plus pleural effusions in an upright film
+diffuse ground-glass edema with cardiomegaly and vascular redistribution
+meniscus-shaped opacity obscuring hemidiaphragm with contralateral mediastinal shift
+split pleura sign with enhancing visceral and parietal layers
+apical pleural cap with calcified rind from prior empyema
+bilateral lamellar pleural effusions tracking along costophrenic sulci
+flattened diaphragms with vertical heart and increased retrosternal lucency
+giant bulla occupying upper lobe with compressed surrounding parenchyma
+saber sheath trachea plus pruning of peripheral vasculature
+hyperlucent hemithorax with paucity of vascular markings and herniated lung
+basilar honeycombing with stacked cystic air spaces
+upper-lobe predominant reticulonodular pattern with traction bronchiectasis
+pleuroparenchymal fibroelastosis at lung apices
+diffuse interlobular septal thickening and architectural distortion
+sharp visceral pleural line with deep sulcus sign on supine film
+tension pneumothorax causing diaphragm inversion and mediastinal shift
+continuous diaphragm sign from free mediastinal air
+lucent costophrenic angle with absent lung markings and hyperexpanded rib spaces
+segmental airspace opacity with air bronchograms and bulging fissure sign
+tree-in-bud micro-nodularity in the right upper lobe
+cavitary pneumonia with air-fluid level and thick irregular wall
+round pediatric pneumonia abutting the pleura
+spiculated two centimeter pulmonary nodule with lobulated margins
+calcified hamartoma with popcorn pattern
+pancoast tumor eroding the first rib with apical cap
+solitary pulmonary nodule exhibiting fat density on radiograph
+circumferential pleural rind causing mediastinal encasement
+nodular pleural thickening with diaphragmatic involvement
+crowded ribs from chronic fibrothorax
+unilateral calcified pleural plaques along the posterolateral chest wall
+gastric bubble and bowel gas above diaphragm indicating hernia
+loops of bowel within hemithorax causing mediastinal shift
+bowel air fluid levels at base of thorax on erect film
+congenital diaphragmatic hernia with displaced liver shadow
+clustered micronodules along bronchovascular bundles
+well defined pleural based subcentimeter opacity
+cardiophrenic angle blunting with subpulmonic effusion dome
+double left paratracheal stripe from enlarged atrium

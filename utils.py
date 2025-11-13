@@ -1,8 +1,8 @@
 import os
 import math
 import torch
-import clip
 import data_utils
+from clip_loader import load_clip_encoder
 
 from tqdm import tqdm
 from torch.utils.data import DataLoader
@@ -23,7 +23,7 @@ def save_target_features(target_model, dataset, save_name, batch_size=512, devic
     torch.cuda.empty_cache()
     return
 
-def save_clip_image_features(model, dataset, save_name, batch_size=1000 , device = "cuda"):
+def save_clip_image_features(clip_wrapper, dataset, save_name, batch_size=1000 , device = "cuda"):
     _make_save_dir(save_name)
     all_features = []
     
@@ -35,7 +35,7 @@ def save_clip_image_features(model, dataset, save_name, batch_size=1000 , device
         os.makedirs(save_dir)
     with torch.no_grad():
         for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=8, pin_memory=True)):
-            features = model.encode_image(images.to(device))
+            features = clip_wrapper.encode_image(images.to(device))
             all_features.append(features.cpu())
     torch.save(torch.cat(all_features), save_name)
     #free memory
@@ -43,15 +43,18 @@ def save_clip_image_features(model, dataset, save_name, batch_size=1000 , device
     torch.cuda.empty_cache()
     return
 
-def save_clip_text_features(model, text, save_name, batch_size=1000):
+def save_clip_text_features(clip_wrapper, texts, save_name, batch_size=1000, device="cuda"):
     
     if os.path.exists(save_name):
         return
     _make_save_dir(save_name)
     text_features = []
     with torch.no_grad():
-        for i in tqdm(range(math.ceil(len(text)/batch_size))):
-            text_features.append(model.encode_text(text[batch_size*i:batch_size*(i+1)]))
+        for i in tqdm(range(math.ceil(len(texts)/batch_size))):
+            batch = texts[batch_size*i:batch_size*(i+1)]
+            tokens = clip_wrapper.tokenize(batch).to(device)
+            feats = clip_wrapper.encode_text(tokens)
+            text_features.append(feats.cpu())
     text_features = torch.cat(text_features, dim=0)
     torch.save(text_features, save_name)
     del text_features
@@ -65,7 +68,8 @@ def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, d
     if _all_saved(save_names):
         return
     
-    clip_model, clip_preprocess = clip.load(clip_name, device=device)
+    clip_wrapper = load_clip_encoder(clip_name, device)
+    clip_preprocess = clip_wrapper.preprocess
     
     target_model, target_preprocess = data_utils.get_target_model(target_name, device)
     #setup data
@@ -73,12 +77,12 @@ def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, d
     data_t = data_utils.get_data(d_probe, target_preprocess)
 
     with open(concept_set, 'r') as f: 
-        words = (f.read()).split('\n')
-    text = clip.tokenize(["{}".format(word) for word in words]).to(device)
+        words = [line for line in f.read().split('\n') if len(line)]
+    text_prompts = ["a chest radiograph showing {}".format(word) for word in words]
     
-    save_clip_text_features(clip_model, text, text_save_name, batch_size)
+    save_clip_text_features(clip_wrapper, text_prompts, text_save_name, batch_size, device)
     
-    save_clip_image_features(clip_model, data_c, clip_save_name, batch_size, device)
+    save_clip_image_features(clip_wrapper, data_c, clip_save_name, batch_size, device)
     save_target_features(target_model, data_t, target_save_name, batch_size, device)
     
     return
