@@ -19,7 +19,7 @@ parser.add_argument("--concept_set", type=str, default=None,
                     help="path to concept set name")
 parser.add_argument("--backbone", type=str, default="xrv_densenet121-res224-nih",
                     help="TorchXRayVision weights string, e.g., xrv_densenet121-res224-nih")
-parser.add_argument("--clip_name", type=str, default="ViT-B/16", help="Which CLIP model to use")
+parser.add_argument("--clip_name", type=str, default="biomedclip", help="Which CLIP model to use")
 parser.add_argument("--nih_img_dir", type=str, default=None,
                     help="Directory containing NIH ChestXray14 images (required for nih14 dataset)")
 parser.add_argument("--nih_train_fraction", type=float, default=0.9,
@@ -48,7 +48,10 @@ def train_cbm_and_save(args):
     if not os.path.exists(args.save_dir):
         os.mkdir(args.save_dir)
     if args.concept_set==None:
-        args.concept_set = "data/concept_sets/{}_filtered.txt".format(args.dataset)
+        if args.dataset == "nih14":
+            args.concept_set = "data/concept_sets/nih14_biomedclip.txt"
+        else:
+            args.concept_set = "data/concept_sets/{}_filtered.txt".format(args.dataset)
 
     if args.dataset == "nih14":
         views = [v.strip() for v in args.nih_views.split(",") if v.strip()]
