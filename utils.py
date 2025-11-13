@@ -8,14 +8,14 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 
 
-def save_target_features(target_model, dataset, save_name, batch_size=512, device="cuda"):
+def save_target_features(target_model, dataset, save_name, batch_size=512, device="cuda", num_workers=8):
     _make_save_dir(save_name)
     if os.path.exists(save_name):
         return
     feats = []
     target_model.eval()
     with torch.no_grad():
-        for images, _ in tqdm(DataLoader(dataset, batch_size, num_workers=8, pin_memory=True)):
+        for images, _ in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers, pin_memory=True)):
             features = target_model(images.to(device))
             feats.append(features.cpu())
     torch.save(torch.cat(feats), save_name)
@@ -23,7 +23,7 @@ def save_target_features(target_model, dataset, save_name, batch_size=512, devic
     torch.cuda.empty_cache()
     return
 
-def save_clip_image_features(clip_wrapper, dataset, save_name, batch_size=1000 , device = "cuda"):
+def save_clip_image_features(clip_wrapper, dataset, save_name, batch_size=1000 , device = "cuda", num_workers=8):
     _make_save_dir(save_name)
     all_features = []
     
@@ -34,7 +34,7 @@ def save_clip_image_features(clip_wrapper, dataset, save_name, batch_size=1000 ,
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     with torch.no_grad():
-        for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=8, pin_memory=True)):
+        for images, labels in tqdm(DataLoader(dataset, batch_size, num_workers=num_workers, pin_memory=True)):
             features = clip_wrapper.encode_image(images.to(device))
             all_features.append(features.cpu())
     torch.save(torch.cat(all_features), save_name)
@@ -61,7 +61,7 @@ def save_clip_text_features(clip_wrapper, texts, save_name, batch_size=1000, dev
     torch.cuda.empty_cache()
     return
 
-def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, device, save_dir):
+def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, device, save_dir, num_workers=8):
     target_save_name, clip_save_name, text_save_name = get_save_names(clip_name, target_name,
                                                                      d_probe, concept_set, save_dir)
     save_names = {"clip": clip_save_name, "text": text_save_name, "target": target_save_name}
@@ -82,8 +82,8 @@ def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, d
     
     save_clip_text_features(clip_wrapper, text_prompts, text_save_name, batch_size, device)
     
-    save_clip_image_features(clip_wrapper, data_c, clip_save_name, batch_size, device)
-    save_target_features(target_model, data_t, target_save_name, batch_size, device)
+    save_clip_image_features(clip_wrapper, data_c, clip_save_name, batch_size, device, num_workers=num_workers)
+    save_target_features(target_model, data_t, target_save_name, batch_size, device, num_workers=num_workers)
     
     return
     

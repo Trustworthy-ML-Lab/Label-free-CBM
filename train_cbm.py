@@ -42,6 +42,7 @@ parser.add_argument("--interpretability_cutoff", type=float, default=0.45, help=
 parser.add_argument("--lam", type=float, default=0.0007, help="Sparsity regularization parameter, higher->more sparse")
 parser.add_argument("--n_iters", type=int, default=1000, help="How many iterations to run the final layer solver for")
 parser.add_argument("--print", action='store_true', help="Print all concepts being deleted in this stage")
+parser.add_argument("--num_workers", type=int, default=8, help="Num workers for data loading when saving activations")
 
 def train_cbm_and_save(args):
     
@@ -80,7 +81,7 @@ def train_cbm_and_save(args):
         utils.save_activations(clip_name = args.clip_name, target_name = args.backbone,
                                d_probe = d_probe, concept_set = args.concept_set,
                                batch_size = args.batch_size, device = args.device,
-                               save_dir = args.activation_dir)
+                               save_dir = args.activation_dir, num_workers=args.num_workers)
         
     target_save_name, clip_save_name, text_save_name = utils.get_save_names(args.clip_name, args.backbone,
                                             d_train, args.concept_set, args.activation_dir)
