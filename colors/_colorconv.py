@@ -126,6 +126,13 @@ import numpy as np
 # NumPy 2.0 removed the bool8 alias; add it back for compatibility.
 if not hasattr(np, "bool8"):
     np.bool8 = np.bool_
+
+
+def _obj2sctype_safe(obj):
+    try:
+        return np.dtype(obj).type
+    except TypeError:
+        return obj
 from scipy import linalg
 from warnings import warn
 
@@ -819,7 +826,7 @@ def convert(image, dtype, force_copy=False, uniform=False):
     #   is a subclass of that type (e.g. `np.floating` will allow
     #   `float32` and `float64` arrays through)
 
-    if np.issubdtype(dtype_in, np.obj2sctype(dtype)):
+    if np.issubdtype(dtype_in, _obj2sctype_safe(dtype)):
         if force_copy:
             image = image.copy()
         return image
