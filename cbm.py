@@ -4,9 +4,9 @@ import torch
 import data_utils
 
 class CBM_model(torch.nn.Module):
-    def __init__(self, backbone_name, W_c, W_g, b_g, proj_mean, proj_std, device="cuda"):
+    def __init__(self, backbone_name, W_c, W_g, b_g, proj_mean, proj_std, device="cuda", backbone_ckpt=None):
         super().__init__()
-        model, _ = data_utils.get_target_model(backbone_name, device)
+        model, _ = data_utils.get_target_model(backbone_name, device, ckpt_path=backbone_ckpt)
         self.backbone = model
             
         self.proj_layer = torch.nn.Linear(in_features=W_c.shape[1], out_features=W_c.shape[0], bias=False).to(device)
@@ -27,9 +27,9 @@ class CBM_model(torch.nn.Module):
         return x, proj_c
 
 class standard_model(torch.nn.Module):
-    def __init__(self, backbone_name, W_g, b_g, proj_mean, proj_std, device="cuda"):
+    def __init__(self, backbone_name, W_g, b_g, proj_mean, proj_std, device="cuda", backbone_ckpt=None):
         super().__init__()
-        model, _ = data_utils.get_target_model(backbone_name, device)
+        model, _ = data_utils.get_target_model(backbone_name, device, ckpt_path=backbone_ckpt)
         self.backbone = model
             
         self.proj_mean = proj_mean
@@ -57,7 +57,8 @@ def load_cbm(load_dir, device):
     proj_mean = torch.load(os.path.join(load_dir, "proj_mean.pt"), map_location=device)
     proj_std = torch.load(os.path.join(load_dir, "proj_std.pt"), map_location=device)
 
-    model = CBM_model(args['backbone'], W_c, W_g, b_g, proj_mean, proj_std, device)
+    model = CBM_model(args['backbone'], W_c, W_g, b_g, proj_mean, proj_std, device,
+                      backbone_ckpt=args.get('backbone_ckpt'))
     return model
 
 def load_std(load_dir, device):
@@ -70,5 +71,6 @@ def load_std(load_dir, device):
     proj_mean = torch.load(os.path.join(load_dir, "proj_mean.pt"), map_location=device)
     proj_std = torch.load(os.path.join(load_dir, "proj_std.pt"), map_location=device)
 
-    model = standard_model(args['backbone'], W_g, b_g, proj_mean, proj_std, device)
+    model = standard_model(args['backbone'], W_g, b_g, proj_mean, proj_std, device,
+                           backbone_ckpt=args.get('backbone_ckpt'))
     return model

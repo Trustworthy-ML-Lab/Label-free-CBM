@@ -18,6 +18,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate a pretrained torchxrayvision model on NIH ChestXray14")
     parser.add_argument("--weights", default="densenet121-res224-nih",
                         help="torchxrayvision weights identifier (e.g., densenet121-res224-nih)")
+    parser.add_argument("--checkpoint", type=str, default=None,
+                        help="Optional path to a custom state dict to load after initializing weights")
     parser.add_argument("--nih_img_dir", required=True, help="Directory containing NIH images")
     parser.add_argument("--split", default="nih14_val", choices=["nih14_train", "nih14_val"],
                         help="Dataset split")
@@ -102,6 +104,9 @@ def main():
     loader, dataset = prepare_loader(args)
 
     model = xrv.models.get_model(weights=args.weights)
+    if args.checkpoint:
+        state = torch.load(args.checkpoint, map_location=args.device)
+        model.load_state_dict(state, strict=True)
     model = model.to(args.device)
     model.eval()
 

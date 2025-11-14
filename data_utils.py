@@ -8,8 +8,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchxrayvision as xrv
 
-LABEL_FILES = {"nih14": "data/nih14_classes.txt"}
-MULTILABEL_DATASETS = {"nih14"}
+LABEL_FILES = {
+    "nih14": "data/nih14_classes.txt",
+    "nih14_train": "data/nih14_classes.txt",
+    "nih14_val": "data/nih14_classes.txt"
+}
+MULTILABEL_DATASETS = {"nih14", "nih14_train", "nih14_val"}
 
 NIH_CFG = {
     "img_dir": os.environ.get("NIH_CXR_IMG_DIR"),
@@ -20,7 +24,9 @@ NIH_CFG = {
 
 
 def get_data(dataset_name, preprocess=None):
-    if dataset_name.startswith("nih14_"):
+    if dataset_name.startswith("nih14"):
+        if dataset_name == "nih14":
+            raise ValueError("Specify train/val split explicitly, e.g. nih14_train or nih14_val")
         split = dataset_name.split("_", 1)[1]
         if split not in ("train", "val"):
             raise ValueError("NIH dataset only supports 'train' and 'val' splits")
@@ -30,14 +36,17 @@ def get_data(dataset_name, preprocess=None):
 
 def get_targets_only(dataset_name):
     dataset = get_data(dataset_name)
-    return dataset.targets
+    return dataset.targets.clone().numpy()
 
 
-def get_target_model(target_name, device):
+def get_target_model(target_name, device, ckpt_path=None):
     if not target_name.startswith("xrv_"):
         raise ValueError("Only torchxrayvision backbones are supported. Use names like 'xrv_densenet121-res224-nih'")
     weight_key = target_name[4:]
     backbone = xrv.models.get_model(weights=weight_key)
+    if ckpt_path is not None:
+        state = torch.load(ckpt_path, map_location=device)
+        backbone.load_state_dict(state, strict=True)
     encoder = TorchXRayEncoder(backbone).to(device)
     encoder.eval()
     preprocess = get_xrv_preprocess()

@@ -19,6 +19,8 @@ parser.add_argument("--concept_set", type=str, default=None,
                     help="path to concept set name")
 parser.add_argument("--backbone", type=str, default="xrv_densenet121-res224-nih",
                     help="TorchXRayVision weights string, e.g., xrv_densenet121-res224-nih")
+parser.add_argument("--backbone_ckpt", type=str, default=None,
+                    help="Optional path to a fine-tuned backbone state dict")
 parser.add_argument("--clip_name", type=str, default="biomedclip", help="Which CLIP model to use")
 parser.add_argument("--nih_img_dir", type=str, default=None,
                     help="Directory containing NIH ChestXray14 images (required for nih14 dataset)")
@@ -81,7 +83,8 @@ def train_cbm_and_save(args):
         utils.save_activations(clip_name = args.clip_name, target_name = args.backbone,
                                d_probe = d_probe, concept_set = args.concept_set,
                                batch_size = args.batch_size, device = args.device,
-                               save_dir = args.activation_dir, num_workers=args.num_workers)
+                               save_dir = args.activation_dir, num_workers=args.num_workers,
+                               backbone_ckpt=args.backbone_ckpt)
         
     target_save_name, clip_save_name, text_save_name = utils.get_save_names(args.clip_name, args.backbone,
                                             d_train, args.concept_set, args.activation_dir)

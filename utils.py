@@ -61,7 +61,8 @@ def save_clip_text_features(clip_wrapper, texts, save_name, batch_size=1000, dev
     torch.cuda.empty_cache()
     return
 
-def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, device, save_dir, num_workers=8):
+def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, device, save_dir,
+                     num_workers=8, backbone_ckpt=None):
     target_save_name, clip_save_name, text_save_name = get_save_names(clip_name, target_name,
                                                                      d_probe, concept_set, save_dir)
     save_names = {"clip": clip_save_name, "text": text_save_name, "target": target_save_name}
@@ -71,7 +72,7 @@ def save_activations(clip_name, target_name, d_probe, concept_set, batch_size, d
     clip_wrapper = load_clip_encoder(clip_name, device)
     clip_preprocess = clip_wrapper.preprocess
     
-    target_model, target_preprocess = data_utils.get_target_model(target_name, device)
+    target_model, target_preprocess = data_utils.get_target_model(target_name, device, ckpt_path=backbone_ckpt)
     #setup data
     data_c = data_utils.get_data(d_probe, clip_preprocess)
     data_t = data_utils.get_data(d_probe, target_preprocess)
