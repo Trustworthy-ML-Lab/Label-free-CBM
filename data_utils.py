@@ -7,6 +7,7 @@ from torch.utils.data import Dataset
 import torch.nn as nn
 import torch.nn.functional as F
 import torchxrayvision as xrv
+import pandas as pd
 
 LABEL_FILES = {
     "nih14": "data/nih14_classes.txt",
@@ -22,6 +23,8 @@ NIH_CFG = {
     "split_seed": 0,
     "views": ("PA",)
 }
+
+_CLEANED_NIH_CSV = {}
 
 
 def get_data(dataset_name, preprocess=None):
@@ -54,11 +57,30 @@ def get_target_model(target_name, device, ckpt_path=None):
     return encoder, preprocess
 
 
+def _sanitize_nih_csv(path):
+    if path is None:
+        return None
+    abs_path = os.path.abspath(path)
+    if abs_path.endswith(".gz"):
+        return abs_path
+    cached = _CLEANED_NIH_CSV.get(abs_path)
+    if cached and os.path.exists(cached):
+        return cached
+    df = pd.read_csv(abs_path)
+    if "Patient Age" in df.columns and df["Patient Age"].dtype == object:
+        age_vals = df["Patient Age"].astype(str).str.extract(r"(\d+\.?\d*)", expand=False)
+        df["Patient Age"] = pd.to_numeric(age_vals, errors="coerce")
+    cleaned_path = abs_path + ".cleaned.csv"
+    df.to_csv(cleaned_path, index=False)
+    _CLEANED_NIH_CSV[abs_path] = cleaned_path
+    return cleaned_path
+
+
 def configure_nih_dataset(img_dir=None, csv_path=None, train_fraction=None, split_seed=None, views=None):
     if img_dir is not None:
         NIH_CFG["img_dir"] = img_dir
     if csv_path is not None:
-        NIH_CFG["csv_path"] = csv_path
+        NIH_CFG["csv_path"] = _sanitize_nih_csv(csv_path)
     if train_fraction is not None:
         if not (0 < train_fraction < 1):
             raise ValueError("train_fraction must be between 0 and 1")
