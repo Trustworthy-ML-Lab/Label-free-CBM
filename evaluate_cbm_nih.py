@@ -23,6 +23,8 @@ def parse_args():
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA", help="Comma separated view list (e.g., 'PA,AP')")
+    parser.add_argument("--nih_csv_path", type=str, default=None,
+                        help="Path to NIH Data_Entry CSV (defaults to torchxrayvision bundled file)")
     parser.add_argument("--num_workers", type=int, default=4)
     parser.add_argument("--pr_output", type=str, default=None,
                         help="Optional path to save per-class PR curves as JSON")
@@ -39,6 +41,7 @@ def load_backbone_name(model_dir):
 
 def prepare_dataset(split, backbone, cfg, num_workers):
     data_utils.configure_nih_dataset(img_dir=cfg["img_dir"],
+                                     csv_path=cfg.get("csv_path"),
                                      train_fraction=cfg["train_fraction"],
                                      split_seed=cfg["split_seed"],
                                      views=cfg["views"])
@@ -103,6 +106,7 @@ def main():
     views = [v.strip() for v in args.nih_views.split(',') if v.strip()]
     nih_cfg = {
         "img_dir": args.nih_img_dir,
+        "csv_path": args.nih_csv_path,
         "train_fraction": args.nih_train_fraction,
         "split_seed": args.nih_split_seed,
         "views": views,

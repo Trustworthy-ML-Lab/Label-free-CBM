@@ -23,6 +23,8 @@ def parse_args():
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA", help="Comma separated view list")
+    parser.add_argument("--nih_csv_path", type=str, default=None,
+                        help="Path to NIH Data_Entry CSV (defaults to torchxrayvision bundled file)")
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--lr", type=float, default=1e-4)
@@ -39,6 +41,7 @@ def parse_args():
 def prepare_loaders(args):
     views = [v.strip() for v in args.nih_views.split(",") if v.strip()]
     data_utils.configure_nih_dataset(img_dir=args.nih_img_dir,
+                                     csv_path=args.nih_csv_path,
                                      train_fraction=args.nih_train_fraction,
                                      split_seed=args.nih_split_seed,
                                      views=views)

@@ -17,6 +17,7 @@ MULTILABEL_DATASETS = {"nih14", "nih14_train", "nih14_val"}
 
 NIH_CFG = {
     "img_dir": os.environ.get("NIH_CXR_IMG_DIR"),
+    "csv_path": None,
     "train_fraction": 0.9,
     "split_seed": 0,
     "views": ("PA",)
@@ -53,9 +54,11 @@ def get_target_model(target_name, device, ckpt_path=None):
     return encoder, preprocess
 
 
-def configure_nih_dataset(img_dir=None, train_fraction=None, split_seed=None, views=None):
+def configure_nih_dataset(img_dir=None, csv_path=None, train_fraction=None, split_seed=None, views=None):
     if img_dir is not None:
         NIH_CFG["img_dir"] = img_dir
+    if csv_path is not None:
+        NIH_CFG["csv_path"] = csv_path
     if train_fraction is not None:
         if not (0 < train_fraction < 1):
             raise ValueError("train_fraction must be between 0 and 1")
@@ -82,7 +85,9 @@ class NIHChestXrayDataset(Dataset):
             raise ValueError("Set NIH_CXR_IMG_DIR or pass --nih_img_dir to point to the NIH images.")
         self.split = split
         self.preprocess = preprocess
+        csv_path = NIH_CFG["csv_path"] or xrv.datasets.USE_INCLUDED_FILE
         self.base = xrv.datasets.NIH_Dataset(imgpath=NIH_CFG["img_dir"],
+                                             csvpath=csv_path,
                                              views=list(NIH_CFG["views"]),
                                              unique_patients=True,
                                              transform=None,
