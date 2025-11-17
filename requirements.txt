@@ -1,6 +1,7 @@
-torch
+numpy>=2.0.0
+torch==2.5.1
+torchvision==0.20.1
 matplotlib >= 3.5.1
-torchvision >= 0.13
 gdown >= 4.7.1
 ftfy >= 6.1.1
 regex >= 2022.10.31
