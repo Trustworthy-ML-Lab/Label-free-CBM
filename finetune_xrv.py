@@ -1,4 +1,6 @@
 import argparse
+import importlib
+import importlib.util
 import json
 import os
 
@@ -19,6 +21,18 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Fine-tune a torchxrayvision model on NIH ChestXray14")
     parser.add_argument("--weights", default="densenet121-res224-nih",
                         help="torchxrayvision weights identifier, e.g. densenet121-res224-nih")
+    parser.add_argument("--custom_model", default=None,
+                        help="Python spec (<module>:<callable> or /path/to/file.py:callable) returning an "
+                             "nn.Module or (nn.Module, preprocess). Overrides --weights when set.")
+    parser.add_argument("--custom_model_args", default=None,
+                        help="JSON string or path describing keyword args passed to the custom callable.")
+    parser.add_argument("--custom_checkpoint", default=None,
+                        help="Optional checkpoint to load into the custom model.")
+    parser.add_argument("--custom_preprocess", default=None,
+                        help="Python callable spec that returns a torchvision transform to preprocess the data. "
+                             "Ignored if the custom model callable returns the transform directly.")
+    parser.add_argument("--custom_class_list", default=None,
+                        help="Path to newline separated class names describing the custom model output order.")
     parser.add_argument("--nih_img_dir", required=True, help="Path to NIH images (e.g., images-224)")
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
@@ -38,14 +52,39 @@ def parse_args():
     return parser.parse_args()
 
 
-def prepare_loaders(args):
+def _load_callable(spec):
+    if ":" not in spec:
+        raise ValueError(f"Callable spec '{spec}' must be in <module or file>:<attr> format.")
+    module_path, attr = spec.split(":", 1)
+    if module_path.endswith(".py") and os.path.exists(module_path):
+        module_name = f"_custom_module_{abs(hash(module_path))}"
+        spec_obj = importlib.util.spec_from_file_location(module_name, module_path)
+        module = importlib.util.module_from_spec(spec_obj)
+        assert spec_obj.loader is not None
+        spec_obj.loader.exec_module(module)
+    else:
+        module = importlib.import_module(module_path)
+    if not hasattr(module, attr):
+        raise AttributeError(f"{spec}: attribute '{attr}' not found")
+    return getattr(module, attr)
+
+
+def _load_json_arg(value):
+    if value is None:
+        return {}
+    if os.path.exists(value):
+        with open(value, "r") as fh:
+            return json.load(fh)
+    return json.loads(value)
+
+
+def prepare_loaders(args, preprocess):
     views = [v.strip() for v in args.nih_views.split(",") if v.strip()]
     data_utils.configure_nih_dataset(img_dir=args.nih_img_dir,
                                      csv_path=args.nih_csv_path,
                                      train_fraction=args.nih_train_fraction,
                                      split_seed=args.nih_split_seed,
                                      views=views)
-    preprocess = get_xrv_preprocess()
     train_ds = NIHChestXrayDataset(split="train", preprocess=preprocess)
     val_ds = NIHChestXrayDataset(split="val", preprocess=preprocess)
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
@@ -53,6 +92,12 @@ def prepare_loaders(args):
     val_loader = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False,
                             num_workers=args.num_workers, pin_memory=True)
     return train_loader, val_loader
+
+
+def _select_logits(logits, idx_map):
+    if idx_map is None:
+        return logits
+    return logits[:, idx_map]
 
 
 def evaluate(model, loader, device, idx_map):
@@ -63,7 +108,7 @@ def evaluate(model, loader, device, idx_map):
         for images, labels in loader:
             images = images.to(device)
             labels = labels.to(device)
-            logits = model(images)[:, idx_map]
+            logits = _select_logits(model(images), idx_map)
             all_logits.append(logits.cpu())
             all_targets.append(labels.cpu())
     logits = torch.cat(all_logits, dim=0).numpy()
@@ -77,24 +122,92 @@ def evaluate(model, loader, device, idx_map):
     return np.nanmean(aurocs)
 
 
+def _read_class_list(path):
+    with open(path, "r") as fh:
+        return [line.strip() for line in fh if line.strip()]
+
+
+def _normalize_name(name):
+    return name.replace("_", " ").lower()
+
+
+def _build_idx_map(target_classes, model_classes):
+    if model_classes is None:
+        return None
+    mapping = []
+    normalized = {cls: idx for idx, cls in enumerate(model_classes)}
+    normalized_lower = {_normalize_name(cls): idx for idx, cls in enumerate(model_classes)}
+    for name in target_classes:
+        candidates = [
+            name,
+            name.replace("_", " "),
+            _normalize_name(name),
+            _normalize_name(name.replace("_", " "))
+        ]
+        found_idx = None
+        for cand in candidates:
+            if cand in normalized:
+                found_idx = normalized[cand]
+                break
+            if cand in normalized_lower:
+                found_idx = normalized_lower[cand]
+                break
+        if found_idx is None:
+            raise ValueError(f"Class '{name}' not found in provided model output labels {model_classes}")
+        mapping.append(found_idx)
+    return mapping
+
+
+def _instantiate_model(args):
+    preprocess = None
+    model_classes = None
+    if args.custom_model:
+        builder = _load_callable(args.custom_model)
+        builder_kwargs = _load_json_arg(args.custom_model_args)
+        result = builder(**builder_kwargs)
+        if isinstance(result, tuple):
+            model, preprocess = result
+        else:
+            model = result
+        if not isinstance(model, nn.Module):
+            raise TypeError("Custom model callable must return an nn.Module or (nn.Module, preprocess)")
+        if args.custom_checkpoint:
+            state = torch.load(args.custom_checkpoint, map_location="cpu")
+            missing, unexpected = model.load_state_dict(state, strict=False)
+            if missing or unexpected:
+                print(f"Loaded custom checkpoint with missing keys {missing} and unexpected keys {unexpected}")
+        if preprocess is None:
+            if args.custom_preprocess:
+                preprocess_fn = _load_callable(args.custom_preprocess)
+                preprocess = preprocess_fn()
+            else:
+                preprocess = get_xrv_preprocess()
+        if args.custom_class_list:
+            model_classes = _read_class_list(args.custom_class_list)
+        elif hasattr(model, "pathologies"):
+            model_classes = list(model.pathologies)
+    else:
+        model = xrv.models.get_model(weights=args.weights)
+        preprocess = get_xrv_preprocess()
+        if hasattr(model, "pathologies"):
+            model_classes = list(model.pathologies)
+
+    model = model.to(args.device)
+    return model, preprocess, model_classes
+
+
 def main():
     args = parse_args()
     os.makedirs(args.output, exist_ok=True)
 
-    train_loader, val_loader = prepare_loaders(args)
-
-    model = xrv.models.get_model(weights=args.weights).to(args.device)
     with open(data_utils.LABEL_FILES["nih14"]) as f:
         nih_classes = [c for c in f.read().splitlines() if c]
-    idx_map = []
-    for name in nih_classes:
-        clean = name.replace("_", " ")
-        if name in model.pathologies:
-            idx_map.append(model.pathologies.index(name))
-        elif clean in model.pathologies:
-            idx_map.append(model.pathologies.index(clean))
-        else:
-            raise ValueError(f"Class '{name}' not found in model pathologies {model.pathologies}")
+
+    model, preprocess, model_classes = _instantiate_model(args)
+    idx_map = _build_idx_map(nih_classes, model_classes)
+
+    train_loader, val_loader = prepare_loaders(args, preprocess)
+
     if args.freeze_backbone:
         for name, param in model.named_parameters():
             if "classifier" not in name:
@@ -114,7 +227,7 @@ def main():
             images = images.to(args.device)
             labels = labels.to(args.device)
             optimizer.zero_grad()
-            logits = model(images)[:, idx_map]
+            logits = _select_logits(model(images), idx_map)
             loss = criterion(logits, labels)
             loss.backward()
             optimizer.step()
