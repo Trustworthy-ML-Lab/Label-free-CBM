@@ -23,6 +23,12 @@ def parse_args():
     parser.add_argument("--thresholds", type=str, default=None,
                         help="Optional JSON string or path specifying per-class thresholds "
                              "(list ordered as LABEL_FILES or {class: value}). Overrides --threshold.")
+    parser.add_argument("--sweep_thresholds", action="store_true",
+                        help="If set, sweep thresholds on this split (per class) to maximize F1 before computing metrics.")
+    parser.add_argument("--sweep_steps", type=int, default=201,
+                        help="Number of evenly spaced thresholds between 0 and 1 to evaluate when sweeping.")
+    parser.add_argument("--save_thresholds", type=str, default=None,
+                        help="Optional path to save the thresholds actually used for evaluation as JSON.")
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA", help="Comma separated view list (e.g., 'PA,AP')")
@@ -121,6 +127,43 @@ def compute_metrics(probs, targets, threshold, classes, per_class_thresholds=Non
     }
 
 
+def _f1_score(y_true, preds):
+    tp = np.logical_and(preds == 1, y_true == 1).sum()
+    fp = np.logical_and(preds == 1, y_true == 0).sum()
+    fn = np.logical_and(preds == 0, y_true == 1).sum()
+    denom = (2 * tp) + fp + fn
+    if denom == 0:
+        return 0.0
+    return (2 * tp) / denom
+
+
+def sweep_thresholds(probs, targets, classes, steps):
+    if steps < 2:
+        raise ValueError("sweep_steps must be >= 2")
+    grid = np.linspace(0.0, 1.0, steps)
+    num_classes = probs.shape[1]
+    best_thresholds = np.full(num_classes, 0.5, dtype=np.float32)
+    best_scores = np.full(num_classes, -np.inf, dtype=np.float32)
+    for idx in range(num_classes):
+        y_true = targets[:, idx]
+        if len(np.unique(y_true)) < 2:
+            continue
+        y_score = probs[:, idx]
+        for t in grid:
+            preds = (y_score > t).astype(np.float32)
+            score = _f1_score(y_true, preds)
+            if score > best_scores[idx]:
+                best_scores[idx] = score
+                best_thresholds[idx] = t
+    return best_thresholds, best_scores
+
+
+def save_thresholds(path, classes, values):
+    payload = {cls: float(val) for cls, val in zip(classes, values)}
+    with open(path, "w") as f:
+        json.dump(payload, f, indent=2)
+
+
 def save_pr_curves(path, metrics):
     payload = {
         "classes": metrics["classes"],
@@ -166,11 +209,28 @@ def main():
     classes_path = data_utils.LABEL_FILES["nih14"]
     with open(classes_path) as f:
         classes = [c for c in f.read().splitlines() if c]
-    threshold_values = _load_thresholds(args.thresholds, classes) if args.thresholds else None
+    threshold_values = None
+    sweep_scores = None
+    threshold_label = f"{args.threshold}"
+    if args.sweep_thresholds:
+        if args.thresholds:
+            print("Warning: --thresholds is ignored because --sweep_thresholds is set.")
+        threshold_values, sweep_scores = sweep_thresholds(probs, targets, classes, args.sweep_steps)
+        threshold_label = "swept"
+    elif args.thresholds:
+        threshold_values = _load_thresholds(args.thresholds, classes)
+        threshold_label = "loaded"
 
     metrics = compute_metrics(probs, targets, args.threshold, classes, threshold_values)
 
-    threshold_label = "per-class" if threshold_values is not None else f"{args.threshold}"
+    if threshold_values is None:
+        threshold_label = f"{args.threshold}"
+    elif args.sweep_thresholds:
+        threshold_label = "per-class(swept)"
+    elif args.thresholds:
+        threshold_label = "per-class(custom)"
+    else:
+        threshold_label = "per-class"
 
     print("Evaluation summary:")
     print(f"  exact_match: {metrics['exact_match']:.4f}")
@@ -182,6 +242,18 @@ def main():
     print("\nPer-class metrics:")
     for cls, auc, ap, acc in zip(metrics["classes"], metrics["aurocs"], metrics["aps"], metrics["per_class_accuracy"]):
         print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f} acc={acc:.4f}")
+
+    if sweep_scores is not None:
+        print("\nSwept thresholds (best F1 per class):")
+        for cls, thr, score in zip(classes, threshold_values, sweep_scores):
+            score_val = float(score) if score > -np.inf else float("nan")
+            print(f"  {cls:20s} thr={thr:.3f} f1={score_val:.4f}")
+
+    if args.save_thresholds and threshold_values is not None:
+        save_thresholds(args.save_thresholds, classes, threshold_values)
+        print(f"\nSaved thresholds to {args.save_thresholds}")
+    elif args.save_thresholds:
+        print("\nWarning: --save_thresholds specified but no thresholds were computed.")
 
     if args.pr_output:
         save_pr_curves(args.pr_output, metrics)
