@@ -1,0 +1,15 @@
+{
+  "weights": "densenet121-res224-nih",
+  "nih_img_dir": "/Users/atharvramesh/Projects/CBM/NIH/images-224",
+  "nih_train_fraction": 0.9,
+  "nih_split_seed": 0,
+  "nih_views": "PA",
+  "batch_size": 16,
+  "epochs": 1,
+  "lr": 0.0001,
+  "weight_decay": 1e-05,
+  "device": "cpu",
+  "num_workers": 0,
+  "output": "checkpoints/test_run",
+  "freeze_backbone": false
+}
