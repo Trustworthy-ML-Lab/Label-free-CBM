@@ -137,6 +137,12 @@ def _f1_score(y_true, preds):
     return (2 * tp) / denom
 
 
+def _accuracy_score(y_true, preds):
+    if y_true.size == 0:
+        return float("nan")
+    return (preds == y_true).mean()
+
+
 def sweep_thresholds(probs, targets, classes, steps):
     if steps < 2:
         raise ValueError("sweep_steps must be >= 2")
@@ -144,6 +150,7 @@ def sweep_thresholds(probs, targets, classes, steps):
     num_classes = probs.shape[1]
     best_thresholds = np.full(num_classes, 0.5, dtype=np.float32)
     best_scores = np.full(num_classes, -np.inf, dtype=np.float32)
+    best_accs = np.full(num_classes, np.nan, dtype=np.float32)
     for idx in range(num_classes):
         y_true = targets[:, idx]
         if len(np.unique(y_true)) < 2:
@@ -155,7 +162,9 @@ def sweep_thresholds(probs, targets, classes, steps):
             if score > best_scores[idx]:
                 best_scores[idx] = score
                 best_thresholds[idx] = t
-    return best_thresholds, best_scores
+                best_accs[idx] = _accuracy_score(y_true, preds)
+    best_scores = np.where(best_scores == -np.inf, np.nan, best_scores)
+    return best_thresholds, best_scores, best_accs
 
 
 def save_thresholds(path, classes, values):
@@ -212,10 +221,11 @@ def main():
 
     threshold_values = None
     sweep_scores = None
+    sweep_accs = None
     if args.sweep_thresholds:
         if args.thresholds:
             print("Warning: --thresholds is ignored because --sweep_thresholds is set.")
-        threshold_values, sweep_scores = sweep_thresholds(probs, targets, nih_classes, args.sweep_steps)
+        threshold_values, sweep_scores, sweep_accs = sweep_thresholds(probs, targets, nih_classes, args.sweep_steps)
     elif args.thresholds:
         threshold_values = _load_thresholds(args.thresholds, nih_classes)
     metrics = compute_metrics(probs, targets, args.threshold, nih_classes, threshold_values)
@@ -242,9 +252,10 @@ def main():
 
     if sweep_scores is not None:
         print("\nSwept thresholds (best F1 per class):")
-        for cls, thr, score in zip(nih_classes, threshold_values, sweep_scores):
+        for cls, thr, score, acc in zip(nih_classes, threshold_values, sweep_scores, sweep_accs):
             score_val = float(score) if score > -np.inf else float("nan")
-            print(f"  {cls:20s} thr={thr:.3f} f1={score_val:.4f}")
+            acc_val = float(acc) if not np.isnan(acc) else float("nan")
+            print(f"  {cls:20s} thr={thr:.3f} f1={score_val:.4f} acc={acc_val:.4f}")
 
     if args.save_thresholds and threshold_values is not None:
         save_thresholds(args.save_thresholds, nih_classes, threshold_values)
