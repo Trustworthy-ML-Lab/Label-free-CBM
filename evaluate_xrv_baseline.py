@@ -26,6 +26,8 @@ def parse_args():
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--threshold", type=float, default=0.5)
+    parser.add_argument("--thresholds", type=str, default=None,
+                        help="Optional JSON string or path for per-class thresholds (list or {class:value}).")
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA")
@@ -54,15 +56,38 @@ def prepare_loader(args):
     return loader, dataset
 
 
-def compute_metrics(probs, targets, threshold):
-    preds = (probs > threshold).astype(np.float32)
+def _load_thresholds(thresholds_arg, classes):
+    if thresholds_arg is None:
+        return None
+    if os.path.exists(thresholds_arg):
+        with open(thresholds_arg, "r") as f:
+            data = json.load(f)
+    else:
+        data = json.loads(thresholds_arg)
+    if isinstance(data, dict):
+        ordered = []
+        for cls in classes:
+            if cls not in data:
+                raise ValueError(f"Threshold for class '{cls}' missing in provided dict.")
+            ordered.append(float(data[cls]))
+        return np.asarray(ordered, dtype=np.float32)
+    values = np.asarray(data, dtype=np.float32)
+    if values.shape[0] != len(classes):
+        raise ValueError("Per-class threshold list must match number of classes.")
+    return values
+
+
+def compute_metrics(probs, targets, threshold, classes, per_class_thresholds=None):
+    num_classes = probs.shape[1]
+    if per_class_thresholds is not None:
+        thresholds = per_class_thresholds.reshape(1, num_classes)
+    else:
+        thresholds = np.full((1, num_classes), threshold, dtype=np.float32)
+    preds = (probs > thresholds).astype(np.float32)
     exact_match = (preds == targets).mean()
     micro_precision = ((preds * targets).sum()) / preds.sum() if preds.sum() > 0 else 0.0
-    micro_recall = ((preds * targets).sum()) / targets.sum()
-
-    classes_path = data_utils.LABEL_FILES["nih14"]
-    with open(classes_path) as f:
-        classes = [c for c in f.read().splitlines() if c]
+    positives = targets.sum()
+    micro_recall = ((preds * targets).sum()) / positives if positives > 0 else 0.0
 
     aurocs = []
     aps = []
@@ -80,6 +105,8 @@ def compute_metrics(probs, targets, threshold):
         precision, recall, _ = precision_recall_curve(y_true, y_score)
         pr_curves.append({"precision": precision.tolist(), "recall": recall.tolist()})
 
+    per_class_accuracy = (preds == targets).mean(axis=0)
+
     return {
         "exact_match": exact_match,
         "micro_precision": micro_precision,
@@ -88,6 +115,7 @@ def compute_metrics(probs, targets, threshold):
         "mean_ap": np.nanmean(aps),
         "aurocs": aurocs,
         "aps": aps,
+        "per_class_accuracy": per_class_accuracy,
         "pr_curves": pr_curves,
         "classes": classes,
     }
@@ -139,18 +167,21 @@ def main():
     probs = torch.cat(all_probs, dim=0).numpy()
     targets = torch.cat(all_targets, dim=0).numpy()
 
-    metrics = compute_metrics(probs, targets, args.threshold)
+    threshold_values = _load_thresholds(args.thresholds, nih_classes) if args.thresholds else None
+    metrics = compute_metrics(probs, targets, args.threshold, nih_classes, threshold_values)
+
+    threshold_label = "per-class" if threshold_values is not None else f"{args.threshold}"
 
     print("Evaluation summary:")
     print(f"  exact_match: {metrics['exact_match']:.4f}")
-    print(f"  micro_precision@{args.threshold}: {metrics['micro_precision']:.4f}")
-    print(f"  micro_recall@{args.threshold}: {metrics['micro_recall']:.4f}")
+    print(f"  micro_precision@{threshold_label}: {metrics['micro_precision']:.4f}")
+    print(f"  micro_recall@{threshold_label}: {metrics['micro_recall']:.4f}")
     print(f"  mean_auroc: {metrics['mean_auroc']:.4f}")
     print(f"  mean_ap: {metrics['mean_ap']:.4f}")
 
-    print("\nPer-class AUROC / AP:")
-    for cls, auc, ap in zip(metrics["classes"], metrics["aurocs"], metrics["aps"]):
-        print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f}")
+    print("\nPer-class metrics:")
+    for cls, auc, ap, acc in zip(metrics["classes"], metrics["aurocs"], metrics["aps"], metrics["per_class_accuracy"]):
+        print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f} acc={acc:.4f}")
 
     if args.pr_output:
         save_pr_curves(args.pr_output, metrics)
