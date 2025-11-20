@@ -33,6 +33,17 @@ parser.add_argument("--nih_views", type=str, default="PA",
 parser.add_argument("--nih_csv_path", type=str, default=None,
                     help="Path to NIH Data_Entry CSV (defaults to torchxrayvision bundled file)")
 
+parser.add_argument("--chex_img_dir", type=str, default=None,
+                    help="Directory containing CheXpert images (required for chex dataset)")
+parser.add_argument("--chex_train_fraction", type=float, default=0.9,
+                    help="Fraction of CheXpert data to use for training split")
+parser.add_argument("--chex_split_seed", type=int, default=0,
+                    help="Random seed for CheXpert train/val split")
+parser.add_argument("--chex_views", type=str, default="PA",
+                    help="Comma-separated list of views to include for CheXpert")
+parser.add_argument("--chex_csv_path", type=str, default=None,
+                    help="Path to CheXpert CSV (defaults to torchxrayvision bundled file)")
+
 parser.add_argument("--device", type=str, default="cuda", help="Which device to use")
 parser.add_argument("--batch_size", type=int, default=512, help="Batch size used when saving model/CLIP activations")
 parser.add_argument("--saga_batch_size", type=int, default=256, help="Batch size used when fitting final layer")
@@ -65,6 +76,13 @@ def train_cbm_and_save(args):
                                          train_fraction=args.nih_train_fraction,
                                          split_seed=args.nih_split_seed,
                                          views=views)
+    elif args.dataset == "chex":
+        views = [v.strip() for v in args.chex_views.split(",") if v.strip()]
+        data_utils.configure_chex_dataset(img_dir=args.chex_img_dir,
+                                          csv_path=args.chex_csv_path,
+                                          train_fraction=args.chex_train_fraction,
+                                          split_seed=args.chex_split_seed,
+                                          views=views)
         
     similarity_fn = similarity.cos_similarity_cubed_single
     

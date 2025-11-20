@@ -18,7 +18,9 @@ from data_utils import NIHChestXrayDataset, get_xrv_preprocess
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Fine-tune a torchxrayvision model on NIH ChestXray14")
+    parser = argparse.ArgumentParser(description="Fine-tune a torchxrayvision model on chest X-ray datasets")
+    parser.add_argument("--dataset", type=str, default="nih14", choices=["nih14", "chex"],
+                        help="Dataset to fine-tune on")
     parser.add_argument("--weights", default="densenet121-res224-nih",
                         help="torchxrayvision weights identifier, e.g. densenet121-res224-nih")
     parser.add_argument("--custom_model", default=None,
@@ -33,12 +35,19 @@ def parse_args():
                              "Ignored if the custom model callable returns the transform directly.")
     parser.add_argument("--custom_class_list", default=None,
                         help="Path to newline separated class names describing the custom model output order.")
-    parser.add_argument("--nih_img_dir", required=True, help="Path to NIH images (e.g., images-224)")
+    parser.add_argument("--nih_img_dir", type=str, default=None, help="Path to NIH images (e.g., images-224)")
     parser.add_argument("--nih_train_fraction", type=float, default=0.9)
     parser.add_argument("--nih_split_seed", type=int, default=0)
     parser.add_argument("--nih_views", type=str, default="PA", help="Comma separated view list")
     parser.add_argument("--nih_csv_path", type=str, default=None,
                         help="Path to NIH Data_Entry CSV (defaults to torchxrayvision bundled file)")
+    parser.add_argument("--chex_img_dir", type=str, default=None,
+                        help="Path to CheXpert images (required for chex dataset)")
+    parser.add_argument("--chex_train_fraction", type=float, default=0.9)
+    parser.add_argument("--chex_split_seed", type=int, default=0)
+    parser.add_argument("--chex_views", type=str, default="PA", help="Comma separated view list for CheXpert")
+    parser.add_argument("--chex_csv_path", type=str, default=None,
+                        help="Path to CheXpert CSV (defaults to torchxrayvision bundled file)")
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--lr", type=float, default=1e-4)
@@ -83,14 +92,30 @@ def _load_json_arg(value):
 
 
 def prepare_loaders(args, preprocess):
-    views = [v.strip() for v in args.nih_views.split(",") if v.strip()]
-    data_utils.configure_nih_dataset(img_dir=args.nih_img_dir,
-                                     csv_path=args.nih_csv_path,
-                                     train_fraction=args.nih_train_fraction,
-                                     split_seed=args.nih_split_seed,
-                                     views=views)
-    train_ds = NIHChestXrayDataset(split="train", preprocess=preprocess)
-    val_ds = NIHChestXrayDataset(split="val", preprocess=preprocess)
+    dataset_key = args.dataset
+    if dataset_key == "nih14":
+        if args.nih_img_dir is None:
+            raise ValueError("--nih_img_dir is required for NIH14 dataset")
+        views = [v.strip() for v in args.nih_views.split(",") if v.strip()]
+        data_utils.configure_nih_dataset(img_dir=args.nih_img_dir,
+                                         csv_path=args.nih_csv_path,
+                                         train_fraction=args.nih_train_fraction,
+                                         split_seed=args.nih_split_seed,
+                                         views=views)
+    elif dataset_key == "chex":
+        if args.chex_img_dir is None:
+            raise ValueError("--chex_img_dir is required for CheX dataset")
+        views = [v.strip() for v in args.chex_views.split(",") if v.strip()]
+        data_utils.configure_chex_dataset(img_dir=args.chex_img_dir,
+                                          csv_path=args.chex_csv_path,
+                                          train_fraction=args.chex_train_fraction,
+                                          split_seed=args.chex_split_seed,
+                                          views=views)
+    else:
+        raise ValueError(f"Unsupported dataset {dataset_key}")
+
+    train_ds = data_utils.get_data(f"{dataset_key}_train", preprocess=preprocess)
+    val_ds = data_utils.get_data(f"{dataset_key}_val", preprocess=preprocess)
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
                               num_workers=args.num_workers, pin_memory=True)
     val_loader = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False,
@@ -213,11 +238,12 @@ def main():
     args = parse_args()
     os.makedirs(args.output, exist_ok=True)
 
-    with open(data_utils.LABEL_FILES["nih14"]) as f:
-        nih_classes = [c for c in f.read().splitlines() if c]
+    label_file = data_utils.LABEL_FILES[args.dataset]
+    with open(label_file) as f:
+        dataset_classes = [c for c in f.read().splitlines() if c]
 
     model, preprocess, model_classes = _instantiate_model(args)
-    idx_map = _build_idx_map(nih_classes, model_classes)
+    idx_map = _build_idx_map(dataset_classes, model_classes)
 
     train_loader, val_loader, train_dataset = prepare_loaders(args, preprocess)
 
@@ -231,7 +257,7 @@ def main():
         if args.pos_weight_mode == "manual":
             if args.pos_weight_file is None:
                 raise ValueError("--pos_weight_file is required when pos_weight_mode='manual'")
-            pos_weight_tensor = _load_manual_pos_weight(args.pos_weight_file, len(nih_classes))
+            pos_weight_tensor = _load_manual_pos_weight(args.pos_weight_file, len(dataset_classes))
         else:
             labels = train_dataset.targets
             pos_counts = labels.sum(dim=0)

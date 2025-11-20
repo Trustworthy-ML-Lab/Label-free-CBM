@@ -12,12 +12,24 @@ import pandas as pd
 LABEL_FILES = {
     "nih14": "data/nih14_classes.txt",
     "nih14_train": "data/nih14_classes.txt",
-    "nih14_val": "data/nih14_classes.txt"
+    "nih14_val": "data/nih14_classes.txt",
+    "chex": "data/chex_classes.txt",
+    "chex_train": "data/chex_classes.txt",
+    "chex_val": "data/chex_classes.txt"
 }
-MULTILABEL_DATASETS = {"nih14", "nih14_train", "nih14_val"}
+MULTILABEL_DATASETS = {"nih14", "nih14_train", "nih14_val",
+                       "chex", "chex_train", "chex_val"}
 
 NIH_CFG = {
     "img_dir": os.environ.get("NIH_CXR_IMG_DIR"),
+    "csv_path": None,
+    "train_fraction": 0.9,
+    "split_seed": 0,
+    "views": ("PA",)
+}
+
+CHEX_CFG = {
+    "img_dir": os.environ.get("CHEXPERT_CXR_IMG_DIR"),
     "csv_path": None,
     "train_fraction": 0.9,
     "split_seed": 0,
@@ -35,6 +47,13 @@ def get_data(dataset_name, preprocess=None):
         if split not in ("train", "val"):
             raise ValueError("NIH dataset only supports 'train' and 'val' splits")
         return NIHChestXrayDataset(split=split, preprocess=preprocess)
+    if dataset_name.startswith("chex"):
+        if dataset_name == "chex":
+            raise ValueError("Specify train/val split explicitly, e.g. chex_train or chex_val")
+        split = dataset_name.split("_", 1)[1]
+        if split not in ("train", "val"):
+            raise ValueError("CheX dataset only supports 'train' and 'val' splits")
+        return CheXChestXrayDataset(split=split, preprocess=preprocess)
     raise ValueError(f"Unknown dataset {dataset_name}")
 
 
@@ -89,6 +108,21 @@ def configure_nih_dataset(img_dir=None, csv_path=None, train_fraction=None, spli
         NIH_CFG["split_seed"] = int(split_seed)
     if views is not None and len(views) > 0:
         NIH_CFG["views"] = tuple(views)
+
+
+def configure_chex_dataset(img_dir=None, csv_path=None, train_fraction=None, split_seed=None, views=None):
+    if img_dir is not None:
+        CHEX_CFG["img_dir"] = img_dir
+    if csv_path is not None:
+        CHEX_CFG["csv_path"] = csv_path
+    if train_fraction is not None:
+        if not (0 < train_fraction < 1):
+            raise ValueError("train_fraction must be between 0 and 1")
+        CHEX_CFG["train_fraction"] = float(train_fraction)
+    if split_seed is not None:
+        CHEX_CFG["split_seed"] = int(split_seed)
+    if views is not None and len(views) > 0:
+        CHEX_CFG["views"] = tuple(views)
 
 
 def get_xrv_preprocess():
@@ -163,6 +197,40 @@ class NIHChestXrayDataset(Dataset):
             img /= denom
         img = (img * 255.0).clip(0, 255).astype(np.uint8)
         return Image.fromarray(img).convert("RGB")
+
+
+class CheXChestXrayDataset(Dataset):
+    def __init__(self, split, preprocess=None):
+        if CHEX_CFG["img_dir"] is None:
+            raise ValueError("Set CHEXPERT_CXR_IMG_DIR or pass --chex_img_dir to point to the CheXpert images.")
+        self.split = split
+        self.preprocess = preprocess
+        csv_path = CHEX_CFG["csv_path"] or xrv.datasets.USE_INCLUDED_FILE
+        self.base = xrv.datasets.CheX_Dataset(imgpath=CHEX_CFG["img_dir"],
+                                              csvpath=csv_path,
+                                              views=list(CHEX_CFG["views"]),
+                                              transform=None,
+                                              data_aug=None)
+        self.indices = NIHChestXrayDataset._select_indices(len(self.base), split,
+                                                           CHEX_CFG["train_fraction"],
+                                                           CHEX_CFG["split_seed"])
+        labels = self.base.labels[self.indices]
+        labels = np.nan_to_num(labels, nan=0.0)
+        self.targets = torch.from_numpy(labels.copy()).float()
+
+    def __len__(self):
+        return len(self.indices)
+
+    def __getitem__(self, idx):
+        base_idx = int(self.indices[idx])
+        sample = self.base[base_idx]
+        img = NIHChestXrayDataset._to_pil(sample["img"])
+        if self.preprocess is not None:
+            img_tensor = self.preprocess(img)
+        else:
+            img_tensor = transforms.ToTensor()(img)
+        label = torch.from_numpy(np.nan_to_num(sample["lab"], nan=0.0)).float()
+        return img_tensor, label
 
 
 class TorchXRayEncoder(nn.Module):
