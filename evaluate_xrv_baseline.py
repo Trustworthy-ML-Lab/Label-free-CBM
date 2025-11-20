@@ -112,6 +112,10 @@ def compute_metrics(probs, targets, threshold, classes, per_class_thresholds=Non
         pr_curves.append({"precision": precision.tolist(), "recall": recall.tolist()})
 
     per_class_accuracy = (preds == targets).mean(axis=0)
+    tp = (preds * targets).sum(axis=0)
+    fp = (preds * (1 - targets)).sum(axis=0)
+    fn = ((1 - preds) * targets).sum(axis=0)
+    tn = ((1 - preds) * (1 - targets)).sum(axis=0)
 
     return {
         "exact_match": exact_match,
@@ -122,6 +126,12 @@ def compute_metrics(probs, targets, threshold, classes, per_class_thresholds=Non
         "aurocs": aurocs,
         "aps": aps,
         "per_class_accuracy": per_class_accuracy,
+        "confusion": {
+            "tp": tp,
+            "tn": tn,
+            "fp": fp,
+            "fn": fn,
+        },
         "pr_curves": pr_curves,
         "classes": classes,
     }
@@ -273,8 +283,15 @@ def main():
     print(f"  mean_ap: {metrics['mean_ap']:.4f}")
 
     print("\nPer-class metrics:")
-    for cls, auc, ap, acc in zip(metrics["classes"], metrics["aurocs"], metrics["aps"], metrics["per_class_accuracy"]):
-        print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f} acc={acc:.4f}")
+    confusion = metrics["confusion"]
+    for idx, (cls, auc, ap, acc) in enumerate(zip(metrics["classes"], metrics["aurocs"],
+                                                 metrics["aps"], metrics["per_class_accuracy"])):
+        tp = confusion["tp"][idx]
+        tn = confusion["tn"][idx]
+        fp = confusion["fp"][idx]
+        fn = confusion["fn"][idx]
+        print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f} acc={acc:.4f} "
+              f"tp={tp} tn={tn} fp={fp} fn={fn}")
 
     if sweep_scores is not None:
         print(f"\nSwept thresholds (best {sweep_label} per class):")
