@@ -143,7 +143,16 @@ def _accuracy_score(y_true, preds):
     return (preds == y_true).mean()
 
 
-def sweep_thresholds(probs, targets, classes, steps):
+def _precision_score(y_true, preds):
+    tp = np.logical_and(preds == 1, y_true == 1).sum()
+    fp = np.logical_and(preds == 1, y_true == 0).sum()
+    denom = tp + fp
+    if denom == 0:
+        return 0.0
+    return tp / denom
+
+
+def sweep_thresholds(probs, targets, classes, steps, metric="f1"):
     if steps < 2:
         raise ValueError("sweep_steps must be >= 2")
     grid = np.linspace(0.0, 1.0, steps)
@@ -151,6 +160,12 @@ def sweep_thresholds(probs, targets, classes, steps):
     best_thresholds = np.full(num_classes, 0.5, dtype=np.float32)
     best_scores = np.full(num_classes, -np.inf, dtype=np.float32)
     best_accs = np.full(num_classes, np.nan, dtype=np.float32)
+    if metric == "precision":
+        scoring_fn = _precision_score
+        score_label = "precision"
+    else:
+        scoring_fn = _f1_score
+        score_label = "f1"
     for idx in range(num_classes):
         y_true = targets[:, idx]
         if len(np.unique(y_true)) < 2:
@@ -158,13 +173,13 @@ def sweep_thresholds(probs, targets, classes, steps):
         y_score = probs[:, idx]
         for t in grid:
             preds = (y_score > t).astype(np.float32)
-            score = _f1_score(y_true, preds)
+            score = scoring_fn(y_true, preds)
             if score > best_scores[idx]:
                 best_scores[idx] = score
                 best_thresholds[idx] = t
                 best_accs[idx] = _accuracy_score(y_true, preds)
     best_scores = np.where(best_scores == -np.inf, np.nan, best_scores)
-    return best_thresholds, best_scores, best_accs
+    return best_thresholds, best_scores, best_accs, score_label
 
 
 def save_thresholds(path, classes, values):
@@ -221,12 +236,13 @@ def main():
     threshold_values = None
     sweep_scores = None
     sweep_accs = None
-    threshold_label = f"{args.threshold}"
+    sweep_label = "f1"
     if args.sweep_thresholds:
         if args.thresholds:
             print("Warning: --thresholds is ignored because --sweep_thresholds is set.")
-        threshold_values, sweep_scores, sweep_accs = sweep_thresholds(probs, targets, classes, args.sweep_steps)
-        threshold_label = "swept"
+        threshold_values, sweep_scores, sweep_accs, sweep_label = sweep_thresholds(
+            probs, targets, classes, args.sweep_steps, metric=args.sweep_metric
+        )
     elif args.thresholds:
         threshold_values = _load_thresholds(args.thresholds, classes)
         threshold_label = "loaded"
@@ -236,7 +252,8 @@ def main():
     if threshold_values is None:
         threshold_label = f"{args.threshold}"
     elif args.sweep_thresholds:
-        threshold_label = "per-class(swept)"
+        suffix = f"(swept-{sweep_label})"
+        threshold_label = f"per-class{suffix}"
     elif args.thresholds:
         threshold_label = "per-class(custom)"
     else:
@@ -254,11 +271,11 @@ def main():
         print(f"  {cls:20s} auc={auc:.4f} ap={ap:.4f} acc={acc:.4f}")
 
     if sweep_scores is not None:
-        print("\nSwept thresholds (best F1 per class):")
+        print(f"\nSwept thresholds (best {sweep_label} per class):")
         for cls, thr, score, acc in zip(classes, threshold_values, sweep_scores, sweep_accs):
             score_val = float(score) if score > -np.inf else float("nan")
             acc_val = float(acc) if not np.isnan(acc) else float("nan")
-            print(f"  {cls:20s} thr={thr:.3f} f1={score_val:.4f} acc={acc_val:.4f}")
+            print(f"  {cls:20s} thr={thr:.3f} {sweep_label}={score_val:.4f} acc={acc_val:.4f}")
 
     if args.save_thresholds and threshold_values is not None:
         save_thresholds(args.save_thresholds, classes, threshold_values)
@@ -273,3 +290,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    parser.add_argument("--sweep_metric", type=str, default="f1", choices=["f1", "precision"],
+                        help="Metric to maximize when sweeping thresholds.")
