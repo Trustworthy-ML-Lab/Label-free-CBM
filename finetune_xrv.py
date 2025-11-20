@@ -49,6 +49,10 @@ def parse_args():
                         help="Directory to save fine-tuned checkpoint (state_dict.pth and config.json)")
     parser.add_argument("--freeze_backbone", action="store_true",
                         help="If set, only fine-tune classifier head")
+    parser.add_argument("--pos_weight_mode", type=str, default="none", choices=["none", "balanced", "manual"],
+                        help="Class-imbalance handling for BCE loss. 'balanced' uses neg/pos ratios from the train split.")
+    parser.add_argument("--pos_weight_file", type=str, default=None,
+                        help="Optional JSON path containing a list of manual pos_weight values (length must equal #classes).")
     return parser.parse_args()
 
 
@@ -91,7 +95,7 @@ def prepare_loaders(args, preprocess):
                               num_workers=args.num_workers, pin_memory=True)
     val_loader = DataLoader(val_ds, batch_size=args.batch_size, shuffle=False,
                             num_workers=args.num_workers, pin_memory=True)
-    return train_loader, val_loader
+    return train_loader, val_loader, train_ds
 
 
 def _select_logits(logits, idx_map):
@@ -196,6 +200,15 @@ def _instantiate_model(args):
     return model, preprocess, model_classes
 
 
+def _load_manual_pos_weight(path, num_classes):
+    with open(path, "r") as f:
+        data = json.load(f)
+    values = np.asarray(data, dtype=np.float32)
+    if values.shape[0] != num_classes:
+        raise ValueError("Manual pos_weight list must match number of classes.")
+    return torch.from_numpy(values)
+
+
 def main():
     args = parse_args()
     os.makedirs(args.output, exist_ok=True)
@@ -206,14 +219,30 @@ def main():
     model, preprocess, model_classes = _instantiate_model(args)
     idx_map = _build_idx_map(nih_classes, model_classes)
 
-    train_loader, val_loader = prepare_loaders(args, preprocess)
+    train_loader, val_loader, train_dataset = prepare_loaders(args, preprocess)
 
     if args.freeze_backbone:
         for name, param in model.named_parameters():
             if "classifier" not in name:
                 param.requires_grad = False
 
-    criterion = nn.BCEWithLogitsLoss()
+    pos_weight_tensor = None
+    if args.pos_weight_mode != "none":
+        if args.pos_weight_mode == "manual":
+            if args.pos_weight_file is None:
+                raise ValueError("--pos_weight_file is required when pos_weight_mode='manual'")
+            pos_weight_tensor = _load_manual_pos_weight(args.pos_weight_file, len(nih_classes))
+        else:
+            labels = train_dataset.targets
+            pos_counts = labels.sum(dim=0)
+            neg_counts = labels.shape[0] - pos_counts
+            pos_counts = torch.clamp(pos_counts, min=1.0)
+            pos_weight_tensor = neg_counts / pos_counts
+        print("Using pos_weight:", pos_weight_tensor.tolist())
+        criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight_tensor.to(args.device))
+    else:
+        criterion = nn.BCEWithLogitsLoss()
+
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
                                  lr=args.lr, weight_decay=args.weight_decay)
 

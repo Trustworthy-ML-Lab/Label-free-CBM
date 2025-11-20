@@ -1,12 +1,14 @@
 import argparse
 import json
 import os
+import sys
 
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from sklearn.metrics import roc_auc_score, average_precision_score, precision_recall_curve
+import matplotlib.pyplot as plt
 
 import torchxrayvision as xrv
 
@@ -38,10 +40,14 @@ def parse_args():
                         help="If set, sweep per-class thresholds (maximizing F1) on this split before reporting metrics.")
     parser.add_argument("--sweep_steps", type=int, default=201,
                         help="Number of thresholds between 0 and 1 to evaluate when sweeping.")
+    parser.add_argument("--sweep_metric", type=str, default="f1", choices=["f1", "precision"],
+                        help="Metric to maximize when sweeping thresholds.")
     parser.add_argument("--save_thresholds", type=str, default=None,
                         help="Optional path to save the thresholds actually used for evaluation as JSON.")
     parser.add_argument("--pr_output", type=str, default=None,
                         help="Optional JSON path to dump per-class PR curves")
+    parser.add_argument("--confusion_plot", type=str, default=None,
+                        help="Optional path to save confusion matrix plots.")
     return parser.parse_args()
 
 
@@ -212,6 +218,42 @@ def save_pr_curves(path, metrics):
         json.dump(payload, f, indent=2)
 
 
+def plot_confusion(classes, confusion, threshold_label, path=None):
+    tp = confusion["tp"]
+    tn = confusion["tn"]
+    fp = confusion["fp"]
+    fn = confusion["fn"]
+    fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+    matrix = np.array([[tp.sum(), fp.sum()], [fn.sum(), tn.sum()]])
+    im = axes[0].imshow(matrix, cmap="Blues")
+    axes[0].set_xticks([0, 1])
+    axes[0].set_xticklabels(["Positive", "Negative"])
+    axes[0].set_yticks([0, 1])
+    axes[0].set_yticklabels(["Positive", "Negative"])
+    axes[0].set_title(f"Overall Confusion Matrix ({threshold_label})")
+    for i in range(2):
+        for j in range(2):
+            axes[0].text(j, i, int(matrix[i, j]), ha="center", va="center", color="black")
+    fig.colorbar(im, ax=axes[0])
+
+    indices = np.arange(len(classes))
+    axes[1].bar(indices - 0.15, tp, width=0.1, label="TP")
+    axes[1].bar(indices - 0.05, fp, width=0.1, label="FP")
+    axes[1].bar(indices + 0.05, fn, width=0.1, label="FN")
+    axes[1].bar(indices + 0.15, tn, width=0.1, label="TN")
+    axes[1].set_xticks(indices)
+    axes[1].set_xticklabels(classes, rotation=90)
+    axes[1].set_title("Per-class Counts")
+    axes[1].legend()
+    fig.tight_layout()
+    if path:
+        fig.savefig(path, bbox_inches="tight")
+        plt.close(fig)
+    else:
+        plt.show()
+
+
 def main():
     args = parse_args()
     loader, dataset = prepare_loader(args)
@@ -319,6 +361,11 @@ def main():
     if args.pr_output:
         save_pr_curves(args.pr_output, metrics)
         print(f"\nSaved precision-recall curves to {args.pr_output}")
+    if args.confusion_plot:
+        plot_confusion(nih_classes, metrics["confusion"], threshold_label, args.confusion_plot)
+        print(f"Saved confusion plots to {args.confusion_plot}")
+    elif args.confusion_plot is None and sys.stdout.isatty():
+        plot_confusion(nih_classes, metrics["confusion"], threshold_label)
 
 
 if __name__ == "__main__":
