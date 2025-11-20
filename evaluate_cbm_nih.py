@@ -127,59 +127,53 @@ def compute_metrics(probs, targets, threshold, classes, per_class_thresholds=Non
     }
 
 
-def _f1_score(y_true, preds):
-    tp = np.logical_and(preds == 1, y_true == 1).sum()
-    fp = np.logical_and(preds == 1, y_true == 0).sum()
-    fn = np.logical_and(preds == 0, y_true == 1).sum()
-    denom = (2 * tp) + fp + fn
-    if denom == 0:
-        return 0.0
-    return (2 * tp) / denom
-
-
-def _accuracy_score(y_true, preds):
-    if y_true.size == 0:
-        return float("nan")
-    return (preds == y_true).mean()
-
-
-def _precision_score(y_true, preds):
-    tp = np.logical_and(preds == 1, y_true == 1).sum()
-    fp = np.logical_and(preds == 1, y_true == 0).sum()
-    denom = tp + fp
-    if denom == 0:
-        return 0.0
-    return tp / denom
-
-
-def sweep_thresholds(probs, targets, classes, steps, metric="f1"):
+def sweep_thresholds(probs, targets, steps, metric="f1"):
     if steps < 2:
         raise ValueError("sweep_steps must be >= 2")
-    grid = np.linspace(0.0, 1.0, steps)
-    num_classes = probs.shape[1]
-    best_thresholds = np.full(num_classes, 0.5, dtype=np.float32)
-    best_scores = np.full(num_classes, -np.inf, dtype=np.float32)
-    best_accs = np.full(num_classes, np.nan, dtype=np.float32)
-    if metric == "precision":
-        scoring_fn = _precision_score
-        score_label = "precision"
-    else:
-        scoring_fn = _f1_score
-        score_label = "f1"
-    for idx in range(num_classes):
-        y_true = targets[:, idx]
-        if len(np.unique(y_true)) < 2:
-            continue
-        y_score = probs[:, idx]
-        for t in grid:
-            preds = (y_score > t).astype(np.float32)
-            score = scoring_fn(y_true, preds)
-            if score > best_scores[idx]:
-                best_scores[idx] = score
-                best_thresholds[idx] = t
-                best_accs[idx] = _accuracy_score(y_true, preds)
-    best_scores = np.where(best_scores == -np.inf, np.nan, best_scores)
-    return best_thresholds, best_scores, best_accs, score_label
+    thresholds = np.linspace(0.0, 1.0, steps, dtype=np.float32)
+    probs = probs.astype(np.float32)
+    targets_bool = targets.astype(bool)
+    total = targets.shape[0]
+
+    expanded_probs = probs[None, :, :]
+    expanded_targets = targets_bool[None, :, :]
+    threshold_grid = thresholds[:, None, None]
+
+    preds = expanded_probs > threshold_grid
+
+    tp = np.logical_and(preds, expanded_targets).sum(axis=1).astype(np.float32)
+    fp = np.logical_and(preds, np.logical_not(expanded_targets)).sum(axis=1).astype(np.float32)
+    fn = np.logical_and(np.logical_not(preds), expanded_targets).sum(axis=1).astype(np.float32)
+    tn = (total - tp - fp - fn).astype(np.float32)
+
+    precision = np.divide(tp, tp + fp, out=np.zeros_like(tp), where=(tp + fp) > 0)
+    recall = np.divide(tp, tp + fn, out=np.zeros_like(tp), where=(tp + fn) > 0)
+    f1 = np.divide(2 * precision * recall, precision + recall,
+                   out=np.zeros_like(precision), where=(precision + recall) > 0)
+    accuracy = (tp + tn) / max(total, 1)
+
+    metric_scores = f1 if metric == "f1" else precision
+    score_label = "f1" if metric == "f1" else "precision"
+
+    valid = (targets_bool.sum(axis=0) > 0) & (targets_bool.sum(axis=0) < total)
+    metric_scores[:, ~valid] = -np.inf
+
+    best_idx = np.argmax(metric_scores, axis=0)
+    cols = np.arange(probs.shape[1])
+
+    best_thresholds = thresholds[best_idx]
+    best_thresholds = np.where(valid, best_thresholds, np.nan)
+    best_scores = metric_scores[best_idx, cols]
+    best_scores = np.where(valid, best_scores, np.nan)
+
+    best_accs = accuracy[best_idx, cols]
+    best_accs = np.where(valid, best_accs, np.nan)
+    best_precision = precision[best_idx, cols]
+    best_precision = np.where(valid, best_precision, np.nan)
+    best_recall = recall[best_idx, cols]
+    best_recall = np.where(valid, best_recall, np.nan)
+
+    return best_thresholds, best_scores, best_accs, best_precision, best_recall, score_label
 
 
 def save_thresholds(path, classes, values):
@@ -236,16 +230,20 @@ def main():
     threshold_values = None
     sweep_scores = None
     sweep_accs = None
+    sweep_precisions = None
+    sweep_recalls = None
     sweep_label = "f1"
+    display_thresholds = None
     if args.sweep_thresholds:
         if args.thresholds:
             print("Warning: --thresholds is ignored because --sweep_thresholds is set.")
-        threshold_values, sweep_scores, sweep_accs, sweep_label = sweep_thresholds(
-            probs, targets, classes, args.sweep_steps, metric=args.sweep_metric
+        display_thresholds, sweep_scores, sweep_accs, sweep_precisions, sweep_recalls, sweep_label = sweep_thresholds(
+            probs, targets, args.sweep_steps, metric=args.sweep_metric
         )
+        threshold_values = np.where(np.isnan(display_thresholds), args.threshold, display_thresholds)
     elif args.thresholds:
         threshold_values = _load_thresholds(args.thresholds, classes)
-        threshold_label = "loaded"
+        display_thresholds = threshold_values.copy()
 
     metrics = compute_metrics(probs, targets, args.threshold, classes, threshold_values)
 
@@ -272,10 +270,20 @@ def main():
 
     if sweep_scores is not None:
         print(f"\nSwept thresholds (best {sweep_label} per class):")
-        for cls, thr, score, acc in zip(classes, threshold_values, sweep_scores, sweep_accs):
-            score_val = float(score) if score > -np.inf else float("nan")
-            acc_val = float(acc) if not np.isnan(acc) else float("nan")
-            print(f"  {cls:20s} thr={thr:.3f} {sweep_label}={score_val:.4f} acc={acc_val:.4f}")
+        for idx, cls in enumerate(classes):
+            thr = display_thresholds[idx]
+            thr_str = f"{thr:.3f}" if thr == thr else "n/a"
+            prec = sweep_precisions[idx]
+            rec = sweep_recalls[idx]
+            acc = sweep_accs[idx]
+            sc = sweep_scores[idx]
+            f1_val = 2 * prec * rec / (prec + rec) if prec == prec and rec == rec and (prec + rec) > 0 else float("nan")
+            auc = metrics["aurocs"][idx]
+            print(
+                f"  {cls:20s} thr={thr_str:>5} auc={auc:.4f} "
+                f"acc={acc:.4f} prec={prec:.4f} rec={rec:.4f} f1={f1_val:.4f} "
+                f"{sweep_label}={sc:.4f}"
+            )
 
     if args.save_thresholds and threshold_values is not None:
         save_thresholds(args.save_thresholds, classes, threshold_values)
