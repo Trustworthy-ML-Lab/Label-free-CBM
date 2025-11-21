@@ -211,7 +211,12 @@ class CheXChestXrayDataset(Dataset):
                                               views=list(CHEX_CFG["views"]),
                                               transform=None,
                                               data_aug=None)
-        xrv.datasets.relabel_dataset(xrv.datasets.default_pathologies, self.base, silent=True)
+        target_order = ["Atelectasis", "Cardiomegaly", "Consolidation", "Edema", "Effusion",
+                        "Emphysema", "Fibrosis", "Hernia", "Infiltration", "Mass",
+                        "Nodule", "Pleural_Thickening", "Pneumonia", "Pneumothorax",
+                        "Enlarged Cardiomediastinum", "Lung Opacity", "Lung Lesion",
+                        "Fracture", "Support Devices"]
+        xrv.datasets.relabel_dataset(target_order, self.base, silent=True)
         self.indices = NIHChestXrayDataset._select_indices(len(self.base), split,
                                                            CHEX_CFG["train_fraction"],
                                                            CHEX_CFG["split_seed"])
