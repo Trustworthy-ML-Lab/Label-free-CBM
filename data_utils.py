@@ -31,6 +31,7 @@ NIH_CFG = {
 CHEX_CFG = {
     "img_dir": os.environ.get("CHEXPERT_CXR_IMG_DIR"),
     "csv_path": None,
+    "val_csv_path": None,
     "train_fraction": 0.9,
     "split_seed": 0,
     "views": ("PA",)
@@ -110,11 +111,14 @@ def configure_nih_dataset(img_dir=None, csv_path=None, train_fraction=None, spli
         NIH_CFG["views"] = tuple(views)
 
 
-def configure_chex_dataset(img_dir=None, csv_path=None, train_fraction=None, split_seed=None, views=None):
+def configure_chex_dataset(img_dir=None, csv_path=None, val_csv_path=None,
+                           train_fraction=None, split_seed=None, views=None):
     if img_dir is not None:
         CHEX_CFG["img_dir"] = img_dir
     if csv_path is not None:
         CHEX_CFG["csv_path"] = csv_path
+    if val_csv_path is not None:
+        CHEX_CFG["val_csv_path"] = val_csv_path
     if train_fraction is not None:
         if not (0 < train_fraction < 1):
             raise ValueError("train_fraction must be between 0 and 1")
@@ -205,7 +209,11 @@ class CheXChestXrayDataset(Dataset):
             raise ValueError("Set CHEXPERT_CXR_IMG_DIR or pass --chex_img_dir to point to the CheXpert images.")
         self.split = split
         self.preprocess = preprocess
+        use_val_csv = split == "val" and CHEX_CFG.get("val_csv_path")
         csv_path = CHEX_CFG["csv_path"] or xrv.datasets.USE_INCLUDED_FILE
+        if use_val_csv:
+            csv_path = CHEX_CFG["val_csv_path"]
+
         self.base = xrv.datasets.CheX_Dataset(imgpath=CHEX_CFG["img_dir"],
                                               csvpath=csv_path,
                                               views=list(CHEX_CFG["views"]),
@@ -217,9 +225,14 @@ class CheXChestXrayDataset(Dataset):
                         "Enlarged Cardiomediastinum", "Lung Opacity", "Lung Lesion",
                         "Fracture", "Support Devices"]
         xrv.datasets.relabel_dataset(target_order, self.base, silent=True)
-        self.indices = NIHChestXrayDataset._select_indices(len(self.base), split,
-                                                           CHEX_CFG["train_fraction"],
-                                                           CHEX_CFG["split_seed"])
+
+        if use_val_csv:
+            self.indices = np.arange(len(self.base))
+        else:
+            self.indices = NIHChestXrayDataset._select_indices(len(self.base), split,
+                                                               CHEX_CFG["train_fraction"],
+                                                               CHEX_CFG["split_seed"])
+
         labels = self.base.labels[self.indices]
         labels = np.nan_to_num(labels, nan=0.0)
         self.targets = torch.from_numpy(labels.copy()).float()

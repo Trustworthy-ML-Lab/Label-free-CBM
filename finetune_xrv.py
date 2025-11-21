@@ -48,6 +48,8 @@ def parse_args():
     parser.add_argument("--chex_views", type=str, default="PA", help="Comma separated view list for CheXpert")
     parser.add_argument("--chex_csv_path", type=str, default=None,
                         help="Path to CheXpert CSV (defaults to torchxrayvision bundled file)")
+    parser.add_argument("--chex_val_csv_path", type=str, default=None,
+                        help="Optional path to CheXpert validation CSV (uses official val set if provided)")
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--lr", type=float, default=1e-4)
@@ -108,6 +110,7 @@ def prepare_loaders(args, preprocess):
         views = [v.strip() for v in args.chex_views.split(",") if v.strip()]
         data_utils.configure_chex_dataset(img_dir=args.chex_img_dir,
                                           csv_path=args.chex_csv_path,
+                                          val_csv_path=args.chex_val_csv_path,
                                           train_fraction=args.chex_train_fraction,
                                           split_seed=args.chex_split_seed,
                                           views=views)
@@ -187,6 +190,33 @@ def _build_idx_map(target_classes, model_classes):
     return mapping
 
 
+def _resize_classifier(model, dataset_classes, model_classes):
+    classifier = getattr(model, "classifier", None)
+    if not isinstance(classifier, nn.Linear):
+        raise ValueError("Model does not expose a linear 'classifier' layer to resize for new classes.")
+    in_features = classifier.in_features
+    new_out = len(dataset_classes)
+    device = classifier.weight.device
+    new_classifier = nn.Linear(in_features, new_out).to(device)
+    nn.init.xavier_uniform_(new_classifier.weight)
+    nn.init.zeros_(new_classifier.bias)
+
+    if model_classes:
+        normalized = {_normalize_name(cls): idx for idx, cls in enumerate(model_classes) if cls}
+        for new_idx, name in enumerate(dataset_classes):
+            src_idx = normalized.get(_normalize_name(name))
+            if src_idx is not None and src_idx < classifier.out_features:
+                new_classifier.weight.data[new_idx].copy_(classifier.weight.data[src_idx])
+                new_classifier.bias.data[new_idx].copy_(classifier.bias.data[src_idx])
+
+    model.classifier = new_classifier
+    model.pathologies = list(dataset_classes)
+    model.targets = list(dataset_classes)
+    if hasattr(model, "op_threshs"):
+        model.op_threshs = torch.full((new_out,), float("nan"), device=device)
+    return model
+
+
 def _instantiate_model(args):
     preprocess = None
     model_classes = None
@@ -243,7 +273,13 @@ def main():
         dataset_classes = [c for c in f.read().splitlines() if c]
 
     model, preprocess, model_classes = _instantiate_model(args)
-    idx_map = _build_idx_map(dataset_classes, model_classes)
+
+    try:
+        idx_map = _build_idx_map(dataset_classes, model_classes)
+    except ValueError as exc:
+        print(f"{exc}\nReinitializing classifier to match dataset classes {dataset_classes}.")
+        model = _resize_classifier(model, dataset_classes, model_classes)
+        idx_map = None
 
     train_loader, val_loader, train_dataset = prepare_loaders(args, preprocess)
 

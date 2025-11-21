@@ -43,6 +43,8 @@ parser.add_argument("--chex_views", type=str, default="PA",
                     help="Comma-separated list of views to include for CheXpert")
 parser.add_argument("--chex_csv_path", type=str, default=None,
                     help="Path to CheXpert CSV (defaults to torchxrayvision bundled file)")
+parser.add_argument("--chex_val_csv_path", type=str, default=None,
+                    help="Optional path to CheXpert validation CSV (uses official val set if provided)")
 
 parser.add_argument("--device", type=str, default="cuda", help="Which device to use")
 parser.add_argument("--batch_size", type=int, default=512, help="Batch size used when saving model/CLIP activations")
@@ -80,6 +82,7 @@ def train_cbm_and_save(args):
         views = [v.strip() for v in args.chex_views.split(",") if v.strip()]
         data_utils.configure_chex_dataset(img_dir=args.chex_img_dir,
                                           csv_path=args.chex_csv_path,
+                                          val_csv_path=args.chex_val_csv_path,
                                           train_fraction=args.chex_train_fraction,
                                           split_seed=args.chex_split_seed,
                                           views=views)
