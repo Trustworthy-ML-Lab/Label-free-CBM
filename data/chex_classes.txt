@@ -1,0 +1,13 @@
+Atelectasis
+Cardiomegaly
+Consolidation
+Edema
+Enlarged Cardiomediastinum
+Fracture
+Lung Lesion
+Lung Opacity
+Effusion
+Pleural Other
+Pneumonia
+Pneumothorax
+Support Devices
