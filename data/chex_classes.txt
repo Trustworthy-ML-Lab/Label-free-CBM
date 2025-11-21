@@ -1,13 +1,18 @@
 Atelectasis
-Cardiomegaly
 Consolidation
-Edema
-Enlarged Cardiomediastinum
-Fracture
-Lung Lesion
-Lung Opacity
-Effusion
-Pleural Other
-Pneumonia
+Infiltration
 Pneumothorax
-Support Devices
+Edema
+Emphysema
+Fibrosis
+Effusion
+Pneumonia
+Pleural_Thickening
+Cardiomegaly
+Nodule
+Mass
+Hernia
+Lung Lesion
+Fracture
+Lung Opacity
+Enlarged Cardiomediastinum

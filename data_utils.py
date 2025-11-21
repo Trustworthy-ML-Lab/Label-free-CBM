@@ -211,6 +211,7 @@ class CheXChestXrayDataset(Dataset):
                                               views=list(CHEX_CFG["views"]),
                                               transform=None,
                                               data_aug=None)
+        xrv.datasets.relabel_dataset(xrv.datasets.default_pathologies, self.base, silent=True)
         self.indices = NIHChestXrayDataset._select_indices(len(self.base), split,
                                                            CHEX_CFG["train_fraction"],
                                                            CHEX_CFG["split_seed"])
